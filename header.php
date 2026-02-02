@@ -14,7 +14,7 @@
 <header> 
 <nav class="navbar navbar-expand-xxl navbar-light bg-light fixed-top">
   <div class="container-fluid" id="ebheader">
-    <a class="navbar-brand" href="/"><img src="<?php echo get_template_directory_uri(); ?>/images/EBlock-Logo-BlackFont-NoTagline.png" alt="E Block Inc."></a>
+    <a class="navbar-brand" href="/"><img src="<?php echo get_template_directory_uri(); ?>/images/Brand-Developers.jpg.png" alt="Brand Developers Inc."></a>
     <ul class="desktopmenu navbar-nav justify-content-lg-center flex-grow-*"><?php wp_nav_menu( array( 'theme_location' => 'bd-menu-main', 'menu_class' => 'bdmenu',));?></ul>
 
 
