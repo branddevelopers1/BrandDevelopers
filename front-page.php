@@ -7,7 +7,6 @@
 
 <?php get_template_part('components/section','content');?>
 
-<?php get_search_form();?>
 
 </div>
 </section>
