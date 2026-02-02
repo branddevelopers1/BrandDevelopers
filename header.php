@@ -30,35 +30,15 @@
       <hr class="seperate">
         <ul class="mobilemenu navbar-nav justify-content-lg-center flex-grow-1"><?php wp_nav_menu( array( 'theme_location' => 'bd-menu-main', 'menu_class' => 'bdmenu',));?></ul>
         <hr class="seperate">
-        <?php
-$lang = apply_filters( 'wpml_current_language', NULL );
-?>
+        
      <div class="mobilebtns">
-     <a href="https://app.eblock.com/auth/login">
-        <button class="btn btn-outline-success" type="button">
-            <?php echo ($lang == 'fr') ? 'Connexion' : 'Login'; ?>
-        </button>
-    </a>
-    <a href="https://app.eblock.com/register?s=1">
-        <button class="btn btn-success" type="button">
-            <?php echo ($lang == 'fr') ? "S’enregistrer" : 'Register'; ?>
-        </button>
-    </a> 
+      
   </div>
     </div>
   </div>
   
     <div class="menubtns">
-    <a href="https://app.eblock.com/auth/login">
-        <button class="btn btn-outline-success" type="button">
-            <?php echo ($lang == 'fr') ? 'Connexion' : 'Login'; ?>
-        </button>
-    </a>
-    <a href="https://app.eblock.com/register?s=1">
-        <button class="btn btn-success" type="button">
-            <?php echo ($lang == 'fr') ? "S’enregistrer" : 'Register'; ?>
-        </button>
-    </a>
+   
    </div>
   </div>
 </nav>
