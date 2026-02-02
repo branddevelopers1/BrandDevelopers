@@ -6,7 +6,7 @@
   <footer class="foot">
     <div class="topfoot row">
         <div class="col-6">
-         <a href="/"><img src="<?php echo get_template_directory_uri(); ?>/images/favicon.svg" alt="E Block Inc."></a>
+         <a href="/"><img src="<?php echo get_template_directory_uri(); ?>/images/favicon.png" alt="Brand Developers"></a>
         </div>
         <div class="col-6">
         <?php if ( function_exists('dynamic_sidebar')) { dynamic_sidebar('ml_footer_widget'); } ?>
