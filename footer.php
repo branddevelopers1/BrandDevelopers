@@ -1,17 +1,8 @@
     
 
   <div class="row" id="prefoot">
-  <div id="hubspotform">
-  <?php
-    $current_lang = apply_filters( 'wpml_current_language', NULL );
-    if ( $current_lang == 'fr' ) {
-        dynamic_sidebar('hubspot_footer_widget_fr'); 
-    } else {
-        dynamic_sidebar('hubspot_footer_widget'); 
-    }
-?>
-  </div>
-  </div>
+ 
+</div>
   <footer class="foot">
     <div class="topfoot row">
         <div class="col-6">
@@ -38,7 +29,7 @@
    
 </div>
 <div class="copyright">
-   <p><?php _e( '© EBlock 2025. All rights reserved', 'your-text-domain' ); ?></p>
+   <p><?php _e( '© Brand Developers 2026. All rights reserved', 'your-text-domain' ); ?></p>
 </div>
 </div>
   
