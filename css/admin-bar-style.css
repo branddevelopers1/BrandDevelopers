@@ -1,0 +1,9 @@
+body.admin-bar {
+    margin-top: 32px; /* Adjust this value based on the height of the admin bar */
+}
+
+@media screen and (max-width: 782px) {
+    body.admin-bar {
+        margin-top: 46px; /* Adjust this value for smaller screens if needed */
+    }
+}
