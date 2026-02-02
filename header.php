@@ -14,7 +14,7 @@
 <header> 
 <nav class="navbar navbar-expand-xxl navbar-light bg-light fixed-top">
   <div class="container-fluid" id="ebheader">
-    <a class="navbar-brand" href="/"><img src="<?php echo get_template_directory_uri(); ?>/images/Brand-Developers.jpg.png" alt="Brand Developers Inc."></a>
+    <a class="navbar-brand" href="/"><img src="<?php echo get_template_directory_uri(); ?>/images/Brand-Developers.jpg" alt="Brand Developers Inc."></a>
     <ul class="desktopmenu navbar-nav justify-content-lg-center flex-grow-*"><?php wp_nav_menu( array( 'theme_location' => 'bd-menu-main', 'menu_class' => 'bdmenu',));?></ul>
 
 
@@ -22,7 +22,7 @@
       <span class="navbar-toggler-icon"></span></button>
     <div class="offcanvas offcanvas-end" tabindex="-1" id="navbarOffcanvasLg" aria-labelledby="navbarOffcanvasLgLabel">
         <div class="offcanvas-header">
-        <a class="navbar-brand" href="/"><img src="<?php echo get_template_directory_uri(); ?>/images/EBlock-Logo-BlackFont-NoTagline.png" alt="E Block Inc."></a>
+        <a class="navbar-brand" href="/"><img src="<?php echo get_template_directory_uri(); ?>/images/Brand-Developers.jpg" alt="E Block Inc."></a>
         <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
       
