@@ -3,11 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EBlock | Buy and Sell Inventory in Less Time</title>
+    <title>Brand Developers | We Build Brands That Work. </title>
 
 
-    <script src="https://cdn.userway.org/widget.js" data-account="uZja1GvufS"></script>
-
+    
     <?php wp_head();?>
 </head>
 <body>
