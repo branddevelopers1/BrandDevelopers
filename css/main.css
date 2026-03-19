@@ -11,7 +11,6 @@ padding-right:0;
 
 .page-wrap {
 	padding:2rem 0;
-	margin-top: 5vh;
 	margin-bottom: 2vh;
 }
 
@@ -19,11 +18,11 @@ padding-right:0;
 	padding-top:50px;
 }
 
-
+.elementor{
+}
 .body {
 overflow-x: hidden;
 	margin: 0;
-	padding-top: 40px;
 }
 
 html, body {
@@ -286,16 +285,9 @@ display:initial;
 .menubtns a {
 	width: 120px;
 	}
-	.elementor{
-		padding-top:30px;
-	}
 	.page-wrap h1 {
 		padding-top:80px;
 	}
-
-	#menu-montrealmenu,
-	#menu-montrealmenu-english,
-	#menu-montrealmenu-french
 
 	 {
 		list-style-type:none;
@@ -591,10 +583,6 @@ padding: 0px 10px 0px 10px;
 .menubtns a {
 	width: 120px;
 	}
-	.elementor{
-		padding-top:30px;
-	}
-
 	#menu-montrealmenu,
 	#menu-montrealmenu-english,
 	#menu-montrealmenu-french {

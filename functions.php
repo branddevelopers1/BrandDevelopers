@@ -127,19 +127,9 @@ function branddevelopers_scripts() {
 add_action( 'wp_enqueue_scripts', 'branddevelopers_scripts' );
 
 /* ============================================================
-   ADMIN BAR SPACING (from old file)
+   ADMIN BAR SPACING
+   WordPress handles admin bar spacing natively. No custom function needed.
    ============================================================ */
-function my_theme_admin_bar_padding() {
-    if ( is_user_logged_in() && is_admin_bar_showing() ) {
-        echo '<style>
-            body.admin-bar { margin-top: 32px; }
-            @media screen and (max-width: 782px) {
-                body.admin-bar { margin-top: 46px; }
-            }
-        </style>';
-    }
-}
-add_action( 'wp_head', 'my_theme_admin_bar_padding' );
 
 /* ============================================================
    CUSTOM POST TYPES
