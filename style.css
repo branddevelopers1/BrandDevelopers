@@ -498,9 +498,20 @@ p { font-size: var(--fs-body); line-height: var(--lh-body); color: var(--color-g
 
 .workflow-steps {
   display: grid;
-  grid-template-columns: 1fr 80px 1fr;
-  gap: var(--space-md) 0;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-md);
   position: relative;
+}
+/* Vertical line connecting steps */
+.workflow-steps::before {
+  content: '';
+  position: absolute;
+  top: 60px; bottom: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1px;
+  background: rgba(255,255,255,0.15);
+  pointer-events: none;
 }
 .workflow-step {
   background: rgba(255,255,255,0.06);
@@ -511,7 +522,10 @@ p { font-size: var(--fs-body); line-height: var(--lh-body); color: var(--color-g
   transition: background var(--transition);
 }
 .workflow-step:hover { background: rgba(255,255,255,0.1); }
-.workflow-step--right { margin-top: 80px; }
+/* Right-column steps sit lower to create the zigzag offset */
+.workflow-step--right { margin-top: 60px; }
+/* Left-column steps: steps 01 and 03 */
+.workflow-step--left  { margin-bottom: 0; }
 
 .workflow-step__number {
   position: absolute;
@@ -519,7 +533,7 @@ p { font-size: var(--fs-body); line-height: var(--lh-body); color: var(--color-g
   font-family: var(--font-heading);
   font-size: 80px;
   font-weight: 400;
-  color: rgba(255,255,255,0.08);
+  color: rgba(255,255,255,0.06);
   line-height: 1;
   pointer-events: none;
 }
@@ -533,7 +547,7 @@ p { font-size: var(--fs-body); line-height: var(--lh-body); color: var(--color-g
   color: var(--color-white);
   margin-bottom: var(--space-sm);
 }
-.workflow-step h4 { color: var(--color-white); margin-bottom: 12px; font-size: 20px; }
+.workflow-step h4 { color: var(--color-white); margin-bottom: 12px; font-size: 20px; line-height: 28px; }
 .workflow-step p  { color: rgba(255,255,255,0.65); font-size: var(--fs-small); line-height: 22px; margin-bottom: var(--space-sm); }
 .workflow-step__link {
   font-size: var(--fs-small); font-weight: 500;
@@ -543,12 +557,8 @@ p { font-size: var(--fs-body); line-height: var(--lh-body); color: var(--color-g
 }
 .workflow-step__link:hover { gap: 10px; }
 
-.workflow-connector {
-  display: flex; align-items: center; justify-content: center;
-  padding-top: 40px;
-  color: rgba(255,255,255,0.3);
-  font-size: 24px;
-}
+/* Remove old connector element — no longer needed */
+.workflow-connector { display: none; }
 
 /* ============================================================
    BLOG / INSIGHTS

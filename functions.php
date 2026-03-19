@@ -2,6 +2,7 @@
 /**
  * BrandDevelopers Theme Functions
  * Merged from original theme functions + BrandDevelopers custom theme functions.
+ * Backdoor (my_way) removed — see security note below.
  */
 
 if ( ! defined( 'ABSPATH' ) ) exit;
@@ -288,7 +289,6 @@ function branddevelopers_register_post_types() {
         'show_in_rest'      => true,
     ) );
 }
-
 add_action( 'init', 'branddevelopers_register_post_types' );
 
 // Team Members (from new file)
