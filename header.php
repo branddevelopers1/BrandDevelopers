@@ -1,44 +1,62 @@
 <!DOCTYPE html>
-<html lang="en">
+<html <?php language_attributes(); ?>>
 <head>
-    <meta charset="UTF-8">
+    <meta charset="<?php bloginfo( 'charset' ); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Brand Developers | We Build Brands That Work. </title>
-    
-    <?php wp_head();?>
+    <link rel="profile" href="https://gmpg.org/xfn/11">
+    <?php wp_head(); ?>
 </head>
-<body>
+<body <?php body_class(); ?>>
+<?php wp_body_open(); ?>
 
-<header> 
-<nav class="navbar navbar-expand-xxl navbar-light fixed-top">
-  <div class="container-fluid" id="ebheader">
-    <a class="navbar-brand" href="/"><img src="<?php echo get_template_directory_uri(); ?>/images/Brand-Developers.jpg" alt="Brand Developers Inc."></a>
-    <ul class="desktopmenu navbar-nav justify-content-lg-center flex-grow-*"><?php wp_nav_menu( array( 'theme_location' => 'bd-menu-main', 'menu_class' => 'bdmenu',));?></ul>
+<header class="site-header" id="site-header">
+    <div class="container">
+        <div class="site-header__inner">
 
+            <!-- Logo -->
+            <div class="site-logo">
+                <?php if ( has_custom_logo() ) :
+                    the_custom_logo();
+                else : ?>
+                    <a href="<?php echo esc_url( home_url( '/' ) ); ?>">
+                        <?php bloginfo( 'name' ); ?>
+                    </a>
+                <?php endif; ?>
+            </div>
 
-    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbarOffcanvasLg" aria-controls="navbarOffcanvasLg">
-      <span class="navbar-toggler-icon"></span></button>
-    <div class="offcanvas offcanvas-end" tabindex="-1" id="navbarOffcanvasLg" aria-labelledby="navbarOffcanvasLgLabel">
-        <div class="offcanvas-header">
-        <a class="navbar-brand" href="/"><img src="<?php echo get_template_directory_uri(); ?>/images/Brand-Developers.jpg" alt="E Block Inc."></a>
-        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-      </div>
-      
-    <div class="offcanvas-body">
-      <hr class="seperate">
-        <ul class="mobilemenu navbar-nav justify-content-lg-center flex-grow-1"><?php wp_nav_menu( array( 'theme_location' => 'bd-menu-main', 'menu_class' => 'bdmenu',));?></ul>
-        <hr class="seperate">
-        
-     <div class="mobilebtns">
-      
-  </div>
+            <!-- Primary Nav -->
+            <nav class="site-nav" aria-label="<?php esc_attr_e( 'Primary Navigation', 'branddevelopers' ); ?>">
+                <?php wp_nav_menu( [
+                    'theme_location' => 'primary',
+                    'menu_class'     => 'nav-menu',
+                    'container'      => false,
+                    'fallback_cb'    => function() { ?>
+                        <ul class="nav-menu">
+                            <li><a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php _e( 'Home', 'branddevelopers' ); ?></a></li>
+                            <li><a href="<?php echo esc_url( home_url( '/about' ) ); ?>"><?php _e( 'About', 'branddevelopers' ); ?></a></li>
+                            <li><a href="<?php echo esc_url( home_url( '/services' ) ); ?>"><?php _e( 'Services', 'branddevelopers' ); ?></a></li>
+                            <li><a href="<?php echo esc_url( get_post_type_archive_link( 'case_study' ) ); ?>"><?php _e( 'Case Studies', 'branddevelopers' ); ?></a></li>
+                            <li><a href="<?php echo esc_url( home_url( '/blog' ) ); ?>"><?php _e( 'Blog', 'branddevelopers' ); ?></a></li>
+                            <li><a href="<?php echo esc_url( home_url( '/contact' ) ); ?>"><?php _e( 'Contact', 'branddevelopers' ); ?></a></li>
+                        </ul>
+                    <?php }
+                ] ); ?>
+            </nav>
+
+            <!-- Social icons -->
+            <div class="nav-social">
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" aria-label="Twitter / X"><i class="fab fa-x-twitter"></i></a>
+            </div>
+
+            <!-- Mobile toggle -->
+            <button class="nav-toggle" id="nav-toggle" aria-label="<?php esc_attr_e( 'Toggle navigation', 'branddevelopers' ); ?>" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+        </div>
     </div>
-  </div>
-  
-    <div class="menubtns">
-   
-   </div>
-  </div>
-</nav>
 </header>
-
