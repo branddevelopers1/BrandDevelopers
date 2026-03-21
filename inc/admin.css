@@ -379,3 +379,112 @@
     font-size: 12px;
     color: #9ca3af;
 }
+
+/* ── SIDEBAR GROUP LABELS ────────────────────────────────── */
+.bd-sidebar__group-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    color: rgba(255,255,255,0.25);
+    text-transform: uppercase;
+    padding: 16px 20px 6px;
+    margin: 0;
+}
+
+/* ── MAIN DESC ───────────────────────────────────────────── */
+.bd-main__desc {
+    font-size: 12.5px;
+    color: #6b7280;
+    margin: 4px 0 0;
+}
+
+/* ── COLOR FIELD ─────────────────────────────────────────── */
+.bd-color-field {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.bd-color-picker {
+    width: 44px;
+    height: 38px;
+    border: 1px solid #d1d5db;
+    border-radius: 7px;
+    padding: 2px;
+    cursor: pointer;
+    background: #fff;
+    flex-shrink: 0;
+}
+.bd-color-text {
+    flex: 1;
+    font-family: 'Courier New', monospace;
+    font-size: 13px;
+}
+
+/* ── SELECT FIELD ────────────────────────────────────────── */
+.bd-field__select {
+    padding: 9px 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 7px;
+    font-size: 13px;
+    color: #111827;
+    background: #f9fafb;
+    width: 100%;
+    box-sizing: border-box;
+    cursor: pointer;
+    font-family: inherit;
+    transition: border-color 0.15s, box-shadow 0.15s;
+}
+.bd-field__select:focus {
+    border-color: #3366cc;
+    box-shadow: 0 0 0 3px rgba(51,102,204,0.12);
+    outline: none;
+}
+
+/* ── TOGGLE FIELD ────────────────────────────────────────── */
+.bd-toggle {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    user-select: none;
+}
+.bd-toggle__input {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+.bd-toggle__track {
+    width: 44px;
+    height: 24px;
+    background: #d1d5db;
+    border-radius: 12px;
+    position: relative;
+    flex-shrink: 0;
+    transition: background 0.2s ease;
+}
+.bd-toggle__track::after {
+    content: '';
+    position: absolute;
+    top: 3px; left: 3px;
+    width: 18px; height: 18px;
+    background: #fff;
+    border-radius: 50%;
+    transition: transform 0.2s ease;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+.bd-toggle__input:checked ~ .bd-toggle__track { background: #003399; }
+.bd-toggle__input:checked ~ .bd-toggle__track::after { transform: translateX(20px); }
+.bd-toggle__label { font-size: 13px; color: #374151; }
+
+/* ── FONT FIELD ──────────────────────────────────────────── */
+.bd-font-field { display: flex; flex-direction: column; gap: 6px; }
+.bd-font-field__hint { font-size: 11.5px; color: #6b7280; margin: 0; }
+.bd-font-field__hint a { color: #003399; }
+
+/* ── GRID COLUMN OVERRIDES ───────────────────────────────── */
+.bd-field--color  { grid-column: span 1; }
+.bd-field--select { grid-column: span 1; }
+.bd-field--toggle { grid-column: span 1; }
+.bd-field--font   { grid-column: span 2; }
+.bd-field--number { grid-column: span 1; }

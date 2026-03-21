@@ -111,6 +111,29 @@
         delete frames[ targetKey ];
     });
 
+    // ── COLOUR PICKER SYNC ────────────────────────────────
+    // Colour picker → text input
+    $( document ).on( 'input change', '.bd-color-picker', function () {
+        var targetKey = $( this ).data( 'target' );
+        $( '#' + targetKey ).val( $( this ).val() );
+    });
+
+    // Text input → colour picker
+    $( document ).on( 'input', '.bd-color-text', function () {
+        var val = $( this ).val();
+        var $picker = $( this ).siblings( '.bd-color-picker' );
+        // Only update colour picker if value looks like a hex
+        if ( /^#[0-9a-fA-F]{6}$/.test( val ) ) {
+            $picker.val( val );
+        }
+    });
+
+    // ── TOGGLE LABEL UPDATE ───────────────────────────────
+    $( document ).on( 'change', '.bd-toggle__input', function () {
+        var $label = $( this ).closest( '.bd-toggle' ).find( '.bd-toggle__label' );
+        $label.text( $( this ).is( ':checked' ) ? 'Enabled' : 'Disabled' );
+    });
+
     // ── SAVE FEEDBACK ─────────────────────────────────────
     $( 'form' ).on( 'submit', function () {
         var $btn = $( this ).find( '.bd-btn--primary[type="submit"]' );
