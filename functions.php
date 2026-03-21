@@ -6,6 +6,9 @@
 
 if ( ! defined( 'ABSPATH' ) ) exit;
 
+//Adding Theme Panel to Admin Section
+require_once get_template_directory() . '/inc/theme-settings.php';
+
 /* ============================================================
    THEME SETUP
    ============================================================ */
