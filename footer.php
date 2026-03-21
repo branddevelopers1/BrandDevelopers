@@ -18,7 +18,7 @@
                 </div>
                 <p><?php bloginfo( 'description' ); ?></p>
                 <div class="footer-contact" style="margin-top:24px">
-                    <p><i class="fas fa-phone" style="margin-right:8px;color:var(--color-primary-light)"></i> +1 (416) 561-4093</p>
+                    <p><i class="fas fa-phone" style="margin-right:8px;color:var(--color-primary-light)"></i> +1 (416) 846-6483</p>
                     <p><i class="fas fa-envelope" style="margin-right:8px;color:var(--color-primary-light)"></i> info@brandevelopers.ca</p>
                     <p><i class="fas fa-map-marker-alt" style="margin-right:8px;color:var(--color-primary-light)"></i> Toronto, Ontario, Canada</p>
                 </div>
@@ -61,7 +61,7 @@
             <div class="footer-col">
                 <h5><?php _e( 'Address', 'branddevelopers' ); ?></h5>
                 <ul>
-                    <li style="color:rgba(255,255,255,0.45);font-size:14px">+1 (416) 561-4093</li>
+                    <li style="color:rgba(255,255,255,0.45);font-size:14px">+1 (416) 846-6483</li>
                     <li style="color:rgba(255,255,255,0.45);font-size:14px">info@brandevelopers.ca</li>
                     <li style="color:rgba(255,255,255,0.45);font-size:14px">Toronto Ontario Canada</li>
                 </ul>
