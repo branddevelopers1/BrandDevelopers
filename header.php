@@ -36,7 +36,6 @@
                             <li><a href="<?php echo esc_url( home_url( '/about' ) ); ?>"><?php _e( 'About', 'branddevelopers' ); ?></a></li>
                             <li><a href="<?php echo esc_url( home_url( '/services' ) ); ?>"><?php _e( 'Services', 'branddevelopers' ); ?></a></li>
                             <li><a href="<?php echo esc_url( get_post_type_archive_link( 'case_study' ) ); ?>"><?php _e( 'Case Studies', 'branddevelopers' ); ?></a></li>
-                            <li><a href="<?php echo esc_url( home_url( '/blog' ) ); ?>"><?php _e( 'Blog', 'branddevelopers' ); ?></a></li>
                             <li><a href="<?php echo esc_url( home_url( '/contact' ) ); ?>"><?php _e( 'Contact', 'branddevelopers' ); ?></a></li>
                         </ul>
                     <?php }
@@ -45,8 +44,8 @@
 
             <!-- Social icons -->
             <div class="nav-social">
-                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://instagram.com/branddevelopers.ca" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/company/brand-developers" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
                 <a href="#" aria-label="Twitter / X"><i class="fab fa-x-twitter"></i></a>
             </div>
 
