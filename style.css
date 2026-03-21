@@ -275,6 +275,8 @@ p { font-size: var(--fs-body); line-height: var(--lh-body); color: var(--color-g
   flex-direction: column;
   gap: 5px;
   padding: 4px;
+  position: relative;
+  z-index: 1000;
 }
 .nav-toggle span {
   width: 24px; height: 2px;
@@ -1036,13 +1038,24 @@ p { font-size: var(--fs-body); line-height: var(--lh-body); color: var(--color-g
   .nav-menu, .nav-social { display: none; }
   .nav-toggle { display: flex; }
   .nav-menu.open {
-    display: flex; flex-direction: column;
-    position: fixed; inset: 0; top: 70px;
-    background: rgba(13,13,13,0.98);
-    align-items: center; justify-content: center;
-    gap: var(--space-md);
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: #0d0d0d;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+    z-index: 999;
+    padding: 80px 24px 40px;
   }
-  .nav-menu.open a { font-size: 24px; }
+  .nav-menu.open a {
+    font-size: 22px;
+    color: rgba(255,255,255,0.85);
+    font-family: var(--font-heading);
+    letter-spacing: 0.5px;
+  }
+  .nav-menu.open a:hover { color: #fff; }
 
   /* About hero */
   .about-hero              { min-height: 50vh; padding-top: 80px; }
@@ -1083,6 +1096,10 @@ p { font-size: var(--fs-body); line-height: var(--lh-body); color: var(--color-g
   .footer-grid             { grid-template-columns: 1fr; }
   .footer-bottom           { flex-direction: column; gap: 16px; text-align: center; }
 
+  /* Case study grids */
+  .cs-grid-row--2col,
+  .cs-grid-row--3col { grid-template-columns: 1fr; }
+
   /* Service list items */
   .service-list-item       { grid-template-columns: 1fr; gap: var(--space-md); }
   .service-list-item--reverse { direction: ltr; }
@@ -1098,6 +1115,11 @@ p { font-size: var(--fs-body); line-height: var(--lh-body); color: var(--color-g
   /* Buttons full-width on mobile where stacked */
   .about-hero__actions .btn { width: 100%; justify-content: center; }
 }
+
+/* Case study grid rows */
+.cs-grid-row { display: grid; gap: var(--space-md); }
+.cs-grid-row--2col { grid-template-columns: 1fr 1fr; }
+.cs-grid-row--3col { grid-template-columns: repeat(3, 1fr); }
 
 /* ============================================================
    UTILITIES
