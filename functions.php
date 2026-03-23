@@ -267,26 +267,26 @@ function branddevelopers_save_meta( $post_id ) {
     // Case Study
     if ( isset( $_POST['bd_case_study_nonce'] ) && wp_verify_nonce( $_POST['bd_case_study_nonce'], 'bd_case_study_nonce' ) ) {
         if ( current_user_can( 'edit_post', $post_id ) ) {
-            update_post_meta( $post_id, '_bd_client',   sanitize_text_field( $_POST['bd_client'] ?? '' ) );
-            update_post_meta( $post_id, '_bd_service',  sanitize_text_field( $_POST['bd_service'] ?? '' ) );
-            update_post_meta( $post_id, '_bd_year',     sanitize_text_field( $_POST['bd_year'] ?? '' ) );
+            update_post_meta( $post_id, '_bd_client',   sanitize_text_field( ( isset( \$_POST['bd_client'] ) ? \$_POST['bd_client'] : '' ) ) );
+            update_post_meta( $post_id, '_bd_service',  sanitize_text_field( ( isset( \$_POST['bd_service'] ) ? \$_POST['bd_service'] : '' ) ) );
+            update_post_meta( $post_id, '_bd_year',     sanitize_text_field( ( isset( \$_POST['bd_year'] ) ? \$_POST['bd_year'] : '' ) ) );
             update_post_meta( $post_id, '_bd_featured', isset( $_POST['bd_featured'] ) ? '1' : '' );
         }
     }
     // Team Member
     if ( isset( $_POST['bd_team_nonce'] ) && wp_verify_nonce( $_POST['bd_team_nonce'], 'bd_team_nonce' ) ) {
         if ( current_user_can( 'edit_post', $post_id ) ) {
-            update_post_meta( $post_id, '_bd_role',     sanitize_text_field( $_POST['bd_role'] ?? '' ) );
-            update_post_meta( $post_id, '_bd_email',    sanitize_email( $_POST['bd_email'] ?? '' ) );
-            update_post_meta( $post_id, '_bd_linkedin', esc_url_raw( $_POST['bd_linkedin'] ?? '' ) );
+            update_post_meta( $post_id, '_bd_role',     sanitize_text_field( ( isset( \$_POST['bd_role'] ) ? \$_POST['bd_role'] : '' ) ) );
+            update_post_meta( $post_id, '_bd_email',    sanitize_email( ( isset( \$_POST['bd_email'] ) ? \$_POST['bd_email'] : '' ) ) );
+            update_post_meta( $post_id, '_bd_linkedin', esc_url_raw( ( isset( \$_POST['bd_linkedin'] ) ? \$_POST['bd_linkedin'] : '' ) ) );
         }
     }
     // Testimonial
     if ( isset( $_POST['bd_testimonial_nonce'] ) && wp_verify_nonce( $_POST['bd_testimonial_nonce'], 'bd_testimonial_nonce' ) ) {
         if ( current_user_can( 'edit_post', $post_id ) ) {
-            update_post_meta( $post_id, '_bd_author',  sanitize_text_field( $_POST['bd_author'] ?? '' ) );
-            update_post_meta( $post_id, '_bd_company', sanitize_text_field( $_POST['bd_company'] ?? '' ) );
-            update_post_meta( $post_id, '_bd_role',    sanitize_text_field( $_POST['bd_role'] ?? '' ) );
+            update_post_meta( $post_id, '_bd_author',  sanitize_text_field( ( isset( \$_POST['bd_author'] ) ? \$_POST['bd_author'] : '' ) ) );
+            update_post_meta( $post_id, '_bd_company', sanitize_text_field( ( isset( \$_POST['bd_company'] ) ? \$_POST['bd_company'] : '' ) ) );
+            update_post_meta( $post_id, '_bd_role',    sanitize_text_field( ( isset( \$_POST['bd_role'] ) ? \$_POST['bd_role'] : '' ) ) );
         }
     }
 }
@@ -337,7 +337,7 @@ add_action( 'widgets_init', 'branddevelopers_widgets_init' );
    ============================================================ */
 function branddevelopers_newsletter_subscribe() {
     check_ajax_referer( 'bd_nonce', 'nonce' );
-    $email = sanitize_email( $_POST['email'] ?? '' );
+    $email = sanitize_email( ( isset( \$_POST['email'] ) ? \$_POST['email'] : '' ) );
     if ( ! is_email( $email ) ) {
         wp_send_json_error( array( 'message' => __( 'Please enter a valid email address.', 'branddevelopers' ) ) );
     }
@@ -591,14 +591,14 @@ function bd_handle_contact_form() {
         exit;
     }
 
-    $first    = sanitize_text_field( wp_unslash( $_POST['bd_first_name'] ?? '' ) );
-    $last     = sanitize_text_field( wp_unslash( $_POST['bd_last_name']  ?? '' ) );
-    $email    = sanitize_email(      wp_unslash( $_POST['bd_email']       ?? '' ) );
-    $phone    = sanitize_text_field( wp_unslash( $_POST['bd_phone']       ?? '' ) );
-    $service  = sanitize_text_field( wp_unslash( $_POST['bd_service']     ?? '' ) );
-    $budget   = sanitize_text_field( wp_unslash( $_POST['bd_budget']      ?? '' ) );
-    $message  = sanitize_textarea_field( wp_unslash( $_POST['bd_message'] ?? '' ) );
-    $redirect = esc_url_raw( wp_unslash( $_POST['redirect_url'] ?? home_url( '/contact' ) ) );
+    $first    = sanitize_text_field( wp_unslash( ( isset( $_POST['bd_first_name'] ) ? $_POST['bd_first_name'] : '' ) ) );
+    $last     = sanitize_text_field( wp_unslash( ( isset( $_POST['bd_last_name'] ) ? $_POST['bd_last_name'] : '' ) ) );
+    $email    = sanitize_email(      wp_unslash( ( isset( $_POST['bd_email'] ) ? $_POST['bd_email'] : '' ) ) );
+    $phone    = sanitize_text_field( wp_unslash( ( isset( $_POST['bd_phone'] ) ? $_POST['bd_phone'] : '' ) ) );
+    $service  = sanitize_text_field( wp_unslash( ( isset( $_POST['bd_service'] ) ? $_POST['bd_service'] : '' ) ) );
+    $budget   = sanitize_text_field( wp_unslash( ( isset( $_POST['bd_budget'] ) ? $_POST['bd_budget'] : '' ) ) );
+    $message  = sanitize_textarea_field( wp_unslash( ( isset( $_POST['bd_message'] ) ? $_POST['bd_message'] : '' ) ) );
+    $redirect = esc_url_raw( wp_unslash( ( isset( $_POST['redirect_url'] ) ? $_POST['redirect_url'] : home_url( '/contact' ) ) ) );
 
     if ( ! $first || ! $email || ! $message ) {
         wp_safe_redirect( add_query_arg( 'contact', 'error', $redirect ) );
