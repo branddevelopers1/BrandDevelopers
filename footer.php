@@ -28,21 +28,33 @@
             <div class="footer-col">
                 <h5><?php _e( 'Company', 'branddevelopers' ); ?></h5>
                 <ul>
-                    <li><a href="<?php echo esc_url( home_url( '/about' ) ); ?>"><?php _e( 'About', 'branddevelopers' ); ?></a></li>
-                    <li><a href="<?php echo esc_url( home_url( '/about#process' ) ); ?>"><?php _e( 'Our Process', 'branddevelopers' ); ?></a></li>
-                    <li><a href="<?php echo esc_url( home_url( '/about#team' ) ); ?>"><?php _e( 'Team', 'branddevelopers' ); ?></a></li>
+                    <li><a href="<?php echo esc_url( home_url( '/about-us' ) ); ?>"><?php _e( 'About', 'branddevelopers' ); ?></a></li>
+                    <li><a href="<?php echo esc_url( home_url( '/about-us#process' ) ); ?>"><?php _e( 'Our Process', 'branddevelopers' ); ?></a></li>
+                    <li><a href="<?php echo esc_url( home_url( '/about-us#team' ) ); ?>"><?php _e( 'Team', 'branddevelopers' ); ?></a></li>
+                    <li><a href="<?php echo esc_url( home_url( '/packages' ) ); ?>"><?php _e( 'Packages', 'branddevelopers' ); ?></a></li>
                     <li><a href="<?php echo esc_url( home_url( '/careers' ) ); ?>"><?php _e( 'Careers', 'branddevelopers' ); ?></a></li>
                 </ul>
             </div>
 
-            <!-- Projects -->
+            <!-- Services -->
             <div class="footer-col">
-                <h5><?php _e( 'Projects', 'branddevelopers' ); ?></h5>
+                <h5><?php _e( 'Services', 'branddevelopers' ); ?></h5>
                 <ul>
-                    <li><a href="#"><?php _e( 'UI/UX Design', 'branddevelopers' ); ?></a></li>
-                    <li><a href="#"><?php _e( 'Branding', 'branddevelopers' ); ?></a></li>
-                    <li><a href="#"><?php _e( 'Video Editing', 'branddevelopers' ); ?></a></li>
-                    <li><a href="#"><?php _e( 'Product Design', 'branddevelopers' ); ?></a></li>
+                    <li><a href="<?php echo esc_url( home_url( '/services' ) ); ?>"><?php _e( 'Web Development', 'branddevelopers' ); ?></a></li>
+                    <li><a href="<?php echo esc_url( home_url( '/services' ) ); ?>"><?php _e( 'Graphic Design', 'branddevelopers' ); ?></a></li>
+                    <li><a href="<?php echo esc_url( home_url( '/services' ) ); ?>"><?php _e( 'Photography', 'branddevelopers' ); ?></a></li>
+                    <li><a href="<?php echo esc_url( home_url( '/services' ) ); ?>"><?php _e( 'Videography', 'branddevelopers' ); ?></a></li>
+                    <li><a href="<?php echo esc_url( home_url( '/services' ) ); ?>"><?php _e( 'Consultation', 'branddevelopers' ); ?></a></li>
+                </ul>
+            </div>
+
+            <!-- Work -->
+            <div class="footer-col">
+                <h5><?php _e( 'Our Work', 'branddevelopers' ); ?></h5>
+                <ul>
+                    <li><a href="<?php echo esc_url( home_url( '/portfolio' ) ); ?>"><?php _e( 'Portfolio', 'branddevelopers' ); ?></a></li>
+                    <li><a href="<?php echo esc_url( get_post_type_archive_link( 'case_study' ) ); ?>"><?php _e( 'Case Studies', 'branddevelopers' ); ?></a></li>
+                    <li><a href="<?php echo esc_url( home_url( '/blog' ) ); ?>"><?php _e( 'Blog', 'branddevelopers' ); ?></a></li>
                 </ul>
             </div>
 
@@ -51,7 +63,6 @@
                 <h5><?php _e( 'Support', 'branddevelopers' ); ?></h5>
                 <ul>
                     <li><a href="<?php echo esc_url( home_url( '/contact' ) ); ?>"><?php _e( 'Contact', 'branddevelopers' ); ?></a></li>
-                    <li><a href="<?php echo esc_url( home_url( '/help' ) ); ?>"><?php _e( 'Help Center', 'branddevelopers' ); ?></a></li>
                     <li><a href="<?php echo esc_url( home_url( '/terms' ) ); ?>"><?php _e( 'Terms &amp; Conditions', 'branddevelopers' ); ?></a></li>
                     <li><a href="<?php echo esc_url( home_url( '/privacy' ) ); ?>"><?php _e( 'Privacy Policy', 'branddevelopers' ); ?></a></li>
                 </ul>
@@ -61,9 +72,9 @@
             <div class="footer-col">
                 <h5><?php _e( 'Address', 'branddevelopers' ); ?></h5>
                 <ul>
-                    <li style="color:rgba(255,255,255,0.45);font-size:14px">+1 (416) 846-6483</li>
-                    <li style="color:rgba(255,255,255,0.45);font-size:14px">info@brandevelopers.ca</li>
-                    <li style="color:rgba(255,255,255,0.45);font-size:14px">Toronto Ontario Canada</li>
+                    <li style="color:rgba(255,255,255,0.45);font-size:14px"><?php echo esc_html( bd_get( 'bd_phone' ) ); ?></li>
+                    <li style="color:rgba(255,255,255,0.45);font-size:14px"><?php echo esc_html( bd_get( 'bd_email' ) ); ?></li>
+                    <li style="color:rgba(255,255,255,0.45);font-size:14px"><?php echo esc_html( bd_get( 'bd_address' ) ); ?></li>
                 </ul>
             </div>
 

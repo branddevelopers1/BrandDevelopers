@@ -53,7 +53,7 @@ get_header(); ?>
 <section class="section section--bg">
     <div class="container">
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-xl);align-items:center">
-            <div style="border-radius:var(--radius-xl);overflow:hidden;aspect-ratio:4/3;background:linear-gradient(135deg,#001a66,#003399);min-height:300px"></div>
+            <div style="border-radius:var(--radius-xl);overflow:hidden;aspect-ratio:4/3;min-height:300px"><img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=800&q=80&fit=crop" alt="Web Design" style="width:100%;height:100%;object-fit:cover"></div>
             <div>
                 <span class="small-head"><?php esc_html_e( 'What We Do', 'branddevelopers' ); ?></span>
                 <h2 style="margin:16px 0 20px"><?php esc_html_e( 'Web Design & Development', 'branddevelopers' ); ?></h2>
@@ -91,7 +91,7 @@ get_header(); ?>
                     <a href="<?php echo esc_url( get_post_type_archive_link( 'case_study' ) ); ?>" class="btn btn--outline-dark"><?php esc_html_e( 'See Our Work', 'branddevelopers' ); ?></a>
                 </div>
             </div>
-            <div style="border-radius:var(--radius-xl);overflow:hidden;aspect-ratio:4/3;background:linear-gradient(135deg,#161616,#2a2a2a);min-height:300px"></div>
+            <div style="border-radius:var(--radius-xl);overflow:hidden;aspect-ratio:4/3;min-height:300px"><img src="https://images.unsplash.com/photo-1553028826-f4804a6dba3b?w=800&q=80&fit=crop" alt="Brand Strategy" style="width:100%;height:100%;object-fit:cover"></div>
         </div>
     </div>
 </section>
@@ -165,7 +165,7 @@ get_header(); ?>
                 <?php if ( has_post_thumbnail() ) :
                     the_post_thumbnail( 'bd-portfolio' );
                 else : ?>
-                    <div style="width:100%;height:100%;background:#c8c8c8;min-height:200px"></div>
+                    <div style="width:100%;height:100%;min-height:200px"><img src="https://images.unsplash.com/photo-1522542550221-31fd19575a2d?w=800&q=80&fit=crop" alt="Project" style="width:100%;height:100%;object-fit:cover"></div>
                 <?php endif; ?>
                 <div class="portfolio-item__overlay">
                     <?php if ( $cs_service ) : ?>
@@ -187,7 +187,7 @@ get_header(); ?>
                 );
                 foreach ( $cs_placeholders as $cs_ph ) : ?>
                 <div class="portfolio-item <?php echo esc_attr( $cs_ph['class'] ); ?>">
-                    <div style="width:100%;height:100%;background:#c8c8c8;min-height:200px"></div>
+                    <div style="width:100%;height:100%;min-height:200px"><img src="https://images.unsplash.com/photo-1522542550221-31fd19575a2d?w=800&q=80&fit=crop" alt="Project" style="width:100%;height:100%;object-fit:cover"></div>
                     <div class="portfolio-item__overlay" style="opacity:1">
                         <span class="portfolio-item__tag"><?php echo esc_html( $cs_ph['tag'] ); ?></span>
                         <h5 class="portfolio-item__title"><?php echo esc_html( $cs_ph['label'] ); ?></h5>

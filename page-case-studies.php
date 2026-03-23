@@ -176,16 +176,16 @@ endif;
         else :
             // Placeholder cards — no posts added yet
             $cs_placeholders = array(
-                array( 'label' => 'Logo Design',    'tag' => 'Brand Strategy & Creative', 'blue' => false ),
-                array( 'label' => 'Mobile App',     'tag' => 'Web Design & Development',  'blue' => true  ),
-                array( 'label' => 'Campaign Magic', 'tag' => 'Digital Growth',             'blue' => false ),
+                array( 'label' => 'Brand Identity Design', 'tag' => 'Brand Strategy & Creative', 'blue' => false, 'img' => 'https://images.unsplash.com/photo-1634942537034-2531766767d1?w=700&q=80&fit=crop' ),
+                array( 'label' => 'Mobile App Design',     'tag' => 'Web Design & Development',  'blue' => true,  'img' => 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=700&q=80&fit=crop' ),
+                array( 'label' => 'Digital Campaign',      'tag' => 'Digital Growth',             'blue' => false, 'img' => 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=700&q=80&fit=crop' ),
             );
             echo '<div class="cs-grid-row cs-grid-row--3col">';
             foreach ( $cs_placeholders as $cs_ph ) :
             ?>
             <div class="case-study-card <?php echo $cs_ph['blue'] ? 'case-study-card--blue' : ''; ?> fade-up">
                 <div class="case-study-card__image">
-                    <div style="background:<?php echo $cs_ph['blue'] ? '#003399' : '#e0e0e0'; ?>;min-height:200px"></div>
+                    <img src="<?php echo esc_url( $cs_ph['img'] ); ?>" alt="<?php echo esc_attr( $cs_ph['label'] ); ?>" style="width:100%;height:100%;object-fit:cover;display:block;min-height:200px">
                 </div>
                 <div class="case-study-card__body">
                     <span class="case-study-card__tag"><?php echo esc_html( $cs_ph['tag'] ); ?></span>

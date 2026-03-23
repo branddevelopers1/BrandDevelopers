@@ -110,17 +110,42 @@
                 endwhile;
                 wp_reset_postdata();
             else :
-                // Placeholder cards
-                $placeholders = [
-                    [ 'class' => 'portfolio-item--featured', 'label' => 'Logo Design',    'sub' => 'Brand Campaign' ],
-                    [ 'class' => 'portfolio-item--tall',     'label' => 'UI/UX Design',   'sub' => 'Content' ],
-                    [ 'class' => 'portfolio-item--wide',     'label' => 'Campaign Magic',  'sub' => 'Website Development' ],
-                    [ 'class' => 'portfolio-item--small',    'label' => 'Product Launch',  'sub' => 'Marketing' ],
-                    [ 'class' => 'portfolio-item--small',    'label' => 'Mobile App',      'sub' => 'UI/UX' ],
-                ];
+                // Placeholder cards with Unsplash stock images
+                $placeholders = array(
+                    array(
+                        'class' => 'portfolio-item--featured',
+                        'label' => 'Brand Identity Design',
+                        'sub'   => 'Brand Campaign',
+                        'img'   => 'https://images.unsplash.com/photo-1634942537034-2531766767d1?w=800&q=80&fit=crop',
+                    ),
+                    array(
+                        'class' => 'portfolio-item--tall',
+                        'label' => 'UI/UX Design',
+                        'sub'   => 'Web Development',
+                        'img'   => 'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600&q=80&fit=crop',
+                    ),
+                    array(
+                        'class' => 'portfolio-item--wide',
+                        'label' => 'Campaign Magic',
+                        'sub'   => 'Digital Marketing',
+                        'img'   => 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80&fit=crop',
+                    ),
+                    array(
+                        'class' => 'portfolio-item--small',
+                        'label' => 'Product Launch',
+                        'sub'   => 'Strategy',
+                        'img'   => 'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=600&q=80&fit=crop',
+                    ),
+                    array(
+                        'class' => 'portfolio-item--small',
+                        'label' => 'Mobile App',
+                        'sub'   => 'UI/UX',
+                        'img'   => 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=600&q=80&fit=crop',
+                    ),
+                );
                 foreach ( $placeholders as $p ) : ?>
                 <div class="portfolio-item <?php echo esc_attr( $p['class'] ); ?>">
-                    <div style="width:100%;height:100%;background:#d0d0d0;min-height:200px"></div>
+                    <img src="<?php echo esc_url( $p['img'] ); ?>" alt="<?php echo esc_attr( $p['label'] ); ?>" style="width:100%;height:100%;object-fit:cover;display:block">
                     <div class="portfolio-item__overlay" style="opacity:1">
                         <span class="portfolio-item__tag"><?php echo esc_html( $p['sub'] ); ?></span>
                         <h5 class="portfolio-item__title"><?php echo esc_html( $p['label'] ); ?></h5>
@@ -232,14 +257,26 @@
             <?php    endwhile;
                 wp_reset_postdata();
             else :
+                $blog_imgs = array(
+                    'https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=800&q=80&fit=crop',
+                    'https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?w=800&q=80&fit=crop',
+                    'https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=800&q=80&fit=crop',
+                );
+                $blog_titles = array(
+                    'How We Build Brands That Last',
+                    'The Strategy Behind Great Web Design',
+                    'SEO in 2025: What Actually Works',
+                );
                 for ( $i = 0; $i < 3; $i++ ) : ?>
             <div class="blog-card fade-up">
-                <div class="blog-card__image"><div style="background:#e0e0e0;min-height:180px"></div></div>
+                <div class="blog-card__image">
+                    <img src="<?php echo esc_url( $blog_imgs[ $i ] ); ?>" alt="Blog post" style="width:100%;height:100%;object-fit:cover">
+                </div>
                 <div class="blog-card__body">
-                    <p class="blog-card__date">27 July 2025</p>
-                    <h4 class="blog-card__title"><?php _e( 'Campaign Magic', 'branddevelopers' ); ?></h4>
-                    <p class="blog-card__excerpt"><?php _e( 'Discover and understand your brand &amp; audience — how we shape strategies that deliver results.', 'branddevelopers' ); ?></p>
-                    <a href="#" class="blog-card__link"><?php _e( 'View details', 'branddevelopers' ); ?> →</a>
+                    <p class="blog-card__date">Coming Soon</p>
+                    <h4 class="blog-card__title"><?php echo esc_html( $blog_titles[ $i ] ); ?></h4>
+                    <p class="blog-card__excerpt"><?php _e( 'Insights, strategies and ideas from the Brand Developers team.', 'branddevelopers' ); ?></p>
+                    <a href="<?php echo esc_url( home_url( '/blog' ) ); ?>" class="blog-card__link"><?php _e( 'View all blogs', 'branddevelopers' ); ?> →</a>
                 </div>
             </div>
             <?php    endfor;

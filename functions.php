@@ -480,14 +480,14 @@ function bd_render_team( $show_link = true ) {
                 else : ?>
                     <!-- Placeholder team cards when no members added yet -->
                     <?php $placeholders = [
-                        [ 'name' => 'Ryan Taffe',   'role' => 'Lead Creative Partner' ],
-                        [ 'name' => 'Kay Olumofe',  'role' => 'Lead Developer Founder' ],
-                        [ 'name' => 'Rosabel',      'role' => 'Developer' ],
-                    ];
+                        array( 'name' => 'Ryan Taffe',   'role' => 'Lead Creative Partner',  'img' => 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80&fit=crop&crop=face' ),
+                        array( 'name' => 'Kay Olumofe',  'role' => 'Lead Developer Founder', 'img' => 'https://images.unsplash.com/photo-1506277886164-e25aa3f4ef7f?w=400&q=80&fit=crop&crop=face' ),
+                        array( 'name' => 'Rosabel',      'role' => 'Developer',               'img' => 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&q=80&fit=crop&crop=face' ),
+                    );
                     foreach ( $placeholders as $p ) : ?>
                     <div class="team-card fade-up">
-                        <div class="team-card__photo" style="background:#2a2a2a;min-height:280px;display:flex;align-items:center;justify-content:center;">
-                            <i class="fas fa-user" style="font-size:48px;color:rgba(255,255,255,0.2)"></i>
+                        <div class="team-card__photo" style="overflow:hidden;min-height:280px">
+                            <img src="<?php echo esc_url( $p['img'] ); ?>" alt="<?php echo esc_attr( $p['name'] ); ?>" style="width:100%;height:100%;object-fit:cover;min-height:280px">
                         </div>
                         <div class="team-card__info">
                             <h5 class="team-card__name"><?php echo esc_html( $p['name'] ); ?></h5>

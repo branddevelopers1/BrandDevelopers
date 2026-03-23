@@ -108,26 +108,69 @@ get_header(); ?>
         </div>
 
         <?php else : ?>
-        <!-- No posts yet — show placeholder grid -->
+        <!-- No posts yet — show placeholder grid with stock images -->
         <div class="portfolio-masonry" id="portfolio-grid">
             <?php
             $placeholders = array(
-                array( 'title' => 'Brand Identity Design',     'service' => 'Graphic Design',     'cat' => 'graphic-design'   ),
-                array( 'title' => 'Corporate Website Rebuild', 'service' => 'Web Development',    'cat' => 'web-development'  ),
-                array( 'title' => 'Event Photography',         'service' => 'Photography',        'cat' => 'photography'      ),
-                array( 'title' => 'Product Launch Video',      'service' => 'Videography',        'cat' => 'videography'      ),
-                array( 'title' => 'Logo & Brand Package',      'service' => 'Branding',           'cat' => 'branding'         ),
-                array( 'title' => 'E-Commerce Platform',       'service' => 'Web Development',    'cat' => 'web-development'  ),
-                array( 'title' => 'Social Media Campaign',     'service' => 'Graphic Design',     'cat' => 'graphic-design'   ),
-                array( 'title' => 'Headshot Session',          'service' => 'Photography',        'cat' => 'photography'      ),
-                array( 'title' => 'Brand Story Film',          'service' => 'Videography',        'cat' => 'videography'      ),
+                array(
+                    'title'   => 'Brand Identity Design',
+                    'service' => 'Graphic Design',
+                    'cat'     => 'graphic-design',
+                    'img'     => 'https://images.unsplash.com/photo-1634942537034-2531766767d1?w=700&q=80&fit=crop',
+                ),
+                array(
+                    'title'   => 'Corporate Website Rebuild',
+                    'service' => 'Web Development',
+                    'cat'     => 'web-development',
+                    'img'     => 'https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=700&q=80&fit=crop',
+                ),
+                array(
+                    'title'   => 'Event Photography',
+                    'service' => 'Photography',
+                    'cat'     => 'photography',
+                    'img'     => 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=700&q=80&fit=crop',
+                ),
+                array(
+                    'title'   => 'Product Launch Video',
+                    'service' => 'Videography',
+                    'cat'     => 'videography',
+                    'img'     => 'https://images.unsplash.com/photo-1601506521793-dc748fc80b67?w=700&q=80&fit=crop',
+                ),
+                array(
+                    'title'   => 'Logo & Brand Package',
+                    'service' => 'Branding',
+                    'cat'     => 'branding',
+                    'img'     => 'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=700&q=80&fit=crop',
+                ),
+                array(
+                    'title'   => 'E-Commerce Platform',
+                    'service' => 'Web Development',
+                    'cat'     => 'web-development',
+                    'img'     => 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=700&q=80&fit=crop',
+                ),
+                array(
+                    'title'   => 'Social Media Campaign',
+                    'service' => 'Graphic Design',
+                    'cat'     => 'graphic-design',
+                    'img'     => 'https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=700&q=80&fit=crop',
+                ),
+                array(
+                    'title'   => 'Professional Headshots',
+                    'service' => 'Photography',
+                    'cat'     => 'photography',
+                    'img'     => 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=700&q=80&fit=crop',
+                ),
+                array(
+                    'title'   => 'Brand Story Film',
+                    'service' => 'Videography',
+                    'cat'     => 'videography',
+                    'img'     => 'https://images.unsplash.com/photo-1512070679279-8988d32161be?w=700&q=80&fit=crop',
+                ),
             );
             foreach ( $placeholders as $ph ) : ?>
             <div class="portfolio-item-card fade-up" data-category="<?php echo esc_attr( $ph['cat'] ); ?>">
                 <div class="portfolio-item-card__image">
-                    <div class="portfolio-item-card__placeholder">
-                        <i class="fas fa-image"></i>
-                    </div>
+                    <img src="<?php echo esc_url( $ph['img'] ); ?>" alt="<?php echo esc_attr( $ph['title'] ); ?>" style="width:100%;height:100%;object-fit:cover;display:block">
                     <div class="portfolio-item-card__overlay">
                         <a href="#" class="portfolio-item-card__view">
                             <i class="fas fa-arrow-right"></i>
@@ -142,9 +185,6 @@ get_header(); ?>
             </div>
             <?php endforeach; ?>
         </div>
-        <p style="text-align:center;color:var(--color-grey);margin-top:var(--space-lg);font-size:14px">
-            <?php esc_html_e( 'Add projects via WP Admin → Case Studies → Add New', 'branddevelopers' ); ?>
-        </p>
         <?php endif; ?>
 
     </div>

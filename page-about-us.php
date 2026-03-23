@@ -62,8 +62,13 @@ get_header(); ?>
                 </div>
             </div>
 
-            <!-- Right: Image -->
-            <div class="about-intro-image"></div>
+            <!-- Right: Image — shows bd_about_portrait if set, else Unsplash stock -->
+            <div class="about-intro-image" style="overflow:hidden">
+                <?php $portrait = bd_get( 'bd_about_portrait' ); ?>
+                <img src="<?php echo $portrait ? esc_url( $portrait ) : 'https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=800&q=80&fit=crop'; ?>"
+                     alt="<?php bloginfo( 'name' ); ?>"
+                     style="width:100%;height:100%;object-fit:cover">
+            </div>
         </div>
 
         <!-- Stats -->
@@ -166,14 +171,14 @@ get_header(); ?>
                 wp_reset_postdata();
             else :
                 $pf_ph = array(
-                    array( 'class' => 'portfolio-item--featured', 'label' => 'Postcard Work', 'tag' => 'Portfolio'    ),
-                    array( 'class' => 'portfolio-item--tall',     'label' => 'Portfolio',      'tag' => 'Branding'    ),
-                    array( 'class' => 'portfolio-item--small',    'label' => 'Campaign',       'tag' => 'Digital'     ),
-                    array( 'class' => 'portfolio-item--small',    'label' => 'Web Design',     'tag' => 'Development' ),
+                    array( 'class' => 'portfolio-item--featured', 'label' => 'Brand Identity Design', 'tag' => 'Branding',        'img' => 'https://images.unsplash.com/photo-1634942537034-2531766767d1?w=800&q=80&fit=crop' ),
+                    array( 'class' => 'portfolio-item--tall',     'label' => 'Creative Direction',    'tag' => 'Art Direction',   'img' => 'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600&q=80&fit=crop' ),
+                    array( 'class' => 'portfolio-item--small',    'label' => 'Campaign Design',       'tag' => 'Digital',         'img' => 'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=600&q=80&fit=crop' ),
+                    array( 'class' => 'portfolio-item--small',    'label' => 'Web Development',       'tag' => 'Development',     'img' => 'https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=600&q=80&fit=crop' ),
                 );
                 foreach ( $pf_ph as $p ) : ?>
                 <div class="portfolio-item <?php echo esc_attr( $p['class'] ); ?>">
-                    <div style="width:100%;height:100%;background:#d8d8d8;min-height:200px"></div>
+                    <img src="<?php echo esc_url( $p['img'] ); ?>" alt="<?php echo esc_attr( $p['label'] ); ?>" style="width:100%;height:100%;object-fit:cover;display:block">
                     <div class="portfolio-item__overlay" style="opacity:1">
                         <span class="portfolio-item__tag"><?php echo esc_html( $p['tag'] ); ?></span>
                         <h5 class="portfolio-item__title"><?php echo esc_html( $p['label'] ); ?></h5>
@@ -239,14 +244,14 @@ get_header(); ?>
                 wp_reset_postdata();
             else :
                 $tm_ph = array(
-                    array( 'name' => 'Ryan Taffe',  'role' => 'Lead Creative Partner'  ),
-                    array( 'name' => 'Kay Olumofe', 'role' => 'Lead Developer Founder' ),
-                    array( 'name' => 'Rosabel',     'role' => 'Developer'               ),
+                    array( 'name' => 'Ryan Taffe',  'role' => 'Lead Creative Partner',  'img' => 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80&fit=crop&crop=face' ),
+                    array( 'name' => 'Kay Olumofe', 'role' => 'Lead Developer Founder', 'img' => 'https://images.unsplash.com/photo-1506277886164-e25aa3f4ef7f?w=400&q=80&fit=crop&crop=face' ),
+                    array( 'name' => 'Rosabel',     'role' => 'Developer',               'img' => 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&q=80&fit=crop&crop=face' ),
                 );
                 foreach ( $tm_ph as $p ) : ?>
                 <div class="team-card fade-up">
-                    <div class="team-card__photo" style="min-height:250px;display:flex;align-items:center;justify-content:center">
-                        <i class="fas fa-user" style="font-size:48px;color:rgba(255,255,255,0.2)"></i>
+                    <div class="team-card__photo" style="overflow:hidden;min-height:250px">
+                        <img src="<?php echo esc_url( $p['img'] ); ?>" alt="<?php echo esc_attr( $p['name'] ); ?>" style="width:100%;height:100%;object-fit:cover;min-height:250px">
                     </div>
                     <div class="team-card__info">
                         <h5 class="team-card__name"><?php echo esc_html( $p['name'] ); ?></h5>
