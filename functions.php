@@ -121,7 +121,7 @@ function branddevelopers_register_post_types() {
         'show_ui'            => true,
         'show_in_menu'       => true,
         'query_var'          => true,
-        'rewrite'            => [ 'slug' => 'case-studies' ],
+        'rewrite'            => array( 'slug' => 'case-studies' ],
         'capability_type'    => 'post',
         'has_archive'        => true,
         'hierarchical'       => false,
@@ -141,7 +141,7 @@ function branddevelopers_register_post_types() {
         'show_ui'           => true,
         'show_admin_column' => true,
         'query_var'         => true,
-        'rewrite'           => [ 'slug' => 'case-study-category' ],
+        'rewrite'           => array( 'slug' => 'case-study-category' ],
         'show_in_rest'      => true,
     ] );
 }
@@ -339,7 +339,7 @@ function branddevelopers_newsletter_subscribe() {
     check_ajax_referer( 'bd_nonce', 'nonce' );
     $email = sanitize_email( $_POST['email'] ?? '' );
     if ( ! is_email( $email ) ) {
-        wp_send_json_error( [ 'message' => __( 'Please enter a valid email address.', 'branddevelopers' ) ] );
+        wp_send_json_error( array( 'message' => __( 'Please enter a valid email address.', 'branddevelopers' ) ) );
     }
     // Hook into your email service here (Mailchimp, etc.)
     // For now, store in options as a simple list
@@ -348,7 +348,7 @@ function branddevelopers_newsletter_subscribe() {
         $subscribers[] = $email;
         update_option( 'bd_newsletter_subscribers', $subscribers );
     }
-    wp_send_json_success( [ 'message' => __( 'Thank you for subscribing!', 'branddevelopers' ) ] );
+    wp_send_json_success( array( 'message' => __( 'Thank you for subscribing!', 'branddevelopers' ) ) );
 }
 add_action( 'wp_ajax_bd_newsletter',        'branddevelopers_newsletter_subscribe' );
 add_action( 'wp_ajax_nopriv_bd_newsletter', 'branddevelopers_newsletter_subscribe' );
@@ -361,15 +361,15 @@ add_action( 'wp_ajax_nopriv_bd_newsletter', 'branddevelopers_newsletter_subscrib
  * Get case studies query
  */
 function bd_get_case_studies( $count = 6, $featured_only = false ) {
-    $args = [
+    $args = array(
         'post_type'      => 'case_study',
         'posts_per_page' => $count,
         'post_status'    => 'publish',
         'orderby'        => 'date',
         'order'          => 'DESC',
-    ];
+    );
     if ( $featured_only ) {
-        $args['meta_query'] = [ [ 'key' => '_bd_featured', 'value' => '1' ] ];
+        $args['meta_query'] = array( array( 'key' => '_bd_featured', 'value' => '1' ) );
     }
     return new WP_Query( $args );
 }
@@ -402,8 +402,8 @@ function bd_get_testimonials( $count = 3 ) {
  * Render the workflow steps (shared across pages)
  */
 function bd_render_workflow( $dark = true ) {
-    $steps = [
-        [ 'num' => '01', 'title' => 'Discover', 'sub' => 'We immerse ourselves in your brand\'s story.', 'desc' => 'We begin by exploring your vision, goals, and audience. This helps us uncover the insights that shape everything we create.', 'link' => 'Start with Discovery' ],
+    $steps = array(
+        array( 'num' => '01', 'title' => 'Discover', 'sub' => 'We immerse ourselves in your brand\'s story.', 'desc' => 'We begin by exploring your vision, goals, and audience. This helps us uncover the insights that shape everything we create.', 'link' => 'Start with Discovery' ],
         [ 'num' => '02', 'title' => 'Create',   'sub' => 'We turn insight into intelligent, design-led solutions.', 'desc' => 'Using what we\'ve learned, we outline a focused plan — from messaging to moodboards — that sets the creative direction.', 'link' => 'Explore Our Designs' ],
         [ 'num' => '03', 'title' => 'Launch',   'sub' => 'We deliver refined digital experiences built to perform.', 'desc' => 'Here, we shape bold, thoughtful designs that reflect your brand\'s personality and bring it to life across every touchpoint.', 'link' => 'View Strategy Samples' ],
         [ 'num' => '04', 'title' => 'Grow',     'sub' => 'We refine, measure, and evolve with your goals.', 'desc' => 'We refine every detail, test thoroughly, and launch your project smoothly — then measure and iterate for ongoing growth.', 'link' => 'See Final Deliverables' ],
@@ -479,7 +479,7 @@ function bd_render_team( $show_link = true ) {
                     wp_reset_postdata();
                 else : ?>
                     <!-- Placeholder team cards when no members added yet -->
-                    <?php $placeholders = [
+                    <?php $placeholders = array(
                         array( 'name' => 'Ryan Taffe',   'role' => 'Lead Creative Partner',  'img' => 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80&fit=crop&crop=face' ),
                         array( 'name' => 'Kay Olumofe',  'role' => 'Lead Developer Founder', 'img' => 'https://images.unsplash.com/photo-1506277886164-e25aa3f4ef7f?w=400&q=80&fit=crop&crop=face' ),
                         array( 'name' => 'Rosabel',      'role' => 'Developer',               'img' => 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&q=80&fit=crop&crop=face' ),

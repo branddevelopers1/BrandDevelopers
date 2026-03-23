@@ -82,7 +82,7 @@
 
         <?php
         $case_studies = bd_get_case_studies( 5 );
-        $positions = [ 'portfolio-item--featured', 'portfolio-item--tall', 'portfolio-item--wide', 'portfolio-item--small', 'portfolio-item--small' ];
+        $positions = array( 'portfolio-item--featured', 'portfolio-item--tall', 'portfolio-item--wide', 'portfolio-item--small', 'portfolio-item--small' );
         ?>
         <div class="portfolio-grid">
             <?php if ( $case_studies->have_posts() ) :
@@ -239,7 +239,7 @@
         </div>
         <div class="blog-grid">
             <?php
-            $posts = new WP_Query( [ 'post_type' => 'post', 'posts_per_page' => 3, 'post_status' => 'publish' ] );
+            $posts = new WP_Query( array( 'post_type' => 'post', 'posts_per_page' => 3, 'post_status' => 'publish' ) );
             if ( $posts->have_posts() ) :
                 while ( $posts->have_posts() ) : $posts->the_post(); ?>
             <div class="blog-card fade-up">

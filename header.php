@@ -26,7 +26,7 @@
 
             <!-- Primary Nav -->
             <nav class="site-nav" aria-label="<?php esc_attr_e( 'Primary Navigation', 'branddevelopers' ); ?>">
-                <?php wp_nav_menu( [
+                <?php wp_nav_menu( array(
                     'theme_location' => 'primary',
                     'menu_class'     => 'nav-menu',
                     'container'      => false,
