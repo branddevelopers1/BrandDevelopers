@@ -587,7 +587,7 @@ function bd_handle_contact_form() {
 
     // Honeypot check
     if ( ! empty( $_POST['bd_website_url'] ) ) {
-        wp_safe_redirect( add_query_arg( 'contact', 'error', sanitize_url( $_POST['redirect_url'] ) ) );
+        wp_safe_redirect( add_query_arg( 'contact', 'error', esc_url_raw( wp_unslash( $_POST['redirect_url'] ) ) ) );
         exit;
     }
 
