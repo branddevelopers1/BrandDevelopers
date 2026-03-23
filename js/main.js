@@ -220,3 +220,33 @@
   }
 
 })();
+
+/* ── PORTFOLIO FILTER ────────────────────────────────────── */
+(function() {
+    var filterBtns = document.querySelectorAll('.portfolio-filter__btn');
+    var cards      = document.querySelectorAll('.portfolio-item-card');
+
+    if ( ! filterBtns.length ) return;
+
+    filterBtns.forEach( function( btn ) {
+        btn.addEventListener( 'click', function() {
+            var filter = this.getAttribute( 'data-filter' );
+
+            // Update active button
+            filterBtns.forEach( function(b) { b.classList.remove('portfolio-filter__btn--active'); } );
+            this.classList.add( 'portfolio-filter__btn--active' );
+
+            // Filter cards
+            cards.forEach( function( card ) {
+                var cat = card.getAttribute( 'data-category' );
+                if ( filter === 'all' || cat === filter ) {
+                    card.style.display = '';
+                    setTimeout( function() { card.classList.add('visible'); }, 50 );
+                } else {
+                    card.style.display = 'none';
+                    card.classList.remove('visible');
+                }
+            });
+        });
+    });
+})();

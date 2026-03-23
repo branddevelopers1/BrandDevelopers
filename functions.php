@@ -428,7 +428,6 @@ function bd_render_workflow( $dark = true ) {
                     <a href="#" class="workflow-step__link"><?php echo esc_html( $step['link'] ); ?> →</a>
                 </div>
                 <?php if ( $is_right && $i < count($steps) - 1 ) : ?>
-                <div class="workflow-connector">—</div>
                 <?php endif; ?>
                 <?php endforeach; ?>
             </div>
@@ -578,3 +577,52 @@ add_filter( 'body_class', 'branddevelopers_body_classes' );
 remove_action( 'wp_head', 'wp_generator' );
 remove_action( 'wp_head', 'wlwmanifest_link' );
 remove_action( 'wp_head', 'rsd_link' );
+
+/* ============================================================
+   CONTACT FORM HANDLER
+   ============================================================ */
+function bd_handle_contact_form() {
+    if ( ! isset( $_POST['bd_contact_nonce'] ) ) return;
+    if ( ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['bd_contact_nonce'] ) ), 'bd_contact_form' ) ) return;
+
+    // Honeypot check
+    if ( ! empty( $_POST['bd_website_url'] ) ) {
+        wp_safe_redirect( add_query_arg( 'contact', 'error', sanitize_url( $_POST['redirect_url'] ) ) );
+        exit;
+    }
+
+    $first    = sanitize_text_field( wp_unslash( $_POST['bd_first_name'] ?? '' ) );
+    $last     = sanitize_text_field( wp_unslash( $_POST['bd_last_name']  ?? '' ) );
+    $email    = sanitize_email(      wp_unslash( $_POST['bd_email']       ?? '' ) );
+    $phone    = sanitize_text_field( wp_unslash( $_POST['bd_phone']       ?? '' ) );
+    $service  = sanitize_text_field( wp_unslash( $_POST['bd_service']     ?? '' ) );
+    $budget   = sanitize_text_field( wp_unslash( $_POST['bd_budget']      ?? '' ) );
+    $message  = sanitize_textarea_field( wp_unslash( $_POST['bd_message'] ?? '' ) );
+    $redirect = esc_url_raw( wp_unslash( $_POST['redirect_url'] ?? home_url( '/contact' ) ) );
+
+    if ( ! $first || ! $email || ! $message ) {
+        wp_safe_redirect( add_query_arg( 'contact', 'error', $redirect ) );
+        exit;
+    }
+
+    $to      = bd_get( 'bd_email' ) ?: get_option( 'admin_email' );
+    $subject = sprintf( '[Brand Developers] New enquiry from %s %s', $first, $last );
+    $body    = "Name: {$first} {$last}\n";
+    $body   .= "Email: {$email}\n";
+    if ( $phone )   $body .= "Phone: {$phone}\n";
+    if ( $service ) $body .= "Service: {$service}\n";
+    if ( $budget )  $body .= "Budget: {$budget}\n";
+    $body   .= "\nMessage:\n{$message}\n";
+
+    $headers = array(
+        'Content-Type: text/plain; charset=UTF-8',
+        "Reply-To: {$first} {$last} <{$email}>",
+    );
+
+    $sent = wp_mail( $to, $subject, $body, $headers );
+
+    wp_safe_redirect( add_query_arg( 'contact', $sent ? 'success' : 'error', $redirect ) );
+    exit;
+}
+add_action( 'admin_post_bd_contact_submit',        'bd_handle_contact_form' );
+add_action( 'admin_post_nopriv_bd_contact_submit', 'bd_handle_contact_form' );

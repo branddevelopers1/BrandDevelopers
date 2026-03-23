@@ -46,7 +46,6 @@
             <div class="nav-social">
                 <a href="https://instagram.com/branddevelopers.ca" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                 <a href="https://www.linkedin.com/company/brand-developers" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                <a href="#" aria-label="Twitter / X"><i class="fab fa-x-twitter"></i></a>
             </div>
 
             <!-- Mobile toggle -->
