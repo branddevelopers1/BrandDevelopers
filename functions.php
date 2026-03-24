@@ -18,27 +18,27 @@ function branddevelopers_setup() {
     add_theme_support( 'automatic-feed-links' );
     add_theme_support( 'title-tag' );
     add_theme_support( 'post-thumbnails' );
-    add_theme_support( 'html5', [ 'search-form', 'comment-form', 'comment-list', 'gallery', 'caption', 'style', 'script' ] );
+    add_theme_support( 'html5', array( 'search-form', 'comment-form', 'comment-list', 'gallery', 'caption', 'style', 'script' ) );
     add_theme_support( 'customize-selective-refresh-widgets' );
     add_theme_support( 'wp-block-styles' );
     add_theme_support( 'align-wide' );
     add_theme_support( 'responsive-embeds' );
 
     // Custom logo
-    add_theme_support( 'custom-logo', [
+    add_theme_support( 'custom-logo', array(
         'height'      => 72,
         'width'       => 200,
         'flex-width'  => true,
         'flex-height' => true,
-    ] );
+    ) );
 
     // Register nav menus
-    register_nav_menus( [
+    register_nav_menus( array(
         'primary'  => __( 'Primary Navigation', 'branddevelopers' ),
         'footer-1' => __( 'Footer: Company', 'branddevelopers' ),
         'footer-2' => __( 'Footer: Projects', 'branddevelopers' ),
         'footer-3' => __( 'Footer: Support', 'branddevelopers' ),
-    ] );
+    ) );
 
     // Image sizes
     add_image_size( 'bd-hero',        1920, 900, true );
@@ -73,7 +73,7 @@ function branddevelopers_scripts() {
     wp_enqueue_style(
         'branddevelopers-style',
         get_stylesheet_uri(),
-        [ 'bd-google-fonts', 'font-awesome' ],
+        array( 'bd-google-fonts', 'font-awesome' ),
         wp_get_theme()->get( 'Version' )
     );
 
@@ -127,7 +127,7 @@ function branddevelopers_register_post_types() {
         'hierarchical'       => false,
         'menu_position'      => 5,
         'menu_icon'          => 'dashicons-portfolio',
-        'supports'           => [ 'title', 'editor', 'thumbnail', 'excerpt', 'custom-fields' ],
+        'supports' => array( 'title', 'editor', 'thumbnail', 'excerpt', 'custom-fields' ),
         'show_in_rest'       => true,
     ] );
 
@@ -164,7 +164,7 @@ function branddevelopers_register_team() {
         'show_in_menu'   => true,
         'menu_position'  => 6,
         'menu_icon'      => 'dashicons-groups',
-        'supports'       => [ 'title', 'thumbnail', 'custom-fields' ],
+        'supports' => array( 'title', 'thumbnail', 'custom-fields' ),
         'show_in_rest'   => true,
     ] );
 }
@@ -187,7 +187,7 @@ function branddevelopers_register_testimonials() {
         'show_in_menu'  => true,
         'menu_position' => 7,
         'menu_icon'     => 'dashicons-format-quote',
-        'supports'      => [ 'title', 'editor', 'custom-fields' ],
+        'supports' => array( 'title', 'editor', 'custom-fields' ),
         'show_in_rest'  => true,
     ] );
 }
@@ -404,9 +404,9 @@ function bd_get_testimonials( $count = 3 ) {
 function bd_render_workflow( $dark = true ) {
     $steps = array(
         array( 'num' => '01', 'title' => 'Discover', 'sub' => 'We immerse ourselves in your brand\'s story.', 'desc' => 'We begin by exploring your vision, goals, and audience. This helps us uncover the insights that shape everything we create.', 'link' => 'Start with Discovery' ],
-        [ 'num' => '02', 'title' => 'Create',   'sub' => 'We turn insight into intelligent, design-led solutions.', 'desc' => 'Using what we\'ve learned, we outline a focused plan — from messaging to moodboards — that sets the creative direction.', 'link' => 'Explore Our Designs' ],
-        [ 'num' => '03', 'title' => 'Launch',   'sub' => 'We deliver refined digital experiences built to perform.', 'desc' => 'Here, we shape bold, thoughtful designs that reflect your brand\'s personality and bring it to life across every touchpoint.', 'link' => 'View Strategy Samples' ],
-        [ 'num' => '04', 'title' => 'Grow',     'sub' => 'We refine, measure, and evolve with your goals.', 'desc' => 'We refine every detail, test thoroughly, and launch your project smoothly — then measure and iterate for ongoing growth.', 'link' => 'See Final Deliverables' ],
+        array( 'num' => '02', 'title' => 'Create',   'sub' => 'We turn insight into intelligent, design-led solutions.', 'desc' => 'Using what we\'ve learned, we outline a focused plan — from messaging to moodboards — that sets the creative direction.', 'link' => 'Explore Our Designs' ),
+        array( 'num' => '03', 'title' => 'Launch',   'sub' => 'We deliver refined digital experiences built to perform.', 'desc' => 'Here, we shape bold, thoughtful designs that reflect your brand\'s personality and bring it to life across every touchpoint.', 'link' => 'View Strategy Samples' ),
+        array( 'num' => '04', 'title' => 'Grow',     'sub' => 'We refine, measure, and evolve with your goals.', 'desc' => 'We refine every detail, test thoroughly, and launch your project smoothly — then measure and iterate for ongoing growth.', 'link' => 'See Final Deliverables' ),
     ];
     $section_class = $dark ? 'workflow-section' : 'workflow-section workflow-section--light';
     ?>
