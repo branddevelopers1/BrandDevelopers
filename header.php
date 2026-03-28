@@ -41,7 +41,7 @@
                             <li><a href="<?php echo esc_url( home_url( '/contact' ) ); ?>" style="background:var(--color-primary);padding:8px 18px;border-radius:100px;color:#fff!important"><?php _e( 'Contact', 'branddevelopers' ); ?></a></li>
                         </ul>
                     <?php }
-                ] ); ?>
+                ) ); ?>
             </nav>
 
             <!-- Social icons -->
