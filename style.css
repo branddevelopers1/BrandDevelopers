@@ -335,7 +335,7 @@ p { font-size: var(--fs-body); line-height: var(--lh-body); color: var(--color-g
   max-width: 520px;
   margin-bottom: var(--space-md);
 }
-.hero__actions { display: flex; align-items: center; gap: var(--space-sm); padding-bottom: var(--space-xl); }
+.hero__actions { display: flex; align-items: center; gap: var(--space-sm); padding-bottom: 120px; margin-bottom: 40px; }
 
 /* ============================================================
    SECTION HEADER
