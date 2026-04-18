@@ -202,9 +202,9 @@ get_header(); ?>
 </section>
 
 <!-- ============================================================
-     TEAM
+     TEAM — hidden
      ============================================================ -->
-<section class="team-section">
+<?php /* ?><section class="team-section">
     <div class="container">
         <div class="team-header">
             <div>
@@ -262,7 +262,7 @@ get_header(); ?>
             endif; ?>
         </div>
     </div>
-</section>
+</section><?php */ ?>
 
 <!-- ============================================================
      HOW WE WORK
