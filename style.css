@@ -103,32 +103,32 @@ h1, .h1 {
   font-family: var(--font-heading);
   font-size: var(--fs-h1);
   font-weight: 400;
-  line-height: var(--lh-h1);
+  line-height: 1.15;
   letter-spacing: var(--ls-h1);
 }
 h2, .h2 {
   font-family: var(--font-heading);
   font-size: var(--fs-h2);
   font-weight: 400;
-  line-height: var(--lh-h2);
+  line-height: 1.2;
 }
 h3, .h3 {
   font-family: var(--font-heading);
   font-size: var(--fs-h3);
   font-weight: 400;
-  line-height: var(--lh-h3);
+  line-height: 1.25;
 }
 h4, .h4 {
   font-family: var(--font-heading);
   font-size: var(--fs-h4);
   font-weight: 400;
-  line-height: var(--lh-h4);
+  line-height: 1.35;
 }
 h5, .h5 {
   font-family: var(--font-heading);
   font-size: var(--fs-h5);
   font-weight: 400;
-  line-height: var(--lh-h5);
+  line-height: 1.4;
   letter-spacing: -0.2px;
 }
 p { font-size: var(--fs-body); line-height: var(--lh-body); color: var(--color-grey); }
@@ -665,7 +665,7 @@ p { font-size: var(--fs-body); line-height: var(--lh-body); color: var(--color-g
   display: flex; align-items: center; justify-content: space-between;
   gap: var(--space-lg);
 }
-.cta-section h2 { font-size: 52px; color: var(--color-black); line-height: 64px; }
+.cta-section h2 { font-size: 52px; color: var(--color-black); line-height: 1.2; }
 .cta-section p  { color: var(--color-grey); max-width: 480px; margin-bottom: var(--space-md); }
 .cta-right { text-align: right; }
 .cta-right h3 { font-family: var(--font-heading); font-size: 36px; color: var(--color-black); margin-bottom: var(--space-sm); }
@@ -727,7 +727,7 @@ p { font-size: var(--fs-body); line-height: var(--lh-body); color: var(--color-g
   background: linear-gradient(135deg, #0d0d0d 0%, #001a66 100%);
 }
 .page-hero__content { position: relative; z-index: 2; }
-.page-hero h1 { color: var(--color-white); font-size: 72px; line-height: 88px; margin-bottom: var(--space-sm); }
+.page-hero h1 { color: var(--color-white); font-size: 72px; line-height: 1.15; margin-bottom: var(--space-sm); }
 .page-hero p  { color: rgba(255,255,255,0.65); font-size: 18px; line-height: 28px; max-width: 560px; }
 
 .about-intro {
@@ -843,9 +843,10 @@ p { font-size: var(--fs-body); line-height: var(--lh-body); color: var(--color-g
 @media (max-width: 768px) {
   :root {
     --fs-h1: 42px;
-    --lh-h1: 52px;
     --fs-h2: 32px;
-    --lh-h2: 44px;
+    --fs-h3: 26px;
+    --fs-h4: 22px;
+    --fs-h5: 19px;
     --container-pad: 24px;
     --space-xl: 64px;
   }
@@ -874,7 +875,7 @@ p { font-size: var(--fs-body); line-height: var(--lh-body); color: var(--color-g
   .service-list-item { grid-template-columns: 1fr; }
   .service-list-item--reverse { direction: ltr; }
   .hero__actions     { flex-direction: column; align-items: flex-start; }
-  .page-hero h1      { font-size: 44px; line-height: 56px; }
+  .page-hero h1      { font-size: 38px; line-height: 1.2; }
 }
 
 /* ============================================================
@@ -902,7 +903,7 @@ p { font-size: var(--fs-body); line-height: var(--lh-body); color: var(--color-g
 .about-hero__title {
   color: #F9FAFB;
   font-size: 72px;
-  line-height: 88px;
+  line-height: 1.15;
   margin-bottom: 24px;
 }
 .about-hero__desc {
@@ -1017,7 +1018,7 @@ p { font-size: var(--fs-body); line-height: var(--lh-body); color: var(--color-g
   .about-intro-grid        { grid-template-columns: 1fr; }
   .about-services-grid     { grid-template-columns: 1fr; }
   .case-study-featured     { grid-template-columns: 1fr; }
-  .about-hero__title       { font-size: 52px; line-height: 64px; }
+  .about-hero__title       { font-size: 52px; line-height: 1.15; }
 }
 
 /* ============================================================
@@ -1026,9 +1027,10 @@ p { font-size: var(--fs-body); line-height: var(--lh-body); color: var(--color-g
 @media (max-width: 768px) {
   :root {
     --fs-h1: 36px;
-    --lh-h1: 46px;
     --fs-h2: 28px;
-    --lh-h2: 38px;
+    --fs-h3: 24px;
+    --fs-h4: 20px;
+    --fs-h5: 18px;
     --container-pad: 20px;
     --space-xl: 56px;
     --space-lg: 40px;
@@ -1060,7 +1062,7 @@ p { font-size: var(--fs-body); line-height: var(--lh-body); color: var(--color-g
   /* About hero */
   .about-hero              { min-height: 50vh; padding-top: 80px; }
   .about-hero__content     { padding: 60px 0 40px; }
-  .about-hero__title       { font-size: 38px; line-height: 48px; margin-bottom: 16px; }
+  .about-hero__title       { font-size: 38px; line-height: 1.2; margin-bottom: 16px; }
   .about-hero__desc        { font-size: 16px; }
   .about-hero__actions     { flex-direction: column; align-items: flex-start; }
 
