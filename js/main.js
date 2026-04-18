@@ -28,34 +28,50 @@
   const toggle = document.getElementById('nav-toggle');
   const navMenu = document.querySelector('.nav-menu');
 
+  function closeNav() {
+    navMenu.classList.remove('open');
+    toggle.setAttribute('aria-expanded', 'false');
+    document.body.classList.remove('nav-open');
+    toggle.querySelectorAll('span').forEach(s => {
+      s.style.transform = '';
+      s.style.opacity  = '';
+    });
+  }
+
   if (toggle && navMenu) {
     toggle.addEventListener('click', () => {
       const isOpen = navMenu.classList.toggle('open');
       toggle.setAttribute('aria-expanded', String(isOpen));
+      document.body.classList.toggle('nav-open', isOpen);
 
-      // Animate hamburger lines
+      // Animate hamburger → ✕
       const spans = toggle.querySelectorAll('span');
       if (isOpen) {
         spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
-        spans[1].style.opacity = '0';
+        spans[1].style.opacity   = '0';
         spans[2].style.transform = 'rotate(-45deg) translate(5px, -5px)';
       } else {
         spans[0].style.transform = '';
-        spans[1].style.opacity = '';
+        spans[1].style.opacity   = '';
         spans[2].style.transform = '';
       }
     });
 
+    // Close when a nav link is tapped
+    navMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', closeNav);
+    });
+
     // Close on outside click
     document.addEventListener('click', (e) => {
-      if (!header.contains(e.target) && navMenu.classList.contains('open')) {
-        navMenu.classList.remove('open');
-        toggle.setAttribute('aria-expanded', 'false');
-        toggle.querySelectorAll('span').forEach(s => {
-          s.style.transform = '';
-          s.style.opacity = '';
-        });
+      if (header && !header.contains(e.target) && navMenu.classList.contains('open')) {
+        closeNav();
       }
+    });
+
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && navMenu.classList.contains('open')) closeNav();
     });
   }
 

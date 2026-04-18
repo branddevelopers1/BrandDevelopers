@@ -875,4 +875,213 @@ margin: 0px;
     width:initial}
 
 
+/* ════════════════════════════════════════════
+   SITE HEADER — layout, nav, mobile menu
+   ════════════════════════════════════════════ */
+
+.site-header {
+  background: #fff;
+  transition: background 0.3s, box-shadow 0.3s;
+}
+
+.site-header.scrolled {
+  background: rgba(255,255,255,0.97);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 1px 16px rgba(0,0,0,0.06);
+  border-bottom-color: transparent;
+}
+
+.site-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 72px;
+  gap: 32px;
+}
+
+/* ── Logo ── */
+.site-logo {
+  flex-shrink: 0;
+}
+.site-logo a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  font-weight: 700;
+  color: #333;
+}
+.site-logo img {
+  max-height: 48px;
+  width: auto;
+  display: block;
+}
+
+/* ── Desktop nav ── */
+.site-nav {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+.site-nav .nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.site-nav .nav-menu li {
+  position: relative;
+  padding: 0;
+}
+.site-nav .nav-menu > li > a {
+  display: block;
+  padding: 8px 14px;
+  color: #333;
+  text-decoration: none;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: background 0.2s, color 0.2s;
+  white-space: nowrap;
+}
+.site-nav .nav-menu > li > a:hover {
+  background: #f2f2f2;
+  color: #26B899;
+}
+
+/* ── Social icons ── */
+.nav-social {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-shrink: 0;
+}
+.nav-social a {
+  color: #555;
+  font-size: 1rem;
+  line-height: 1;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.nav-social a:hover {
+  color: #26B899;
+}
+
+/* ── Hamburger button — hidden on desktop ── */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 26px;
+  height: 18px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  flex-shrink: 0;
+  z-index: 1001;
+}
+.nav-toggle span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: #333;
+  border-radius: 2px;
+  transition: transform 0.3s cubic-bezier(0.4,0,0.2,1), opacity 0.2s;
+  transform-origin: center;
+}
+
+/* ════════════════════════════════════════════
+   MOBILE MENU  (≤ 900px)
+   ════════════════════════════════════════════ */
+@media (max-width: 900px) {
+
+  .site-header__inner {
+    height: 64px;
+  }
+
+  /* Hide social icons on mobile */
+  .nav-social {
+    display: none;
+  }
+
+  /* Show hamburger */
+  .nav-toggle {
+    display: flex;
+  }
+
+  /* Reset site-nav so it doesn't push layout */
+  .site-nav {
+    flex: none;
+  }
+
+  /* Mobile menu panel — slides in from right */
+  .site-nav .nav-menu {
+    position: fixed;
+    top: 64px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #fff;
+    z-index: 997;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    padding: 8px 24px 40px;
+    margin: 0;
+    gap: 0;
+    overflow-y: auto;
+    list-style: none;
+    /* Hidden off-screen by default */
+    transform: translateX(100%);
+    transition: transform 0.35s cubic-bezier(0.4,0,0.2,1);
+    box-shadow: -4px 0 24px rgba(0,0,0,0.08);
+    border-top: 1px solid #eee;
+  }
+
+  /* Open state */
+  .site-nav .nav-menu.open {
+    transform: translateX(0);
+  }
+
+  /* Nav items */
+  .site-nav .nav-menu li {
+    border-bottom: 1px solid #f0f0f0;
+    padding: 0;
+    width: 100%;
+  }
+  .site-nav .nav-menu li:last-child {
+    border-bottom: none;
+    padding-top: 16px;
+  }
+  .site-nav .nav-menu > li > a {
+    padding: 16px 8px;
+    font-size: 1rem;
+    border-radius: 0;
+    width: 100%;
+    display: block;
+    color: #333;
+  }
+  .site-nav .nav-menu > li > a:hover {
+    background: transparent;
+    color: #26B899;
+  }
+
+  /* Contact CTA pill — keep it styled on mobile */
+  .site-nav .nav-menu li:last-child > a {
+    border-radius: 100px !important;
+    text-align: center;
+    padding: 12px 24px !important;
+    display: block;
+  }
+
+  /* Prevent body scroll when menu is open */
+  body.nav-open {
+    overflow: hidden;
+  }
+}
+
+
 	
