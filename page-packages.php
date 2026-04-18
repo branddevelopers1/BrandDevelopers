@@ -11,7 +11,7 @@ get_header(); ?>
     <div class="container">
         <div class="page-hero__content" style="padding:120px 0 60px">
             <span class="small-head" style="color:rgba(255,255,255,0.5);display:block;margin-bottom:16px"><?php esc_html_e( 'Transparent Pricing', 'branddevelopers' ); ?></span>
-            <h1 style="color:#F9FAFB;font-size:72px;line-height:88px"><?php esc_html_e( 'Our Packages', 'branddevelopers' ); ?></h1>
+            <h1 style="color:#F9FAFB"><?php esc_html_e( 'Our Packages', 'branddevelopers' ); ?></h1>
             <p style="color:rgba(255,255,255,0.65);font-size:18px;line-height:28px;max-width:560px;margin-top:16px">
                 <?php esc_html_e( 'Choose the service that fits your needs. All packages can be customised — get in touch to discuss your project.', 'branddevelopers' ); ?>
             </p>
@@ -403,7 +403,7 @@ get_header(); ?>
 <!-- CUSTOM QUOTE BANNER -->
 <section style="background:var(--color-bg);padding:var(--space-xl) 0">
     <div class="container">
-        <div style="background:#fff;border-radius:var(--radius-xl);padding:var(--space-xl);display:grid;grid-template-columns:1fr auto;gap:var(--space-lg);align-items:center;box-shadow:0 8px 40px rgba(0,0,0,0.06)">
+        <div class="pkg-quote-banner">
             <div>
                 <span class="small-head" style="display:block;margin-bottom:12px"><?php esc_html_e( 'Need Something Custom?', 'branddevelopers' ); ?></span>
                 <h2 style="margin-bottom:12px"><?php esc_html_e( "Don't see what you're looking for?", 'branddevelopers' ); ?></h2>

@@ -31,7 +31,13 @@
   function closeNav() {
     navMenu.classList.remove('open');
     toggle.setAttribute('aria-expanded', 'false');
+    // Restore scroll position before unfreezing body (iOS body-freeze fix)
+    const savedTop = document.body.style.top;
+    document.body.style.top = '';
     document.body.classList.remove('nav-open');
+    if (savedTop) {
+      window.scrollTo(0, parseInt(savedTop) * -1);
+    }
     toggle.querySelectorAll('span').forEach(s => {
       s.style.transform = '';
       s.style.opacity  = '';
@@ -42,18 +48,18 @@
     toggle.addEventListener('click', () => {
       const isOpen = navMenu.classList.toggle('open');
       toggle.setAttribute('aria-expanded', String(isOpen));
-      document.body.classList.toggle('nav-open', isOpen);
 
       // Animate hamburger → ✕
       const spans = toggle.querySelectorAll('span');
       if (isOpen) {
+        // Save scroll offset and freeze body so iOS rubber-band scroll can't move the menu
+        document.body.style.top = `-${window.scrollY}px`;
+        document.body.classList.add('nav-open');
         spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
         spans[1].style.opacity   = '0';
         spans[2].style.transform = 'rotate(-45deg) translate(5px, -5px)';
       } else {
-        spans[0].style.transform = '';
-        spans[1].style.opacity   = '';
-        spans[2].style.transform = '';
+        closeNav();
       }
     });
 

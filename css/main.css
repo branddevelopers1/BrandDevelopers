@@ -1077,9 +1077,11 @@ margin: 0px;
     display: block;
   }
 
-  /* Prevent body scroll when menu is open */
+  /* Prevent body scroll when menu is open (iOS-safe body-freeze technique) */
   body.nav-open {
-    overflow: hidden;
+    position: fixed;
+    width: 100%;
+    overflow-y: scroll; /* keeps scrollbar width so layout doesn't shift */
   }
 }
 

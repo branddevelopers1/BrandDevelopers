@@ -12,7 +12,7 @@ get_header(); ?>
     <div class="container">
         <div class="page-hero__content" style="padding:120px 0 60px">
             <span class="small-head" style="color:rgba(255,255,255,0.5);display:block;margin-bottom:16px"><?php esc_html_e( 'What We Offer', 'branddevelopers' ); ?></span>
-            <h1 style="font-size:72px;line-height:88px"><?php esc_html_e( 'Services', 'branddevelopers' ); ?></h1>
+            <h1><?php esc_html_e( 'Services', 'branddevelopers' ); ?></h1>
         </div>
     </div>
 </section>
@@ -25,7 +25,7 @@ get_header(); ?>
             <h2><?php esc_html_e( 'Our', 'branddevelopers' ); ?> <span style="color:var(--color-primary)">Services</span><span style="color:#bbb">*</span></h2>
             <p style="max-width:540px;margin-top:12px"><?php esc_html_e( 'We combine creativity and strategy to build brands and digital experiences that stand out and perform.', 'branddevelopers' ); ?></p>
         </div>
-        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:var(--space-md);margin-top:var(--space-lg)">
+        <div class="svc-grid-4col">
             <?php
             $core_services = array(
                 array( 'icon' => 'fa-chess',      'title' => 'Product Strategy', 'desc' => 'Strategic planning to validate and launch product ideas fast.' ),
@@ -52,7 +52,7 @@ get_header(); ?>
 <!-- WEB DESIGN & DEVELOPMENT -->
 <section class="section section--bg">
     <div class="container">
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-xl);align-items:center">
+        <div class="svc-grid-2col">
             <div style="border-radius:var(--radius-xl);overflow:hidden;aspect-ratio:4/3;min-height:300px"><img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=800&q=80&fit=crop" alt="Web Design" style="width:100%;height:100%;object-fit:cover"></div>
             <div>
                 <span class="small-head"><?php esc_html_e( 'What We Do', 'branddevelopers' ); ?></span>
@@ -80,7 +80,7 @@ get_header(); ?>
 <!-- BRAND STRATEGY & DIGITAL GROWTH -->
 <section class="section">
     <div class="container">
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-xl);align-items:center">
+        <div class="svc-grid-2col">
             <div>
                 <span class="small-head"><?php esc_html_e( 'Digital Growth', 'branddevelopers' ); ?></span>
                 <h2 style="margin:16px 0 20px"><?php esc_html_e( 'Brand Strategy & Digital Growth', 'branddevelopers' ); ?></h2>
@@ -99,7 +99,7 @@ get_header(); ?>
 <!-- DARK FEATURE SECTION -->
 <section class="section section--dark">
     <div class="container">
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-xl);align-items:center">
+        <div class="svc-grid-2col">
             <div>
                 <span class="small-head" style="color:rgba(255,255,255,0.5)"><?php esc_html_e( 'Our Approach', 'branddevelopers' ); ?></span>
                 <h2 class="text-white" style="margin:16px 0 20px"><?php esc_html_e( 'Crafting Digital Experiences', 'branddevelopers' ); ?></h2>

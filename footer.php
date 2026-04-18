@@ -68,16 +68,6 @@
                 </ul>
             </div>
 
-            <!-- Address -->
-            <div class="footer-col">
-                <h5><?php _e( 'Address', 'branddevelopers' ); ?></h5>
-                <ul>
-                    <li style="color:rgba(255,255,255,0.45);font-size:14px"><?php echo esc_html( bd_get( 'bd_phone' ) ); ?></li>
-                    <li style="color:rgba(255,255,255,0.45);font-size:14px"><?php echo esc_html( bd_get( 'bd_email' ) ); ?></li>
-                    <li style="color:rgba(255,255,255,0.45);font-size:14px"><?php echo esc_html( bd_get( 'bd_address' ) ); ?></li>
-                </ul>
-            </div>
-
         </div>
 
         <!-- Footer bottom -->

@@ -1118,6 +1118,33 @@ p { font-size: var(--fs-body); line-height: var(--lh-body); color: var(--color-g
   .about-hero__actions .btn { width: 100%; justify-content: center; }
 }
 
+/* ============================================================
+   SERVICES PAGE — responsive grids
+   ============================================================ */
+.svc-grid-4col {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-md);
+  margin-top: var(--space-lg);
+}
+.svc-grid-2col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-xl);
+  align-items: center;
+}
+
+@media (max-width: 1024px) {
+  .svc-grid-4col { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+  .svc-grid-4col { grid-template-columns: 1fr; }
+  .svc-grid-2col {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+}
+
 /* Case study grid rows */
 .cs-grid-row { display: grid; gap: var(--space-md); }
 .cs-grid-row--2col { grid-template-columns: 1fr 1fr; }
@@ -1365,4 +1392,21 @@ p { font-size: var(--fs-body); line-height: var(--lh-body); color: var(--color-g
   .portfolio-masonry { grid-template-columns: 1fr; }
   .contact-form__row { grid-template-columns: 1fr; }
   .packages-section-header { flex-direction: column; }
+}
+
+/* ── CUSTOM QUOTE BANNER ──────────────────────────────────── */
+.pkg-quote-banner {
+  background: #fff;
+  border-radius: var(--radius-xl);
+  padding: var(--space-xl);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: var(--space-lg);
+  align-items: center;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.06);
+}
+@media (max-width: 768px) {
+  .pkg-quote-banner {
+    grid-template-columns: 1fr;
+  }
 }
