@@ -79,6 +79,11 @@
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && navMenu.classList.contains('open')) closeNav();
     });
+
+    // Block touchmove on the menu so swipe gestures can't reach the frozen body underneath (iOS fix)
+    navMenu.addEventListener('touchmove', (e) => {
+      e.preventDefault();
+    }, { passive: false });
   }
 
   /* ============================================================

@@ -1032,7 +1032,8 @@ margin: 0px;
     padding: 8px 24px 40px;
     margin: 0;
     gap: 0;
-    overflow-y: auto;
+    overflow-y: hidden;         /* items always fit; hidden stops rubber-band scroll */
+    overscroll-behavior: none;  /* belt-and-suspenders: no scroll chain to body */
     list-style: none;
     /* Hidden off-screen by default */
     transform: translateX(100%);
@@ -1081,7 +1082,6 @@ margin: 0px;
   body.nav-open {
     position: fixed;
     width: 100%;
-    overflow-y: scroll; /* keeps scrollbar width so layout doesn't shift */
   }
 }
 
