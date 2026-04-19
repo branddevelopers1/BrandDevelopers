@@ -628,3 +628,10 @@ function bd_handle_contact_form() {
 }
 add_action( 'admin_post_bd_contact_submit',        'bd_handle_contact_form' );
 add_action( 'admin_post_nopriv_bd_contact_submit', 'bd_handle_contact_form' );
+
+/* ── FAVICON ──────────────────────────────────────────────── */
+function bd_favicon() {
+    if ( has_site_icon() ) return; // WordPress Customizer icon takes priority
+    echo '<link rel="icon" href="' . esc_url( get_template_directory_uri() . '/favicon.svg' ) . '" type="image/svg+xml">' . "\n";
+}
+add_action( 'wp_head', 'bd_favicon', 1 );
