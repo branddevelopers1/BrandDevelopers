@@ -19,7 +19,7 @@ get_header(); ?>
             </p>
             <div class="about-hero__actions">
                 <a href="<?php echo esc_url( home_url( '/contact' ) ); ?>" class="btn btn--primary"><?php esc_html_e( 'Get a Free Audit', 'branddevelopers' ); ?></a>
-                <a href="#" class="btn btn--outline"><?php esc_html_e( 'Download CV', 'branddevelopers' ); ?></a>
+                <a href="https://branddevelopers.ca/wp-content/uploads/2026/04/BrandDevelopers-AboutUs.pdf" class="btn btn--outline" target="_blank" rel="noopener noreferrer"><?php esc_html_e( 'Download PDF', 'branddevelopers' ); ?></a>
             </div>
         </div>
     </div>
