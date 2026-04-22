@@ -25,7 +25,7 @@
                 <a href="<?php echo esc_url( home_url( '/contact' ) ); ?>" class="btn btn--primary">
                     <?php _e( 'Get a Free Audit', 'branddevelopers' ); ?>
                 </a>
-                <a href="<?php echo esc_url( home_url( '/about' ) ); ?>" class="btn btn--outline">
+                <a href="<?php echo esc_url( home_url( '/about-us' ) ); ?>" class="btn btn--outline">
                     <?php _e( 'Learn More', 'branddevelopers' ); ?>
                 </a>
             </div>
@@ -73,7 +73,7 @@
         <div class="portfolio-header">
             <div>
                 <span class="small-head"><?php _e( 'Recent Work Highlights', 'branddevelopers' ); ?></span>
-                <h2><?php _e( 'Real Projects That Ignite Business', 'branddevelopers' ); ?> <span style="color:var(--color-primary)">Growth</span><span style="color:#999">*</span></h2>
+                <h2><?php _e( 'Real Projects That Ignite Business', 'branddevelopers' ); ?> <span style="color:var(--color-primary)">Growth</span></h2>
             </div>
             <a href="<?php echo esc_url( get_post_type_archive_link( 'case_study' ) ); ?>" class="btn btn--outline-dark">
                 <?php _e( 'See all projects', 'branddevelopers' ); ?>
@@ -226,8 +226,11 @@
 <?php bd_render_workflow(); ?>
 
 <!-- ============================================================
-     INSIGHTS / BLOG
+     INSIGHTS / BLOG — only shown when published posts exist
      ============================================================ -->
+<?php
+$bd_blog_posts = new WP_Query( array( 'post_type' => 'post', 'posts_per_page' => 3, 'post_status' => 'publish' ) );
+if ( $bd_blog_posts->have_posts() ) : ?>
 <section class="section section--bg">
     <div class="container">
         <div class="portfolio-header" style="margin-bottom:var(--space-lg)">
@@ -238,10 +241,7 @@
             <a href="<?php echo esc_url( home_url( '/blog' ) ); ?>" class="btn btn--outline-dark"><?php _e( 'View all blogs', 'branddevelopers' ); ?></a>
         </div>
         <div class="blog-grid">
-            <?php
-            $posts = new WP_Query( array( 'post_type' => 'post', 'posts_per_page' => 3, 'post_status' => 'publish' ) );
-            if ( $posts->have_posts() ) :
-                while ( $posts->have_posts() ) : $posts->the_post(); ?>
+            <?php while ( $bd_blog_posts->have_posts() ) : $bd_blog_posts->the_post(); ?>
             <div class="blog-card fade-up">
                 <div class="blog-card__image">
                     <?php if ( has_post_thumbnail() ) : the_post_thumbnail( 'bd-blog' );
@@ -254,36 +254,12 @@
                     <a href="<?php the_permalink(); ?>" class="blog-card__link"><?php _e( 'View details', 'branddevelopers' ); ?> →</a>
                 </div>
             </div>
-            <?php    endwhile;
-                wp_reset_postdata();
-            else :
-                $blog_imgs = array(
-                    'https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=800&q=80&fit=crop',
-                    'https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?w=800&q=80&fit=crop',
-                    'https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=800&q=80&fit=crop',
-                );
-                $blog_titles = array(
-                    'How We Build Brands That Last',
-                    'The Strategy Behind Great Web Design',
-                    'SEO in 2025: What Actually Works',
-                );
-                for ( $i = 0; $i < 3; $i++ ) : ?>
-            <div class="blog-card fade-up">
-                <div class="blog-card__image">
-                    <img src="<?php echo esc_url( $blog_imgs[ $i ] ); ?>" alt="Blog post" style="width:100%;height:100%;object-fit:cover">
-                </div>
-                <div class="blog-card__body">
-                    <p class="blog-card__date">Coming Soon</p>
-                    <h4 class="blog-card__title"><?php echo esc_html( $blog_titles[ $i ] ); ?></h4>
-                    <p class="blog-card__excerpt"><?php _e( 'Insights, strategies and ideas from the Brand Developers team.', 'branddevelopers' ); ?></p>
-                    <a href="<?php echo esc_url( home_url( '/blog' ) ); ?>" class="blog-card__link"><?php _e( 'View all blogs', 'branddevelopers' ); ?> →</a>
-                </div>
-            </div>
-            <?php    endfor;
-            endif; ?>
+            <?php endwhile;
+            wp_reset_postdata(); ?>
         </div>
     </div>
 </section>
+<?php endif; ?>
 
 <!-- ============================================================
      TEAM — hidden

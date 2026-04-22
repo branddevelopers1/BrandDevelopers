@@ -403,10 +403,10 @@ function bd_get_testimonials( $count = 3 ) {
  */
 function bd_render_workflow( $dark = true ) {
     $steps = [
-        [ 'num' => '01', 'title' => 'Discover', 'sub' => 'We immerse ourselves in your brand\'s story.', 'desc' => 'We begin by exploring your vision, goals, and audience. This helps us uncover the insights that shape everything we create.', 'link' => 'Start with Discovery' ],
-        [ 'num' => '02', 'title' => 'Create',   'sub' => 'We turn insight into intelligent, design-led solutions.', 'desc' => 'Using what we\'ve learned, we outline a focused plan — from messaging to moodboards — that sets the creative direction.', 'link' => 'Explore Our Designs' ],
-        [ 'num' => '03', 'title' => 'Launch',   'sub' => 'We deliver refined digital experiences built to perform.', 'desc' => 'Here, we shape bold, thoughtful designs that reflect your brand\'s personality and bring it to life across every touchpoint.', 'link' => 'View Strategy Samples' ],
-        [ 'num' => '04', 'title' => 'Grow',     'sub' => 'We refine, measure, and evolve with your goals.', 'desc' => 'We refine every detail, test thoroughly, and launch your project smoothly — then measure and iterate for ongoing growth.', 'link' => 'See Final Deliverables' ],
+        [ 'num' => '01', 'title' => 'Discover', 'sub' => 'We immerse ourselves in your brand\'s story.', 'desc' => 'We begin by exploring your vision, goals, and audience. This helps us uncover the insights that shape everything we create.', 'link' => 'Start the Process', 'url' => home_url( '/contact' ) ],
+        [ 'num' => '02', 'title' => 'Create',   'sub' => 'We turn insight into intelligent, design-led solutions.', 'desc' => 'Using what we\'ve learned, we outline a focused plan — from messaging to moodboards — that sets the creative direction.', 'link' => 'Explore Our Designs', 'url' => home_url( '/portfolio' ) ],
+        [ 'num' => '03', 'title' => 'Launch',   'sub' => 'We deliver refined digital experiences built to perform.', 'desc' => 'We test rigorously, refine every detail, and ship your project on time — fully optimized and ready to make an impact from day one.', 'link' => 'View Our Services', 'url' => home_url( '/services' ) ],
+        [ 'num' => '04', 'title' => 'Grow',     'sub' => 'We refine, measure, and evolve with your goals.', 'desc' => 'After launch we track performance, run iterative improvements, and scale what works — so your brand keeps compounding its results.', 'link' => 'See Case Studies', 'url' => home_url( '/case-studies' ) ],
     ];
     $section_class = $dark ? 'workflow-section' : 'workflow-section workflow-section--light';
     ?>
@@ -414,7 +414,7 @@ function bd_render_workflow( $dark = true ) {
         <div class="container">
             <div class="section-header section-header--center">
                 <span class="small-head" style="color:rgba(255,255,255,0.6)"><?php _e( 'How We Work', 'branddevelopers' ); ?></span>
-                <h2><?php _e( 'A Simple, Strategic Workflow', 'branddevelopers' ); ?><span style="color:#4d79cc">*</span></h2>
+                <h2><?php _e( 'A Simple, Strategic Workflow', 'branddevelopers' ); ?></h2>
             </div>
             <div class="workflow-steps">
                 <?php foreach ( $steps as $i => $step ) :
@@ -425,7 +425,7 @@ function bd_render_workflow( $dark = true ) {
                     <div class="workflow-step__num-badge"><?php echo esc_html( $step['num'] ); ?></div>
                     <h4><?php echo esc_html( $step['title'] ); ?> — <span style="font-weight:300;opacity:0.7"><?php echo esc_html( $step['sub'] ); ?></span></h4>
                     <p><?php echo esc_html( $step['desc'] ); ?></p>
-                    <a href="#" class="workflow-step__link"><?php echo esc_html( $step['link'] ); ?> →</a>
+                    <a href="<?php echo esc_url( $step['url'] ); ?>" class="workflow-step__link"><?php echo esc_html( $step['link'] ); ?> →</a>
                 </div>
                 <?php if ( $is_right && $i < count($steps) - 1 ) : ?>
                 <div class="workflow-connector">—</div>
@@ -448,7 +448,7 @@ function bd_render_team( $show_link = true ) {
             <div class="team-header">
                 <div>
                     <span class="small-head" style="color:rgba(255,255,255,0.5)"><?php _e( 'Meet the Makers', 'branddevelopers' ); ?></span>
-                    <h2 class="text-white"><?php _e( 'Meet the Team Building the Future', 'branddevelopers' ); ?><span style="color:#4d79cc">*</span></h2>
+                    <h2 class="text-white"><?php _e( 'Meet the Team Building the Future', 'branddevelopers' ); ?></h2>
                 </div>
                 <?php if ( $show_link ) : ?>
                 <a href="<?php echo esc_url( get_post_type_archive_link( 'team_member' ) ); ?>" class="btn btn--outline"><?php _e( 'View all members', 'branddevelopers' ); ?></a>
@@ -529,8 +529,8 @@ function bd_render_newsletter() {
  * Render CTA section
  */
 function bd_render_cta( $title = '', $desc = '' ) {
-    $title = $title ?: __( 'Ready to Go', 'branddevelopers' );
-    $desc  = $desc  ?: __( "I've designed for tech startups, SaaS platforms, healthcare, finance, and creative agencies. Each project is crafted with purpose.", 'branddevelopers' );
+    $title = $title ?: __( 'Ready to Build Something Great?', 'branddevelopers' );
+    $desc  = $desc  ?: __( "We've partnered with tech startups, SaaS platforms, healthcare brands, finance companies, and creative agencies across Toronto and beyond. Every project we take on is built with intention — your brand, your vision, crafted with purpose.", 'branddevelopers' );
     ?>
     <section class="cta-section">
         <div class="container">

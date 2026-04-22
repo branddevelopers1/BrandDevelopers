@@ -19,7 +19,7 @@
                 <p><?php bloginfo( 'description' ); ?></p>
                 <div class="footer-contact" style="margin-top:24px">
                     <p><i class="fas fa-phone" style="margin-right:8px;color:var(--color-primary-light)"></i> +1 (416) 846-6483</p>
-                    <p><i class="fas fa-envelope" style="margin-right:8px;color:var(--color-primary-light)"></i> info@brandevelopers.ca</p>
+                    <p><i class="fas fa-envelope" style="margin-right:8px;color:var(--color-primary-light)"></i> info@branddevelopers.ca</p>
                     <p><i class="fas fa-map-marker-alt" style="margin-right:8px;color:var(--color-primary-light)"></i> Toronto, Ontario, Canada</p>
                 </div>
             </div>
