@@ -30,7 +30,6 @@
                 <ul>
                     <li><a href="<?php echo esc_url( home_url( '/about-us' ) ); ?>"><?php _e( 'About', 'branddevelopers' ); ?></a></li>
                     <li><a href="<?php echo esc_url( home_url( '/about-us#process' ) ); ?>"><?php _e( 'Our Process', 'branddevelopers' ); ?></a></li>
-                    <li><a href="<?php echo esc_url( home_url( '/about-us#team' ) ); ?>"><?php _e( 'Team', 'branddevelopers' ); ?></a></li>
                     <li><a href="<?php echo esc_url( home_url( '/packages' ) ); ?>"><?php _e( 'Packages', 'branddevelopers' ); ?></a></li>
                     <li><a href="<?php echo esc_url( home_url( '/careers' ) ); ?>"><?php _e( 'Careers', 'branddevelopers' ); ?></a></li>
                 </ul>
@@ -54,7 +53,6 @@
                 <ul>
                     <li><a href="<?php echo esc_url( home_url( '/portfolio' ) ); ?>"><?php _e( 'Portfolio', 'branddevelopers' ); ?></a></li>
                     <li><a href="<?php echo esc_url( get_post_type_archive_link( 'case_study' ) ); ?>"><?php _e( 'Case Studies', 'branddevelopers' ); ?></a></li>
-                    <li><a href="<?php echo esc_url( home_url( '/blog' ) ); ?>"><?php _e( 'Blog', 'branddevelopers' ); ?></a></li>
                 </ul>
             </div>
 
