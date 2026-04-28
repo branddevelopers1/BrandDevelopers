@@ -1,10 +1,12 @@
 <?php get_header(); ?>
 
 <!-- ============================================================
-     HERO
+     HERO — v2: Editorial / Sharp / Conversion-focused
      ============================================================ -->
-<section class="hero">
-    <div class="hero__bg"></div>
+<section class="hero hero--v2">
+    <div class="hero__grid-lines" aria-hidden="true"></div>
+    <div class="hero__accent-bar" aria-hidden="true"></div>
+
     <?php
     $hero_img = get_theme_mod( 'bd_hero_image' );
     if ( $hero_img ) : ?>
@@ -12,22 +14,107 @@
     <?php endif; ?>
 
     <div class="container">
-        <div class="hero__content">
-            <p class="hero__subtitle"><?php _e( 'Boutique Branding &amp; Web Development', 'branddevelopers' ); ?></p>
-            <h1 class="hero__title">
-                <?php _e( 'Where Branding', 'branddevelopers' ); ?><br>
-                <?php _e( 'Meets Development', 'branddevelopers' ); ?>
-            </h1>
-            <p class="hero__desc">
-                <?php _e( 'At Brand Developers, we craft digital experiences that merge creativity and technology — brands and websites that not only look exceptional but perform effortlessly.', 'branddevelopers' ); ?>
-            </p>
-            <div class="hero__actions">
-                <a href="<?php echo esc_url( home_url( '/contact' ) ); ?>" class="btn btn--primary">
-                    <?php _e( 'Get a Free Audit', 'branddevelopers' ); ?>
-                </a>
-                <a href="<?php echo esc_url( home_url( '/about-us' ) ); ?>" class="btn btn--outline">
-                    <?php _e( 'Learn More', 'branddevelopers' ); ?>
-                </a>
+        <div class="hero--v2__body">
+
+            <!-- LEFT: Headline + CTA -->
+            <div class="hero--v2__left">
+                <p class="hero__eyebrow">
+                    <span class="hero__eyebrow-dot" aria-hidden="true"></span>
+                    <?php _e( 'Toronto-based &middot; Est. 2017', 'branddevelopers' ); ?>
+                </p>
+                <h1 class="hero__title hero__title--v2">
+                    <?php _e( 'Your brand', 'branddevelopers' ); ?><br>
+                    <span class="hero__title-accent"><?php _e( 'closes', 'branddevelopers' ); ?></span>
+                    <span class="hero__title-stroke"><?php _e( 'deals.', 'branddevelopers' ); ?></span>
+                </h1>
+                <p class="hero__desc hero__desc--v2">
+                    <?php _e( 'We build brands that do the heavy lifting — from identity and web to growth marketing. Design that converts, not just impresses.', 'branddevelopers' ); ?>
+                </p>
+                <div class="hero__actions hero__actions--v2">
+                    <a href="<?php echo esc_url( get_post_type_archive_link( 'case_study' ) ); ?>" class="btn btn--primary btn--sharp">
+                        <?php _e( 'See our work', 'branddevelopers' ); ?>
+                    </a>
+                    <a href="<?php echo esc_url( home_url( '/contact' ) ); ?>" class="btn btn--ghost">
+                        <span class="btn__arrow" aria-hidden="true"></span>
+                        <?php _e( 'Talk to us', 'branddevelopers' ); ?>
+                    </a>
+                </div>
+            </div>
+
+            <!-- RIGHT: Services mini-grid -->
+            <div class="hero--v2__right">
+                <p class="hero__services-label"><?php _e( 'What we do', 'branddevelopers' ); ?></p>
+                <div class="hero__services-grid">
+                    <a href="<?php echo esc_url( home_url( '/services' ) ); ?>" class="hero__service-item hero__service-item--featured">
+                        <span class="hero__service-num">01</span>
+                        <span class="hero__service-name"><?php _e( 'Brand Identity', 'branddevelopers' ); ?></span>
+                        <span class="hero__service-desc"><?php _e( 'Logo, visual systems &amp; guidelines', 'branddevelopers' ); ?></span>
+                        <span class="hero__service-arrow" aria-hidden="true"></span>
+                    </a>
+                    <a href="<?php echo esc_url( home_url( '/services' ) ); ?>" class="hero__service-item">
+                        <span class="hero__service-num">02</span>
+                        <span class="hero__service-name"><?php _e( 'Web Design', 'branddevelopers' ); ?></span>
+                        <span class="hero__service-desc"><?php _e( 'Conversion-first sites that rank &amp; sell', 'branddevelopers' ); ?></span>
+                        <span class="hero__service-arrow" aria-hidden="true"></span>
+                    </a>
+                    <a href="<?php echo esc_url( home_url( '/services' ) ); ?>" class="hero__service-item">
+                        <span class="hero__service-num">03</span>
+                        <span class="hero__service-name"><?php _e( 'Digital Marketing', 'branddevelopers' ); ?></span>
+                        <span class="hero__service-desc"><?php _e( 'Social, ads &amp; campaigns that perform', 'branddevelopers' ); ?></span>
+                        <span class="hero__service-arrow" aria-hidden="true"></span>
+                    </a>
+                    <a href="<?php echo esc_url( home_url( '/services' ) ); ?>" class="hero__service-item">
+                        <span class="hero__service-num">04</span>
+                        <span class="hero__service-name"><?php _e( 'App Development', 'branddevelopers' ); ?></span>
+                        <span class="hero__service-desc"><?php _e( 'Custom apps your audience will love', 'branddevelopers' ); ?></span>
+                        <span class="hero__service-arrow" aria-hidden="true"></span>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Scrolling ticker -->
+    <div class="hero__ticker" aria-hidden="true">
+        <div class="hero__ticker-inner">
+            <?php
+            $ticker_items = array(
+                'Brand Strategy', 'Web Development', 'Visual Identity',
+                'Digital Marketing', 'E-Commerce', 'App Development',
+                'Brand Strategy', 'Web Development', 'Visual Identity',
+                'Digital Marketing', 'E-Commerce', 'App Development',
+            );
+            foreach ( $ticker_items as $item ) : ?>
+            <span class="hero__ticker-item"><?php echo esc_html( $item ); ?></span>
+            <span class="hero__ticker-sep">&middot;</span>
+            <?php endforeach; ?>
+        </div>
+    </div>
+
+    <!-- Stats bar -->
+    <div class="hero__stats">
+        <div class="container">
+            <div class="hero__stats-inner">
+                <div class="hero__stat">
+                    <span class="hero__stat-num">7+</span>
+                    <span class="hero__stat-label"><?php _e( 'Years in market', 'branddevelopers' ); ?></span>
+                </div>
+                <div class="hero__stat-divider" aria-hidden="true"></div>
+                <div class="hero__stat">
+                    <span class="hero__stat-num">120+</span>
+                    <span class="hero__stat-label"><?php _e( 'Brands built', 'branddevelopers' ); ?></span>
+                </div>
+                <div class="hero__stat-divider" aria-hidden="true"></div>
+                <div class="hero__stat">
+                    <span class="hero__stat-num">98%</span>
+                    <span class="hero__stat-label"><?php _e( 'Client retention', 'branddevelopers' ); ?></span>
+                </div>
+                <div class="hero__stat-divider" aria-hidden="true"></div>
+                <div class="hero__stat">
+                    <span class="hero__stat-num">CA</span>
+                    <span class="hero__stat-label"><?php _e( 'Toronto-based', 'branddevelopers' ); ?></span>
+                </div>
             </div>
         </div>
     </div>
