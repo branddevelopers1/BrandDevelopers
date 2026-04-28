@@ -211,6 +211,7 @@ function branddevelopers_case_study_meta_cb( $post ) {
     $client   = get_post_meta( $post->ID, '_bd_client', true );
     $service  = get_post_meta( $post->ID, '_bd_service', true );
     $year     = get_post_meta( $post->ID, '_bd_year', true );
+    $url      = get_post_meta( $post->ID, '_bd_url', true );
     $featured = get_post_meta( $post->ID, '_bd_featured', true );
     ?>
     <table class="form-table">
@@ -220,6 +221,8 @@ function branddevelopers_case_study_meta_cb( $post ) {
             <td><input type="text" name="bd_service" value="<?php echo esc_attr( $service ); ?>" class="regular-text" placeholder="e.g. Brand Strategy & Creative"></td></tr>
         <tr><th><label><?php _e( 'Year', 'branddevelopers' ); ?></label></th>
             <td><input type="text" name="bd_year" value="<?php echo esc_attr( $year ); ?>" class="small-text"></td></tr>
+        <tr><th><label><?php _e( 'Live URL', 'branddevelopers' ); ?></label></th>
+            <td><input type="url" name="bd_url" value="<?php echo esc_attr( $url ); ?>" class="regular-text" placeholder="https://"></td></tr>
         <tr><th><label><?php _e( 'Featured', 'branddevelopers' ); ?></label></th>
             <td><input type="checkbox" name="bd_featured" value="1" <?php checked( $featured, '1' ); ?>> <?php _e( 'Show in featured position', 'branddevelopers' ); ?></td></tr>
     </table>
@@ -270,6 +273,7 @@ function branddevelopers_save_meta( $post_id ) {
             update_post_meta( $post_id, '_bd_client',   sanitize_text_field( $_POST['bd_client'] ?? '' ) );
             update_post_meta( $post_id, '_bd_service',  sanitize_text_field( $_POST['bd_service'] ?? '' ) );
             update_post_meta( $post_id, '_bd_year',     sanitize_text_field( $_POST['bd_year'] ?? '' ) );
+            update_post_meta( $post_id, '_bd_url',      esc_url_raw( $_POST['bd_url'] ?? '' ) );
             update_post_meta( $post_id, '_bd_featured', isset( $_POST['bd_featured'] ) ? '1' : '' );
         }
     }
