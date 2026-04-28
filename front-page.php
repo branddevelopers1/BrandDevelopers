@@ -4,6 +4,7 @@
      HERO — v2: Editorial / Sharp / Conversion-focused
      ============================================================ -->
 <section class="hero hero--v2">
+    <div class="hero__bg" aria-hidden="true"></div>
     <div class="hero__grid-lines" aria-hidden="true"></div>
     <div class="hero__accent-bar" aria-hidden="true"></div>
 

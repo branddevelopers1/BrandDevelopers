@@ -425,7 +425,6 @@ function bd_render_workflow( $dark = true ) {
                     $is_right = ( $i % 2 !== 0 );
                 ?>
                 <div class="workflow-step <?php echo $is_right ? 'workflow-step--right' : ''; ?> fade-up">
-                    <div class="workflow-step__number"><?php echo esc_html( $step['num'] ); ?></div>
                     <div class="workflow-step__num-badge"><?php echo esc_html( $step['num'] ); ?></div>
                     <h4><?php echo esc_html( $step['title'] ); ?> — <span style="font-weight:300;opacity:0.7"><?php echo esc_html( $step['sub'] ); ?></span></h4>
                     <p><?php echo esc_html( $step['desc'] ); ?></p>
@@ -516,8 +515,8 @@ function bd_render_newsletter() {
         <div class="container">
             <div class="newsletter-inner">
                 <div>
-                    <h3><?php _e( 'Subscribe for the latest news!', 'branddevelopers' ); ?></h3>
-                    <p><?php _e( 'Get insights, strategies and inspiration straight to your inbox.', 'branddevelopers' ); ?></p>
+                    <h3><?php _e( 'Stay ahead of the brand curve.', 'branddevelopers' ); ?></h3>
+                    <p><?php _e( 'Insights, strategies and case studies — straight to your inbox.', 'branddevelopers' ); ?></p>
                 </div>
                 <form class="newsletter-form" id="bd-newsletter-form">
                     <input type="email" placeholder="<?php esc_attr_e( 'Enter your email address', 'branddevelopers' ); ?>" required>
@@ -533,8 +532,8 @@ function bd_render_newsletter() {
  * Render CTA section
  */
 function bd_render_cta( $title = '', $desc = '' ) {
-    $title = $title ?: __( 'Ready to Build Something Great?', 'branddevelopers' );
-    $desc  = $desc  ?: __( "We've partnered with tech startups, SaaS platforms, healthcare brands, finance companies, and creative agencies across Toronto and beyond. Every project we take on is built with intention — your brand, your vision, crafted with purpose.", 'branddevelopers' );
+    $title = $title ?: __( 'Your next brand move starts here.', 'branddevelopers' );
+    $desc  = $desc  ?: __( "Whether you're launching, rebranding, or scaling — we build the brand infrastructure that gets you there. Toronto's boutique agency for brands that mean business.", 'branddevelopers' );
     ?>
     <section class="cta-section">
         <div class="container">

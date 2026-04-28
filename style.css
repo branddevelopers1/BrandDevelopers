@@ -291,17 +291,30 @@ p { font-size: var(--fs-body); line-height: var(--lh-body); color: var(--color-g
 .hero {
   min-height: 100vh;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  justify-content: flex-start;
   position: relative;
   overflow: hidden;
   background: var(--color-dark-bg);
-  padding-top: 100px;
+  padding-top: 80px;
 }
 .hero__bg {
   position: absolute;
   inset: 0;
   background: linear-gradient(135deg, #0d0d0d 0%, #001a66 60%, #003399 100%);
   opacity: 0.85;
+}
+/* v2 hero: kill the gradient, use pure dark */
+.hero--v2 .hero__bg {
+  background: #0d0d0d;
+  opacity: 1;
+}
+/* v2 hero: body fills available space, content aligns to bottom of upper half */
+.hero--v2 {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 .hero__bg-image {
   position: absolute;
@@ -1174,12 +1187,6 @@ p { font-size: var(--fs-body); line-height: var(--lh-body); color: var(--color-g
   pointer-events: none; z-index: 1;
 }
 
-/* Override default hero background to pure dark */
-.hero--v2 .hero__bg {
-  background: var(--color-dark-bg);
-  opacity: 1;
-}
-
 /* 2-col layout inside hero */
 .hero--v2__body {
   position: relative; z-index: 2;
@@ -1187,7 +1194,8 @@ p { font-size: var(--fs-body); line-height: var(--lh-body); color: var(--color-g
   grid-template-columns: 1fr 1fr;
   gap: var(--space-lg);
   align-items: end;
-  padding: 60px 0 0;
+  padding: 48px 0 0;
+  flex: 1;
 }
 
 /* Eyebrow label with pulsing dot */
