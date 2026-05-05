@@ -2322,3 +2322,156 @@ p { font-size: var(--fs-body); line-height: var(--lh-body); color: var(--color-g
   .port-hero__stat-divider { display: none; }
   .port-group-row__grid { grid-template-columns: 1fr 1fr; }
 }
+
+/* ============================================================
+   PORTFOLIO CARDS — masonry grid with dark preview cards
+   ============================================================ */
+.port-grid-section {
+  background: #04060f;
+  padding: 60px 0 100px;
+}
+.port-masonry {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 8px;
+}
+
+/* Card */
+.port-card {
+  border-radius: 16px;
+  overflow: hidden;
+  background: #0a0e24;
+  border: 1px solid rgba(255,255,255,.07);
+  transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+  opacity: 0;
+  transform: translateY(24px);
+}
+.port-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity .6s ease, transform .6s ease, box-shadow .3s ease, border-color .3s ease;
+}
+.port-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(45,78,245,.4);
+  box-shadow: 0 24px 60px rgba(0,0,0,.6), 0 0 40px rgba(45,78,245,.1);
+}
+
+/* Preview area */
+.port-card__preview {
+  position: relative;
+  height: 240px;
+  overflow: hidden;
+}
+.port-card__preview > div {
+  width: 100%;
+  height: 100%;
+}
+.port-card__img {
+  width: 100%; height: 100%;
+  object-fit: cover; display: block;
+  transition: transform .5s ease;
+}
+.port-card:hover .port-card__img { transform: scale(1.05); }
+.port-card__placeholder {
+  width: 100%; height: 100%;
+  display: flex; align-items: center; justify-content: center;
+  background: #0d1040;
+  color: rgba(255,255,255,.2);
+  font-size: 13px; letter-spacing: .08em;
+}
+
+/* Hover overlay */
+.port-card__overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top,
+    rgba(4,6,15,.97) 0%,
+    rgba(4,6,15,.7) 50%,
+    rgba(4,6,15,.2) 100%);
+  display: flex; flex-direction: column;
+  justify-content: flex-end;
+  padding: 22px;
+  opacity: 0;
+  transition: opacity .35s ease;
+}
+.port-card:hover .port-card__overlay { opacity: 1; }
+
+.port-card__cat {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px; letter-spacing: .2em; text-transform: uppercase;
+  color: #2d4ef5; margin-bottom: 6px;
+  transform: translateY(8px);
+  transition: transform .35s ease;
+}
+.port-card:hover .port-card__cat { transform: translateY(0); }
+
+.port-card__title {
+  font-family: var(--font-heading);
+  font-size: 22px; letter-spacing: .03em;
+  color: #f9fafb; margin-bottom: 10px;
+  transform: translateY(8px);
+  transition: transform .35s ease .04s;
+}
+.port-card:hover .port-card__title { transform: translateY(0); }
+
+.port-card__tags {
+  display: flex; gap: 6px; flex-wrap: wrap;
+  margin-bottom: 14px;
+  transform: translateY(8px);
+  transition: transform .35s ease .08s;
+}
+.port-card:hover .port-card__tags { transform: translateY(0); }
+
+.port-card__tag {
+  font-size: 9px; letter-spacing: .1em; text-transform: uppercase;
+  padding: 4px 10px; border-radius: 40px;
+  border: 1px solid rgba(45,78,245,.35);
+  color: rgba(255,255,255,.55);
+}
+
+.port-card__btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 11px; font-weight: 600; letter-spacing: .06em;
+  padding: 9px 20px; border-radius: 40px;
+  background: #2d4ef5; color: #fff;
+  text-decoration: none; border: none;
+  width: fit-content;
+  transform: translateY(8px);
+  transition: transform .35s ease .12s, background .2s;
+}
+.port-card:hover .port-card__btn { transform: translateY(0); }
+.port-card__btn:hover { background: #4d6bff; color: #fff; }
+.port-card__btn--ghost {
+  background: transparent;
+  border: 1.5px solid rgba(255,255,255,.2);
+  color: rgba(255,255,255,.6);
+  margin-left: 8px;
+}
+.port-card__btn--ghost:hover { border-color: #2d4ef5; color: #fff; background: rgba(45,78,245,.1); }
+
+/* Card body (always visible label + title) */
+.port-card__body {
+  padding: 16px 20px 20px;
+  border-top: 1px solid rgba(255,255,255,.06);
+}
+.port-card__label {
+  display: block;
+  font-family: 'DM Mono', monospace;
+  font-size: 9px; letter-spacing: .2em; text-transform: uppercase;
+  color: #2d4ef5; margin-bottom: 6px;
+}
+.port-card__name {
+  font-family: var(--font-heading);
+  font-size: 17px; color: rgba(255,255,255,.8);
+  letter-spacing: .02em;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .port-masonry { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 640px) {
+  .port-masonry { grid-template-columns: 1fr; }
+  .port-card__preview { height: 200px; }
+}
