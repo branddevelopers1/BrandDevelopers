@@ -277,3 +277,74 @@
         });
     });
 })();
+
+/* ============================================================
+   PORTFOLIO PAGE — v2 JS
+   ============================================================ */
+(function () {
+  'use strict';
+
+  /* ── Filter buttons ── */
+  var filterWrap = document.getElementById('portfolio-filter');
+  if (filterWrap) {
+    filterWrap.addEventListener('click', function (e) {
+      var btn = e.target.closest('.port-filter__btn');
+      if (!btn) return;
+
+      // Update active button
+      filterWrap.querySelectorAll('.port-filter__btn').forEach(function (b) {
+        b.classList.remove('port-filter__btn--active');
+      });
+      btn.classList.add('port-filter__btn--active');
+
+      var filter = btn.dataset.filter;
+      var rows   = document.querySelectorAll('.port-row');
+
+      rows.forEach(function (row, i) {
+        var cat  = row.dataset.category || '';
+        var show = (filter === 'all' || cat === filter);
+
+        if (show) {
+          row.style.display = '';
+          // Stagger re-reveal
+          setTimeout(function () {
+            row.classList.add('visible');
+          }, i * 80);
+        } else {
+          row.classList.remove('visible');
+          setTimeout(function () {
+            row.style.display = 'none';
+          }, 350);
+        }
+      });
+    });
+  }
+
+  /* ── Scroll-reveal for port-rows ── */
+  var revealObserver = new IntersectionObserver(
+    function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.12, rootMargin: '0px 0px -60px 0px' }
+  );
+
+  document.querySelectorAll('.fade-in-up').forEach(function (el) {
+    revealObserver.observe(el);
+  });
+
+  /* ── Sticky filter active state highlight on scroll ── */
+  var filterBar = document.querySelector('.port-filter-wrap');
+  if (filterBar) {
+    window.addEventListener('scroll', function () {
+      filterBar.style.boxShadow = window.scrollY > 100
+        ? '0 4px 30px rgba(0,0,0,0.5)'
+        : 'none';
+    }, { passive: true });
+  }
+
+})();
