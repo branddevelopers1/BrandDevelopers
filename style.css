@@ -2550,3 +2550,57 @@ p { font-size: var(--fs-body); line-height: var(--lh-body); color: var(--color-g
   .port-row__img-wrap { height: 220px !important; }
   .port-row__img-wrap > div { height: 220px !important; }
 }
+
+/* ── FINAL port-row fix — kill min-height, lock layout ── */
+.port-row {
+  min-height: unset !important;
+  height: auto !important;
+  padding: 60px 80px !important;
+  grid-template-columns: 1fr 440px !important;
+  gap: 60px !important;
+  align-items: center !important;
+}
+.port-row__content {
+  padding-right: 0 !important;
+  padding-left: 0 !important;
+}
+.port-row__visual {
+  order: 2 !important;
+}
+.port-row__content {
+  order: 1 !important;
+}
+.port-row__img-wrap {
+  height: 320px !important;
+  min-height: unset !important;
+  width: 100% !important;
+}
+.port-row__img-wrap > div {
+  height: 320px !important;
+  min-height: unset !important;
+  width: 100% !important;
+  overflow: hidden !important;
+}
+.port-list .container {
+  max-width: 100% !important;
+  padding: 0 !important;
+}
+@media (max-width: 1100px) {
+  .port-row {
+    grid-template-columns: 1fr 360px !important;
+    gap: 40px !important;
+    padding: 50px 48px !important;
+  }
+  .port-row__img-wrap { height: 280px !important; }
+  .port-row__img-wrap > div { height: 280px !important; }
+}
+@media (max-width: 800px) {
+  .port-row {
+    grid-template-columns: 1fr !important;
+    gap: 28px !important;
+    padding: 44px 24px !important;
+  }
+  .port-row__visual { order: -1 !important; }
+  .port-row__img-wrap { height: 220px !important; }
+  .port-row__img-wrap > div { height: 220px !important; }
+}
