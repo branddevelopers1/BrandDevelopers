@@ -2287,3 +2287,52 @@ div.port-filter-wrap ~ section.port-list {
   right: auto !important;
   left: 0 !important;
 }
+
+/* ── Hero stat boxes ── */
+.port-hero__stats {
+  display: flex !important;
+  align-items: center !important;
+  margin-top: 40px !important;
+  gap: 0 !important;
+}
+.port-hero__stat {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 6px !important;
+  padding: 20px 32px !important;
+  border: 1px solid rgba(45,78,245,.35) !important;
+  background: rgba(45,78,245,.08) !important;
+  backdrop-filter: blur(10px) !important;
+  border-radius: 0 !important;
+  min-width: 140px !important;
+}
+.port-hero__stat:first-child {
+  border-radius: 12px 0 0 12px !important;
+}
+.port-hero__stat:last-child {
+  border-radius: 0 12px 12px 0 !important;
+}
+.port-hero__stat-divider {
+  display: none !important;
+}
+.port-hero__stat-num {
+  font-family: var(--font-heading) !important;
+  font-size: 42px !important;
+  line-height: 1 !important;
+  color: #fff !important;
+  font-weight: 700 !important;
+}
+.port-hero__stat-label {
+  font-size: 11px !important;
+  color: rgba(255,255,255,.45) !important;
+  letter-spacing: .12em !important;
+  text-transform: uppercase !important;
+}
+
+/* ── Blue radial glow ── */
+.port-hero__bg {
+  background:
+    radial-gradient(ellipse 70% 90% at 80% 50%, rgba(45,78,245,.3) 0%, rgba(13,21,150,.15) 40%, transparent 70%),
+    radial-gradient(ellipse 50% 60% at 15% 70%, rgba(13,21,150,.2) 0%, transparent 55%),
+    linear-gradient(135deg, #04060f 0%, #060b20 40%, #080e30 100%) !important;
+}
