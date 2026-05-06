@@ -1853,7 +1853,7 @@ p { font-size: var(--fs-body); line-height: var(--lh-body); color: var(--color-g
 
 
 /* ============================================================
-   PORTFOLIO PAGE — Row layout
+   PORTFOLIO PAGE — Row layout (clean, single block, no overrides)
    ============================================================ */
 
 /* HERO */
@@ -1867,13 +1867,15 @@ p { font-size: var(--fs-body); line-height: var(--lh-body); color: var(--color-g
 }
 .port-hero__bg {
   position: absolute; inset: 0;
-  background: radial-gradient(ellipse 65% 80% at 75% 50%, rgba(45,78,245,.18) 0%, transparent 65%),
-              linear-gradient(135deg, #04060f 0%, #080e24 50%, #080d3a 100%);
+  background:
+    radial-gradient(ellipse 70% 80% at 75% 50%, rgba(45,78,245,.18) 0%, transparent 65%),
+    linear-gradient(135deg, #04060f 0%, #080e24 50%, #080d3a 100%);
 }
 .port-hero__grid {
   position: absolute; inset: 0;
-  background-image: linear-gradient(rgba(45,78,245,.05) 1px, transparent 1px),
-                    linear-gradient(90deg, rgba(45,78,245,.05) 1px, transparent 1px);
+  background-image:
+    linear-gradient(rgba(45,78,245,.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(45,78,245,.05) 1px, transparent 1px);
   background-size: 60px 60px;
   animation: portGridFloat 20s linear infinite;
 }
@@ -1925,21 +1927,14 @@ p { font-size: var(--fs-body); line-height: var(--lh-body); color: var(--color-g
 .port-filter__btn:hover { border-color: var(--color-primary); color: #fff; background: rgba(45,78,245,.1); }
 .port-filter__btn--active { border-color: var(--color-primary) !important; background: var(--color-primary) !important; color: #fff !important; }
 
-/* LIST SECTION — full width, no container boxing */
-.port-list {
-  background: #04060f;
-  padding-bottom: 80px;
-}
-.port-list .container {
-  max-width: 100% !important;
-  padding: 0 !important;
-}
+/* LIST */
+.port-list { background: #04060f; padding-bottom: 80px; }
+.port-list .container { max-width: 100% !important; padding: 0 !important; }
 
 /* TIER LABELS */
 .port-tier-label {
   display: flex; align-items: center; gap: 16px;
-  margin: 60px 80px 0;
-  padding-bottom: 16px;
+  margin: 60px 80px 0; padding-bottom: 16px;
   border-bottom: 1px solid rgba(255,255,255,.06);
 }
 .port-tier-label::before { content: ''; display: block; width: 24px; height: 1px; background: var(--color-primary); }
@@ -1951,30 +1946,36 @@ p { font-size: var(--fs-body); line-height: var(--lh-body); color: var(--color-g
 .port-tier-label--3 span { color: rgba(255,255,255,.2); }
 .port-tier-label--3::before { background: rgba(255,255,255,.1); }
 
-/* ── THE ROW — this is the money selector ── */
+/* ROW */
 .port-row {
   display: grid;
   grid-template-columns: 1fr 440px;
-  grid-template-rows: auto;
   gap: 60px;
   padding: 60px 80px;
   border-bottom: 1px solid rgba(255,255,255,.06);
   align-items: center;
   position: relative;
-  background: transparent;
   transition: background .3s;
-  /* NO min-height */
 }
 .port-row:hover { background: rgba(45,78,245,.03); }
 .port-row__bar {
-  position: absolute; left: 0; top: 0; bottom: 0; width: 3px;
+  position: absolute; top: 0; bottom: 0; width: 3px;
   background: var(--color-primary);
   transform: scaleY(0); transform-origin: bottom;
   transition: transform .5s cubic-bezier(.25,.46,.45,.94);
+  right: 0; left: auto;
 }
 .port-row:hover .port-row__bar { transform: scaleY(1); }
 
-/* LEFT — text */
+/* Even rows — flip layout AND bar to left */
+.port-row:nth-child(even) {
+  grid-template-columns: 440px 1fr;
+}
+.port-row:nth-child(even) .port-row__content { grid-column: 2; grid-row: 1; }
+.port-row:nth-child(even) .port-row__visual  { grid-column: 1; grid-row: 1; }
+.port-row:nth-child(even) .port-row__bar     { left: 0; right: auto; }
+
+/* LEFT content */
 .port-row__content { grid-column: 1; grid-row: 1; }
 .port-row__category {
   display: inline-block; font-family: 'DM Mono', monospace;
@@ -1998,33 +1999,25 @@ p { font-size: var(--fs-body); line-height: var(--lh-body); color: var(--color-g
 .port-row__tag {
   font-size: 9px; letter-spacing: .1em; text-transform: uppercase;
   padding: 5px 13px; border-radius: 40px;
-  border: 1px solid rgba(45,78,245,.3); color: rgba(255,255,255,.45);
-  transition: all .2s;
+  border: 1px solid rgba(45,78,245,.3); color: rgba(255,255,255,.45); transition: all .2s;
 }
 .port-row:hover .port-row__tag { border-color: rgba(45,78,245,.6); color: rgba(255,255,255,.7); }
 .port-row__actions { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
 .port-row__btn {
   display: inline-flex; align-items: center; gap: 7px;
   font-size: 13px; font-weight: 600; letter-spacing: .04em;
-  padding: 11px 24px; border-radius: 40px; text-decoration: none;
-  transition: all .2s;
+  padding: 11px 24px; border-radius: 40px; text-decoration: none; transition: all .2s;
 }
-.port-row__btn--primary {
-  background: var(--color-primary); color: #fff;
-  box-shadow: 0 0 28px rgba(45,78,245,.25);
-}
+.port-row__btn--primary { background: var(--color-primary); color: #fff; box-shadow: 0 0 28px rgba(45,78,245,.25); }
 .port-row__btn--primary:hover { background: #4d6bff; color: #fff; transform: translateY(-2px); }
 .port-row__btn--ghost { border: 1.5px solid rgba(255,255,255,.15); color: rgba(255,255,255,.55); background: transparent; }
 .port-row__btn--ghost:hover { border-color: var(--color-primary); color: #fff; background: rgba(45,78,245,.1); }
 
-/* RIGHT — image card */
+/* RIGHT visual */
 .port-row__visual { grid-column: 2; grid-row: 1; position: relative; }
 .port-row__img-wrap {
-  position: relative;
-  width: 100%;
-  height: 320px;
-  border-radius: 18px;
-  overflow: hidden;
+  position: relative; width: 100%; height: 320px;
+  border-radius: 18px; overflow: hidden;
   border: 1px solid rgba(255,255,255,.1);
   box-shadow: 0 0 0 1px rgba(45,78,245,.15), 0 24px 60px rgba(0,0,0,.7);
   transition: transform .5s cubic-bezier(.25,.46,.45,.94), box-shadow .5s;
@@ -2033,16 +2026,8 @@ p { font-size: var(--fs-body); line-height: var(--lh-body); color: var(--color-g
   transform: translateY(-5px) rotate(-.4deg);
   box-shadow: 0 0 0 1px rgba(45,78,245,.4), 0 36px 80px rgba(0,0,0,.8), 0 0 60px rgba(45,78,245,.12);
 }
-.port-row__img-wrap > div {
-  width: 100%;
-  height: 100%;
-  display: flex;
-}
+.port-row__img-wrap > div { width: 100%; height: 100%; display: flex; }
 .port-row__img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.port-row__img-placeholder {
-  width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;
-  background: linear-gradient(135deg, #0a1040, #080e24); color: rgba(255,255,255,.2); font-size: 13px;
-}
 .port-row__img-shine {
   position: absolute; inset: 0; border-radius: 18px;
   background: linear-gradient(135deg, rgba(255,255,255,.06) 0%, transparent 40%, rgba(0,0,0,.2) 100%);
@@ -2067,8 +2052,7 @@ p { font-size: var(--fs-body); line-height: var(--lh-body); color: var(--color-g
 .port-group-row__item {
   display: flex; align-items: center; justify-content: space-between; gap: 10px;
   padding: 12px 16px; border: 1px solid rgba(255,255,255,.06);
-  border-radius: 8px; background: rgba(255,255,255,.02);
-  text-decoration: none; transition: all .2s;
+  border-radius: 8px; background: rgba(255,255,255,.02); text-decoration: none; transition: all .2s;
 }
 .port-group-row__item:hover { border-color: rgba(45,78,245,.4); background: rgba(45,78,245,.06); }
 .port-group-row__cat { font-size: 9px; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.25); flex-shrink: 0; }
@@ -2091,525 +2075,35 @@ p { font-size: var(--fs-body); line-height: var(--lh-body); color: var(--color-g
 }
 .port-cta__btn:hover { background: #4d6bff; color: #fff; transform: translateY(-2px); }
 
+/* Page background */
+body.page-template-page-portfolio { background: #04060f !important; }
+body.page-template-page-portfolio section { background: #04060f !important; padding-top: 0 !important; padding-bottom: 0 !important; }
+.port-cta { padding: 120px 0 !important; }
+
 /* RESPONSIVE */
 @media (max-width: 1200px) {
-  .port-row { grid-template-columns: 1fr 360px; gap: 48px; padding: 56px 60px; }
+  .port-row { grid-template-columns: 1fr 360px !important; gap: 48px; padding: 56px 60px; }
+  .port-row:nth-child(even) { grid-template-columns: 360px 1fr !important; }
   .port-row__img-wrap { height: 280px; }
+  .port-tier-label { margin-left: 60px; margin-right: 60px; }
+  .port-group-row { padding-left: 60px; padding-right: 60px; }
 }
-@media (max-width: 960px) {
-  .port-row { grid-template-columns: 1fr 300px; gap: 36px; padding: 48px 40px; }
-  .port-row__img-wrap { height: 250px; }
+@media (max-width: 900px) {
+  .port-row { grid-template-columns: 1fr 280px !important; gap: 32px; padding: 48px 40px; }
+  .port-row:nth-child(even) { grid-template-columns: 280px 1fr !important; }
+  .port-row__img-wrap { height: 240px; }
   .port-tier-label { margin-left: 40px; margin-right: 40px; }
   .port-group-row { padding-left: 40px; padding-right: 40px; }
 }
-@media (max-width: 700px) {
-  .port-row { grid-template-columns: 1fr; gap: 24px; padding: 40px 24px; }
-  .port-row__visual { grid-column: 1; grid-row: 1; }
-  .port-row__content { grid-column: 1; grid-row: 2; }
-  .port-row__img-wrap { height: 220px; }
+@media (max-width: 680px) {
+  .port-row,
+  .port-row:nth-child(even) { grid-template-columns: 1fr !important; gap: 24px; padding: 40px 24px; }
+  .port-row__visual,
+  .port-row:nth-child(even) .port-row__visual { grid-column: 1 !important; grid-row: 1 !important; }
+  .port-row__content,
+  .port-row:nth-child(even) .port-row__content { grid-column: 1 !important; grid-row: 2 !important; }
+  .port-row__img-wrap { height: 200px; }
   .port-tier-label { margin-left: 24px; margin-right: 24px; }
   .port-group-row { padding-left: 24px; padding-right: 24px; }
-  .port-hero__content { padding: 100px 0 60px; }
-}
-
-/* ── Kill white body bg on portfolio page ── */
-.page-template-page-portfolio,
-.page-template-page-portfolio body {
-  background-color: #04060f !important;
-}
-.port-hero,
-.port-filter-wrap,
-.port-list,
-.port-cta {
-  background-color: #04060f;
-}
-
-/* ── Alternating row layout — even rows flip image left, text right ── */
-.port-row:nth-child(even) {
-  grid-template-columns: 440px 1fr;
-}
-.port-row:nth-child(even) .port-row__content {
-  grid-column: 2;
-  grid-row: 1;
-}
-.port-row:nth-child(even) .port-row__visual {
-  grid-column: 1;
-  grid-row: 1;
-}
-
-@media (max-width: 1200px) {
-  .port-row:nth-child(even) { grid-template-columns: 360px 1fr; }
-}
-@media (max-width: 960px) {
-  .port-row:nth-child(even) { grid-template-columns: 300px 1fr; }
-}
-@media (max-width: 700px) {
-  .port-row:nth-child(even) { grid-template-columns: 1fr; }
-  .port-row:nth-child(even) .port-row__content { grid-column: 1; grid-row: 2; }
-  .port-row:nth-child(even) .port-row__visual  { grid-column: 1; grid-row: 1; }
-}
-
-/* ── Fix white gap — section wrapper above port-list ── */
-.port-list,
-section.port-list,
-.page-template-page-portfolio .section,
-.page-template-page-portfolio section {
-  background-color: #04060f !important;
-}
-
-/* ── Kill any white space between filter and first row ── */
-.port-filter-wrap + section,
-.port-filter-wrap + .port-list {
-  margin-top: 0 !important;
-  padding-top: 0 !important;
-}
-.port-list .container {
-  padding-top: 0 !important;
-}
-
-/* ── Alternate the blue left-side hover bar — even rows bar on RIGHT ── */
-.port-row:nth-child(even)::before {
-  left: auto !important;
-  right: 0 !important;
-  transform-origin: bottom !important;
-}
-.port-row:nth-child(even):hover::before {
-  transform: scaleY(1) !important;
-}
-
-/* ── NUCLEAR white gap fix ── */
-body.page-template-page-portfolio,
-body.page-template-page-portfolio #page,
-body.page-template-page-portfolio #content,
-body.page-template-page-portfolio main,
-body.page-template-page-portfolio .site-main,
-body.page-template-page-portfolio .wp-site-blocks,
-body.page-template-page-portfolio section,
-body.page-template-page-portfolio .section {
-  background-color: #04060f !important;
-}
-
-/* Kill ALL section padding on portfolio page */
-body.page-template-page-portfolio section {
-  padding-top: 0 !important;
-  padding-bottom: 0 !important;
-}
-
-/* But restore port-cta padding */
-body.page-template-page-portfolio .port-cta {
-  padding-top: 120px !important;
-  padding-bottom: 120px !important;
-}
-
-/* ── Alternate hover bar — even rows RIGHT side ── */
-.port-row:nth-child(even) > .port-row__bar {
-  left: auto !important;
-  right: 0 !important;
-}
-
-/* ── Fix gap between filter bar and port-list ── */
-.port-filter-wrap {
-  margin-bottom: 0 !important;
-  padding-bottom: 0 !important;
-}
-.port-filter-wrap + section,
-.port-filter-wrap + .port-list,
-div.port-filter-wrap ~ section.port-list {
-  margin-top: 0 !important;
-  padding-top: 0 !important;
-}
-
-/* The white space is the elementor or theme wrapper between sections */
-.port-filter-wrap ~ * {
-  background-color: #04060f !important;
-}
-
-/* Target any div/wrapper sitting between filter and port-list */
-.port-filter-wrap + * {
-  background: #04060f !important;
-  margin-top: 0 !important;
-  padding-top: 0 !important;
-}
-
-/* ── Sticky filter — ensure it sits on dark bg, not body white ── */
-.port-filter-wrap {
-  background: #04060f !important;
-  /* When sticky, its containing block needs dark bg — handled by wrapper div in PHP */
-}
-
-/* ── Hero fixes — restore blue glow, grid, padding ── */
-.port-hero {
-  min-height: 60vh !important;
-  display: flex !important;
-  align-items: flex-end !important;
-  position: relative !important;
-  overflow: hidden !important;
-  padding: 0 !important;
-}
-.port-hero__bg {
-  position: absolute !important;
-  inset: 0 !important;
-  background:
-    radial-gradient(ellipse 65% 80% at 75% 50%, rgba(45,78,245,.25) 0%, transparent 60%),
-    radial-gradient(ellipse 40% 50% at 20% 80%, rgba(13,21,150,.3) 0%, transparent 55%),
-    linear-gradient(135deg, #04060f 0%, #060b20 40%, #0a0f35 100%) !important;
-}
-.port-hero__grid {
-  position: absolute !important;
-  inset: 0 !important;
-  background-image:
-    linear-gradient(rgba(45,78,245,.07) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(45,78,245,.07) 1px, transparent 1px) !important;
-  background-size: 60px 60px !important;
-  animation: portGridFloat 20s linear infinite !important;
-}
-.port-hero .container {
-  position: relative !important;
-  z-index: 2 !important;
-  width: 100% !important;
-  padding: 0 80px !important;
-  max-width: 100% !important;
-}
-.port-hero__content {
-  padding: 160px 0 80px !important;
-  max-width: 800px !important;
-}
-
-/* ── Flip bar animation — start from RIGHT by default ── */
-.port-row__bar {
-  left: auto !important;
-  right: 0 !important;
-  transform-origin: bottom !important;
-}
-
-/* ── Even rows — bar on LEFT ── */
-.port-row:nth-child(even) > .port-row__bar {
-  right: auto !important;
-  left: 0 !important;
-}
-
-/* ── Hero stat boxes ── */
-.port-hero__stats {
-  display: flex !important;
-  align-items: center !important;
-  margin-top: 40px !important;
-  gap: 0 !important;
-}
-.port-hero__stat {
-  display: flex !important;
-  flex-direction: column !important;
-  gap: 6px !important;
-  padding: 20px 32px !important;
-  border: 1px solid rgba(45,78,245,.35) !important;
-  background: rgba(45,78,245,.08) !important;
-  backdrop-filter: blur(10px) !important;
-  border-radius: 0 !important;
-  min-width: 140px !important;
-}
-.port-hero__stat:first-child {
-  border-radius: 12px 0 0 12px !important;
-}
-.port-hero__stat:last-child {
-  border-radius: 0 12px 12px 0 !important;
-}
-.port-hero__stat-divider {
-  display: none !important;
-}
-.port-hero__stat-num {
-  font-family: var(--font-heading) !important;
-  font-size: 42px !important;
-  line-height: 1 !important;
-  color: #fff !important;
-  font-weight: 700 !important;
-}
-.port-hero__stat-label {
-  font-size: 11px !important;
-  color: rgba(255,255,255,.45) !important;
-  letter-spacing: .12em !important;
-  text-transform: uppercase !important;
-}
-
-/* ── Blue radial glow ── */
-.port-hero__bg {
-  background:
-    radial-gradient(ellipse 70% 90% at 80% 50%, rgba(45,78,245,.3) 0%, rgba(13,21,150,.15) 40%, transparent 70%),
-    radial-gradient(ellipse 50% 60% at 15% 70%, rgba(13,21,150,.2) 0%, transparent 55%),
-    linear-gradient(135deg, #04060f 0%, #060b20 40%, #080e30 100%) !important;
-}
-
-/* ── Hero left padding fix ── */
-.port-hero .container {
-  padding-left: 80px !important;
-  padding-right: 80px !important;
-  max-width: 100% !important;
-}
-
-/* ── Stronger blue radial on right ── */
-.port-hero__bg {
-  background:
-    radial-gradient(ellipse 60% 100% at 100% 50%, rgba(45,78,245,.45) 0%, rgba(13,21,150,.2) 45%, transparent 70%),
-    radial-gradient(ellipse 40% 60% at 10% 80%, rgba(13,21,150,.25) 0%, transparent 50%),
-    linear-gradient(135deg, #04060f 0%, #060b20 50%, #080e30 100%) !important;
-}
-
-/* ── Stat box dividers between boxes ── */
-.port-hero__stat {
-  border-right: none !important;
-  border-left: none !important;
-  border-top: 1px solid rgba(45,78,245,.35) !important;
-  border-bottom: 1px solid rgba(45,78,245,.35) !important;
-  position: relative !important;
-}
-.port-hero__stat::after {
-  content: '' !important;
-  position: absolute !important;
-  right: 0 !important;
-  top: 10% !important;
-  height: 80% !important;
-  width: 1px !important;
-  background: rgba(45,78,245,.35) !important;
-}
-.port-hero__stat:last-child::after {
-  display: none !important;
-}
-.port-hero__stat:first-child {
-  border-left: 1px solid rgba(45,78,245,.35) !important;
-  border-radius: 12px 0 0 12px !important;
-}
-.port-hero__stat:last-child {
-  border-right: 1px solid rgba(45,78,245,.35) !important;
-  border-radius: 0 12px 12px 0 !important;
-}
-
-/* ── FINAL hero stat boxes — force visibility ── */
-.port-hero__stats {
-  display: flex !important;
-  flex-wrap: nowrap !important;
-  align-items: stretch !important;
-  margin-top: 48px !important;
-  width: fit-content !important;
-  border: 1px solid rgba(45,78,245,.5) !important;
-  border-radius: 14px !important;
-  overflow: hidden !important;
-  background: rgba(8,14,48,.7) !important;
-  backdrop-filter: blur(16px) !important;
-}
-.port-hero__stat {
-  display: flex !important;
-  flex-direction: column !important;
-  justify-content: center !important;
-  gap: 6px !important;
-  padding: 24px 36px !important;
-  border: none !important;
-  border-radius: 0 !important;
-  background: transparent !important;
-  border-right: 1px solid rgba(45,78,245,.4) !important;
-  min-width: 120px !important;
-}
-.port-hero__stat::after { display: none !important; }
-.port-hero__stat:first-child { border-radius: 0 !important; }
-.port-hero__stat:last-child {
-  border-right: none !important;
-  border-radius: 0 !important;
-}
-.port-hero__stat-divider { display: none !important; }
-.port-hero__stat-num {
-  font-family: var(--font-heading) !important;
-  font-size: 40px !important;
-  font-weight: 700 !important;
-  line-height: 1 !important;
-  color: #ffffff !important;
-}
-.port-hero__stat-label {
-  font-size: 10px !important;
-  letter-spacing: .14em !important;
-  text-transform: uppercase !important;
-  color: rgba(255,255,255,.5) !important;
-}
-
-/* ── FINAL blue radial glow ── */
-.port-hero__bg {
-  position: absolute !important;
-  inset: 0 !important;
-  background:
-    radial-gradient(ellipse 80% 100% at 100% 30%, rgba(0,51,180,.7) 0%, rgba(0,30,120,.3) 40%, transparent 70%),
-    radial-gradient(ellipse 60% 80% at 0% 100%, rgba(0,20,100,.5) 0%, transparent 60%),
-    linear-gradient(160deg, #020510 0%, #040820 40%, #060c2e 100%) !important;
-}
-
-/* Mobile */
-@media (max-width: 600px) {
-  .port-hero__stat { padding: 18px 22px !important; min-width: 90px !important; }
-  .port-hero__stat-num { font-size: 28px !important; }
-  .port-hero .container { padding-left: 24px !important; padding-right: 24px !important; }
-  .port-hero__content { padding-top: 120px !important; padding-bottom: 60px !important; }
-}
-
-/* ══ DEFINITIVE HERO FIX — overrides everything ══ */
-.port-hero {
-  background: none !important;
-  position: relative !important;
-  overflow: hidden !important;
-  min-height: 65vh !important;
-  display: flex !important;
-  align-items: flex-end !important;
-}
-.port-hero::before {
-  content: '' !important;
-  position: absolute !important;
-  inset: 0 !important;
-  background:
-    radial-gradient(ellipse 80% 100% at 95% 40%, rgba(0,51,200,.65) 0%, rgba(0,30,140,.3) 40%, transparent 68%),
-    radial-gradient(ellipse 50% 70% at 5% 90%, rgba(0,20,110,.45) 0%, transparent 55%),
-    linear-gradient(160deg, #020510 0%, #040820 40%, #060c2e 100%) !important;
-  z-index: 0 !important;
-}
-.port-hero__bg,
-.port-hero__grid {
-  z-index: 1 !important;
-}
-.port-hero .container {
-  position: relative !important;
-  z-index: 2 !important;
-  max-width: 100% !important;
-  padding: 0 !important;
-}
-.port-hero__content {
-  position: relative !important;
-  z-index: 2 !important;
-}
-
-/* Stat boxes */
-.port-hero__stats {
-  display: inline-flex !important;
-  margin-top: 48px !important;
-  border: 1px solid rgba(45,78,245,.55) !important;
-  border-radius: 14px !important;
-  overflow: hidden !important;
-  background: rgba(4,8,32,.75) !important;
-  backdrop-filter: blur(20px) !important;
-  -webkit-backdrop-filter: blur(20px) !important;
-}
-.port-hero__stat {
-  padding: 22px 36px !important;
-  border: none !important;
-  border-right: 1px solid rgba(45,78,245,.45) !important;
-  border-radius: 0 !important;
-  background: transparent !important;
-  display: flex !important;
-  flex-direction: column !important;
-  gap: 7px !important;
-  min-width: 120px !important;
-}
-.port-hero__stat:last-child { border-right: none !important; }
-.port-hero__stat::after { display: none !important; }
-.port-hero__stat-divider { display: none !important; }
-.port-hero__stat-num {
-  font-family: var(--font-heading) !important;
-  font-size: 38px !important;
-  font-weight: 700 !important;
-  line-height: 1 !important;
-  color: #fff !important;
-}
-.port-hero__stat-label {
-  font-size: 10px !important;
-  letter-spacing: .14em !important;
-  text-transform: uppercase !important;
-  color: rgba(255,255,255,.45) !important;
-  font-family: var(--font-body) !important;
-}
-
-@media (max-width: 600px) {
-  .port-hero__stat { padding: 18px 22px !important; min-width: 80px !important; }
-  .port-hero__stat-num { font-size: 26px !important; }
-}
-
-/* ══ RESTORE ORIGINAL HERO — exact original styles ══ */
-.port-hero {
-  position: relative !important;
-  min-height: 52vh !important;
-  display: flex !important;
-  align-items: flex-end !important;
-  padding: 0 !important;
-  overflow: hidden !important;
-  border-bottom: 1px solid rgba(255,255,255,0.06) !important;
-  background: none !important;
-}
-.port-hero::before { display: none !important; }
-.port-hero__bg {
-  position: absolute !important;
-  inset: 0 !important;
-  background:
-    radial-gradient(ellipse 70% 80% at 75% 50%, rgba(45,78,245,.18) 0%, transparent 65%),
-    linear-gradient(135deg, #04060f 0%, #080e24 50%, #080d3a 100%) !important;
-  z-index: 0 !important;
-}
-.port-hero__grid {
-  position: absolute !important;
-  inset: 0 !important;
-  background-image:
-    linear-gradient(rgba(45,78,245,.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(45,78,245,.05) 1px, transparent 1px) !important;
-  background-size: 60px 60px !important;
-  animation: portGridFloat 20s linear infinite !important;
-  z-index: 1 !important;
-}
-.port-hero .container {
-  position: relative !important;
-  z-index: 2 !important;
-  width: 100% !important;
-  max-width: 100% !important;
-  padding: 0 80px !important;
-}
-.port-hero__content {
-  padding: 140px 0 72px !important;
-  max-width: 100% !important;
-}
-
-/* Original stat boxes — simple, no border box */
-.port-hero__stats {
-  display: flex !important;
-  align-items: center !important;
-  gap: 0 !important;
-  margin-top: 40px !important;
-  border: none !important;
-  border-radius: 0 !important;
-  background: transparent !important;
-  backdrop-filter: none !important;
-  -webkit-backdrop-filter: none !important;
-  overflow: visible !important;
-  width: auto !important;
-}
-.port-hero__stat {
-  display: flex !important;
-  flex-direction: column !important;
-  gap: 4px !important;
-  padding: 0 28px 0 0 !important;
-  border: none !important;
-  border-right: none !important;
-  border-radius: 0 !important;
-  background: transparent !important;
-  min-width: unset !important;
-}
-.port-hero__stat:first-child { padding-left: 0 !important; }
-.port-hero__stat:last-child { border-right: none !important; }
-.port-hero__stat::after { display: none !important; }
-.port-hero__stat-num {
-  font-family: var(--font-heading) !important;
-  font-size: 42px !important;
-  line-height: 1 !important;
-  color: #F9FAFB !important;
-}
-.port-hero__stat-label {
-  font-size: 11px !important;
-  color: rgba(255,255,255,.35) !important;
-  letter-spacing: .08em !important;
-  text-transform: uppercase !important;
-}
-.port-hero__stat-divider {
-  display: block !important;
-  width: 1px !important;
-  height: 40px !important;
-  background: rgba(255,255,255,.1) !important;
-  margin: 0 28px 0 0 !important;
+  .port-hero__content { padding: 100px 0 60px !important; }
 }
