@@ -2126,3 +2126,21 @@ body.page-template-page-portfolio section { background: #04060f !important; padd
   background-size: 60px 60px !important;
   animation: portGridFloat 20s linear infinite !important;
 }
+
+/* Hero blue glow + grid — final */
+.port-hero__bg {
+  position: absolute !important;
+  inset: 0 !important;
+  background:
+    radial-gradient(ellipse 60% 70% at 85% 40%, rgba(45,78,245,.35) 0%, rgba(13,21,96,.2) 50%, transparent 70%),
+    linear-gradient(135deg, #04060f 0%, #080e24 50%, #080d3a 100%) !important;
+}
+.port-hero__grid {
+  position: absolute !important;
+  inset: 0 !important;
+  background-image:
+    linear-gradient(rgba(45,78,245,.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(45,78,245,.07) 1px, transparent 1px) !important;
+  background-size: 60px 60px !important;
+  animation: portGridFloat 20s linear infinite !important;
+}
