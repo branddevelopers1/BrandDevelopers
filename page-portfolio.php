@@ -59,7 +59,7 @@ get_header(); ?>
 </div>
 
 <!-- PORTFOLIO ROWS — all hardcoded, always visible -->
-<section class="port-list">
+<section class="port-list" style="background:#04060f;padding-top:0">
     <div class="container">
 
         <!-- ══════════ TIER 1 — FEATURED ══════════ -->

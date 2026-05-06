@@ -2148,3 +2148,31 @@ p { font-size: var(--fs-body); line-height: var(--lh-body); color: var(--color-g
   .port-row:nth-child(even) .port-row__content { grid-column: 1; grid-row: 2; }
   .port-row:nth-child(even) .port-row__visual  { grid-column: 1; grid-row: 1; }
 }
+
+/* ── Fix white gap — section wrapper above port-list ── */
+.port-list,
+section.port-list,
+.page-template-page-portfolio .section,
+.page-template-page-portfolio section {
+  background-color: #04060f !important;
+}
+
+/* ── Kill any white space between filter and first row ── */
+.port-filter-wrap + section,
+.port-filter-wrap + .port-list {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+.port-list .container {
+  padding-top: 0 !important;
+}
+
+/* ── Alternate the blue left-side hover bar — even rows bar on RIGHT ── */
+.port-row:nth-child(even)::before {
+  left: auto !important;
+  right: 0 !important;
+  transform-origin: bottom !important;
+}
+.port-row:nth-child(even):hover::before {
+  transform: scaleY(1) !important;
+}
