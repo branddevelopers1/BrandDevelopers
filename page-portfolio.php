@@ -9,7 +9,7 @@ get_header(); ?>
 <section class="port-hero">
     <div class="port-hero__bg"></div>
     <div class="port-hero__grid"></div>
-    <div class="container">
+    <div class="container" style="background:#04060f !important;padding:0 !important;max-width:100% !important">
         <div class="port-hero__content">
             <span class="port-hero__eyebrow">
                 <span class="port-hero__eyebrow-dot"></span>
@@ -42,9 +42,11 @@ get_header(); ?>
     </div>
 </section>
 
+<!-- dark wrapper to prevent sticky white gap -->
+<div style="background:#04060f;position:relative">
 <!-- FILTER BAR -->
 <div class="port-filter-wrap">
-    <div class="container">
+    <div class="container" style="background:#04060f !important;padding:0 !important;max-width:100% !important">
         <div class="port-filter" id="portfolio-filter">
             <button class="port-filter__btn port-filter__btn--active" data-filter="all"><?php esc_html_e( 'All Work', 'branddevelopers' ); ?></button>
             <button class="port-filter__btn" data-filter="web-development"><?php esc_html_e( 'Web Dev', 'branddevelopers' ); ?></button>
@@ -59,14 +61,14 @@ get_header(); ?>
 </div>
 
 <!-- PORTFOLIO ROWS — all hardcoded, always visible -->
-<section class="port-list" style="background:#04060f;padding-top:0">
-    <div class="container">
+<section class="port-list" style="background:#04060f !important;padding:0 !important;margin:0 !important">
+    <div class="container" style="background:#04060f !important;padding:0 !important;max-width:100% !important">
 
         <!-- ══════════ TIER 1 — FEATURED ══════════ -->
         <div class="port-tier-label"><span><?php esc_html_e( 'Featured Work', 'branddevelopers' ); ?></span></div>
 
         <!-- Chic Beauty Box -->
-        <div class="port-row fade-in-up" data-category="ecommerce">
+        <div class="port-row fade-in-up" data-rowindex="1" data-category="ecommerce">
             <div class="port-row__bar"></div>
             <div class="port-row__content">
                 <span class="port-row__category">E-Commerce · Subscription Platform</span>
@@ -104,7 +106,7 @@ get_header(); ?>
         </div>
 
         <!-- Afrobass Fest -->
-        <div class="port-row fade-in-up" data-category="events">
+        <div class="port-row fade-in-up" data-rowindex="2" data-category="events">
             <div class="port-row__bar"></div>
             <div class="port-row__content">
                 <span class="port-row__category">Festival · Event Website</span>
@@ -142,7 +144,7 @@ get_header(); ?>
         </div>
 
         <!-- Afrobass.com -->
-        <div class="port-row fade-in-up" data-category="events">
+        <div class="port-row fade-in-up" data-rowindex="3" data-category="events">
             <div class="port-row__bar"></div>
             <div class="port-row__content">
                 <span class="port-row__category">Brand &amp; Booking Platform</span>
@@ -182,7 +184,7 @@ get_header(); ?>
         </div>
 
         <!-- Distributel -->
-        <div class="port-row fade-in-up" data-category="enterprise">
+        <div class="port-row fade-in-up" data-rowindex="4" data-category="enterprise">
             <div class="port-row__bar"></div>
             <div class="port-row__content">
                 <span class="port-row__category">Enterprise · Telecom</span>
@@ -222,7 +224,7 @@ get_header(); ?>
         </div>
 
         <!-- LAVA Computers -->
-        <div class="port-row fade-in-up" data-category="enterprise">
+        <div class="port-row fade-in-up" data-rowindex="5" data-category="enterprise">
             <div class="port-row__bar"></div>
             <div class="port-row__content">
                 <span class="port-row__category">B2B · Hardware Manufacturer</span>
@@ -260,7 +262,7 @@ get_header(); ?>
         </div>
 
         <!-- Sekure Merchants -->
-        <div class="port-row fade-in-up" data-category="fintech">
+        <div class="port-row fade-in-up" data-rowindex="6" data-category="fintech">
             <div class="port-row__bar"></div>
             <div class="port-row__content">
                 <span class="port-row__category">Fintech · Payment Processing</span>
@@ -299,7 +301,7 @@ get_header(); ?>
         <div class="port-tier-label port-tier-label--2"><span><?php esc_html_e( 'More Work', 'branddevelopers' ); ?></span></div>
 
         <!-- eBlock -->
-        <div class="port-row fade-in-up" data-category="enterprise">
+        <div class="port-row fade-in-up" data-rowindex="7" data-category="enterprise">
             <div class="port-row__bar"></div>
             <div class="port-row__content">
                 <span class="port-row__category">Automotive · Enterprise Platform</span>
@@ -324,7 +326,7 @@ get_header(); ?>
         </div>
 
         <!-- Busy2Book -->
-        <div class="port-row fade-in-up" data-category="web-development">
+        <div class="port-row fade-in-up" data-rowindex="8" data-category="web-development">
             <div class="port-row__bar"></div>
             <div class="port-row__content">
                 <span class="port-row__category">SaaS · Booking Platform</span>
@@ -350,7 +352,7 @@ get_header(); ?>
         </div>
 
         <!-- SALC Ontario -->
-        <div class="port-row fade-in-up" data-category="web-development">
+        <div class="port-row fade-in-up" data-rowindex="9" data-category="web-development">
             <div class="port-row__bar"></div>
             <div class="port-row__content">
                 <span class="port-row__category">Non-Profit · Legal Aid</span>
@@ -375,7 +377,7 @@ get_header(); ?>
         </div>
 
         <!-- Junk-A-Haul -->
-        <div class="port-row fade-in-up" data-category="web-development">
+        <div class="port-row fade-in-up" data-rowindex="10" data-category="web-development">
             <div class="port-row__bar"></div>
             <div class="port-row__content">
                 <span class="port-row__category">Local Service · Junk Removal</span>
@@ -401,7 +403,7 @@ get_header(); ?>
         </div>
 
         <!-- Lashes Toronto -->
-        <div class="port-row fade-in-up" data-category="beauty">
+        <div class="port-row fade-in-up" data-rowindex="11" data-category="beauty">
             <div class="port-row__bar"></div>
             <div class="port-row__content">
                 <span class="port-row__category">Beauty · Lash &amp; Salon Services</span>
@@ -427,7 +429,7 @@ get_header(); ?>
         </div>
 
         <!-- Playhouse Worldwide -->
-        <div class="port-row fade-in-up" data-category="web-development">
+        <div class="port-row fade-in-up" data-rowindex="12" data-category="web-development">
             <div class="port-row__bar"></div>
             <div class="port-row__content">
                 <span class="port-row__category">Entertainment · Media Platform</span>
@@ -452,7 +454,7 @@ get_header(); ?>
         </div>
 
         <!-- Menopause Matter -->
-        <div class="port-row fade-in-up" data-category="health">
+        <div class="port-row fade-in-up" data-rowindex="13" data-category="health">
             <div class="port-row__bar"></div>
             <div class="port-row__content">
                 <span class="port-row__category">Health · Advocacy &amp; Education</span>
@@ -477,7 +479,7 @@ get_header(); ?>
         </div>
 
         <!-- Healing at the Intersections -->
-        <div class="port-row fade-in-up" data-category="health">
+        <div class="port-row fade-in-up" data-rowindex="14" data-category="health">
             <div class="port-row__bar"></div>
             <div class="port-row__content">
                 <span class="port-row__category">Health · Community Wellness</span>
@@ -502,7 +504,7 @@ get_header(); ?>
         </div>
 
         <!-- Kenaidien Capital -->
-        <div class="port-row fade-in-up" data-category="web-development">
+        <div class="port-row fade-in-up" data-rowindex="15" data-category="web-development">
             <div class="port-row__bar"></div>
             <div class="port-row__content">
                 <span class="port-row__category">Finance · Investment Advisory</span>
@@ -527,7 +529,7 @@ get_header(); ?>
         </div>
 
         <!-- Ms Lee Place -->
-        <div class="port-row fade-in-up" data-category="web-development">
+        <div class="port-row fade-in-up" data-rowindex="16" data-category="web-development">
             <div class="port-row__bar"></div>
             <div class="port-row__content">
                 <span class="port-row__category">Real Estate · Hospitality</span>
@@ -553,7 +555,7 @@ get_header(); ?>
         </div>
 
         <!-- KennedyOG -->
-        <div class="port-row fade-in-up" data-category="web-development">
+        <div class="port-row fade-in-up" data-rowindex="17" data-category="web-development">
             <div class="port-row__bar"></div>
             <div class="port-row__content">
                 <span class="port-row__category">Personal Brand · Creative</span>
@@ -578,7 +580,7 @@ get_header(); ?>
         </div>
 
         <!-- Afro-Fête -->
-        <div class="port-row fade-in-up" data-category="events">
+        <div class="port-row fade-in-up" data-rowindex="18" data-category="events">
             <div class="port-row__bar"></div>
             <div class="port-row__content">
                 <span class="port-row__category">Events · Afro Caribbean Culture</span>
@@ -604,7 +606,7 @@ get_header(); ?>
         </div>
 
         <!-- MLRS -->
-        <div class="port-row fade-in-up" data-category="web-development">
+        <div class="port-row fade-in-up" data-rowindex="19" data-category="web-development">
             <div class="port-row__bar"></div>
             <div class="port-row__content">
                 <span class="port-row__category">Community · Organization</span>
@@ -650,10 +652,11 @@ get_header(); ?>
     </div>
 </section>
 
+</div><!-- end dark wrapper -->
 <!-- CTA -->
 <section class="port-cta">
     <div class="port-cta__bg"></div>
-    <div class="container">
+    <div class="container" style="background:#04060f !important;padding:0 !important;max-width:100% !important">
         <div class="port-cta__inner">
             <span class="port-cta__eyebrow"><?php esc_html_e( "Let's Work Together", 'branddevelopers' ); ?></span>
             <h2 class="port-cta__title"><?php esc_html_e( 'Your project could be next.', 'branddevelopers' ); ?></h2>

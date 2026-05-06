@@ -2176,3 +2176,63 @@ section.port-list,
 .port-row:nth-child(even):hover::before {
   transform: scaleY(1) !important;
 }
+
+/* ── NUCLEAR white gap fix ── */
+body.page-template-page-portfolio,
+body.page-template-page-portfolio #page,
+body.page-template-page-portfolio #content,
+body.page-template-page-portfolio main,
+body.page-template-page-portfolio .site-main,
+body.page-template-page-portfolio .wp-site-blocks,
+body.page-template-page-portfolio section,
+body.page-template-page-portfolio .section {
+  background-color: #04060f !important;
+}
+
+/* Kill ALL section padding on portfolio page */
+body.page-template-page-portfolio section {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+/* But restore port-cta padding */
+body.page-template-page-portfolio .port-cta {
+  padding-top: 120px !important;
+  padding-bottom: 120px !important;
+}
+
+/* ── Alternate hover bar — even rows RIGHT side ── */
+.port-row:nth-child(even) > .port-row__bar {
+  left: auto !important;
+  right: 0 !important;
+}
+
+/* ── Fix gap between filter bar and port-list ── */
+.port-filter-wrap {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+.port-filter-wrap + section,
+.port-filter-wrap + .port-list,
+div.port-filter-wrap ~ section.port-list {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+/* The white space is the elementor or theme wrapper between sections */
+.port-filter-wrap ~ * {
+  background-color: #04060f !important;
+}
+
+/* Target any div/wrapper sitting between filter and port-list */
+.port-filter-wrap + * {
+  background: #04060f !important;
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+/* ── Sticky filter — ensure it sits on dark bg, not body white ── */
+.port-filter-wrap {
+  background: #04060f !important;
+  /* When sticky, its containing block needs dark bg — handled by wrapper div in PHP */
+}
