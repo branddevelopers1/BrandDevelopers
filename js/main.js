@@ -348,3 +348,20 @@
   }
 
 })();
+
+/* ── Alternate hover bar: odd=right, even=left ── */
+(function() {
+  document.querySelectorAll('.port-row').forEach(function(row, index) {
+    var bar = row.querySelector('.port-row__bar');
+    if (!bar) return;
+    if ((index + 1) % 2 === 1) {
+      // odd rows — bar on RIGHT
+      bar.style.left  = 'auto';
+      bar.style.right = '0';
+    } else {
+      // even rows — bar on LEFT
+      bar.style.right = 'auto';
+      bar.style.left  = '0';
+    }
+  });
+})();

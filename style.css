@@ -2236,3 +2236,54 @@ div.port-filter-wrap ~ section.port-list {
   background: #04060f !important;
   /* When sticky, its containing block needs dark bg — handled by wrapper div in PHP */
 }
+
+/* ── Hero fixes — restore blue glow, grid, padding ── */
+.port-hero {
+  min-height: 60vh !important;
+  display: flex !important;
+  align-items: flex-end !important;
+  position: relative !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+}
+.port-hero__bg {
+  position: absolute !important;
+  inset: 0 !important;
+  background:
+    radial-gradient(ellipse 65% 80% at 75% 50%, rgba(45,78,245,.25) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 50% at 20% 80%, rgba(13,21,150,.3) 0%, transparent 55%),
+    linear-gradient(135deg, #04060f 0%, #060b20 40%, #0a0f35 100%) !important;
+}
+.port-hero__grid {
+  position: absolute !important;
+  inset: 0 !important;
+  background-image:
+    linear-gradient(rgba(45,78,245,.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(45,78,245,.07) 1px, transparent 1px) !important;
+  background-size: 60px 60px !important;
+  animation: portGridFloat 20s linear infinite !important;
+}
+.port-hero .container {
+  position: relative !important;
+  z-index: 2 !important;
+  width: 100% !important;
+  padding: 0 80px !important;
+  max-width: 100% !important;
+}
+.port-hero__content {
+  padding: 160px 0 80px !important;
+  max-width: 800px !important;
+}
+
+/* ── Flip bar animation — start from RIGHT by default ── */
+.port-row__bar {
+  left: auto !important;
+  right: 0 !important;
+  transform-origin: bottom !important;
+}
+
+/* ── Even rows — bar on LEFT ── */
+.port-row:nth-child(even) > .port-row__bar {
+  right: auto !important;
+  left: 0 !important;
+}
