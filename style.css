@@ -2485,3 +2485,55 @@ p { font-size: var(--fs-body); line-height: var(--lh-body); color: var(--color-g
   .port-masonry { grid-template-columns: 1fr; }
   .port-card__preview { height: 200px; }
 }
+
+/* ── Portfolio full-width override ── */
+.port-list .container,
+.port-filter-wrap .container,
+.port-hero .container {
+  max-width: 100% !important;
+  padding-left: 80px !important;
+  padding-right: 80px !important;
+}
+.port-row {
+  width: 100%;
+  grid-template-columns: 1fr 480px;
+}
+.port-tier-label,
+.port-group-row {
+  width: 100%;
+}
+.port-hero__content {
+  max-width: 100%;
+}
+.port-cta .container {
+  max-width: 700px;
+}
+@media (max-width: 1200px) {
+  .port-list .container,
+  .port-filter-wrap .container,
+  .port-hero .container {
+    padding-left: 48px !important;
+    padding-right: 48px !important;
+  }
+  .port-row { grid-template-columns: 1fr 400px; }
+}
+@media (max-width: 960px) {
+  .port-list .container,
+  .port-filter-wrap .container,
+  .port-hero .container {
+    padding-left: 32px !important;
+    padding-right: 32px !important;
+  }
+  .port-row { grid-template-columns: 1fr 300px; }
+}
+@media (max-width: 720px) {
+  .port-list .container,
+  .port-filter-wrap .container,
+  .port-hero .container {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+  .port-row { grid-template-columns: 1fr; }
+  .port-row__visual { order: -1; }
+  .port-row__content { padding-right: 0 !important; }
+}
