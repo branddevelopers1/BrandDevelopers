@@ -2336,3 +2336,47 @@ div.port-filter-wrap ~ section.port-list {
     radial-gradient(ellipse 50% 60% at 15% 70%, rgba(13,21,150,.2) 0%, transparent 55%),
     linear-gradient(135deg, #04060f 0%, #060b20 40%, #080e30 100%) !important;
 }
+
+/* ── Hero left padding fix ── */
+.port-hero .container {
+  padding-left: 80px !important;
+  padding-right: 80px !important;
+  max-width: 100% !important;
+}
+
+/* ── Stronger blue radial on right ── */
+.port-hero__bg {
+  background:
+    radial-gradient(ellipse 60% 100% at 100% 50%, rgba(45,78,245,.45) 0%, rgba(13,21,150,.2) 45%, transparent 70%),
+    radial-gradient(ellipse 40% 60% at 10% 80%, rgba(13,21,150,.25) 0%, transparent 50%),
+    linear-gradient(135deg, #04060f 0%, #060b20 50%, #080e30 100%) !important;
+}
+
+/* ── Stat box dividers between boxes ── */
+.port-hero__stat {
+  border-right: none !important;
+  border-left: none !important;
+  border-top: 1px solid rgba(45,78,245,.35) !important;
+  border-bottom: 1px solid rgba(45,78,245,.35) !important;
+  position: relative !important;
+}
+.port-hero__stat::after {
+  content: '' !important;
+  position: absolute !important;
+  right: 0 !important;
+  top: 10% !important;
+  height: 80% !important;
+  width: 1px !important;
+  background: rgba(45,78,245,.35) !important;
+}
+.port-hero__stat:last-child::after {
+  display: none !important;
+}
+.port-hero__stat:first-child {
+  border-left: 1px solid rgba(45,78,245,.35) !important;
+  border-radius: 12px 0 0 12px !important;
+}
+.port-hero__stat:last-child {
+  border-right: 1px solid rgba(45,78,245,.35) !important;
+  border-radius: 0 12px 12px 0 !important;
+}
