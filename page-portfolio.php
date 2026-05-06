@@ -10,7 +10,7 @@ get_header(); ?>
     <div class="port-hero__bg"></div>
     <div class="port-hero__grid"></div>
     <div class="container" style="background:#04060f !important;padding:0 !important;max-width:100% !important">
-        <div class="port-hero__content">
+        <div class="port-hero__content" style="padding-left:80px;padding-right:80px;padding-top:160px;padding-bottom:80px;max-width:100%">
             <span class="port-hero__eyebrow">
                 <span class="port-hero__eyebrow-dot"></span>
                 <?php esc_html_e( 'Our Work', 'branddevelopers' ); ?>
