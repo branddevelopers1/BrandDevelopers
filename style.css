@@ -2107,3 +2107,22 @@ body.page-template-page-portfolio section { background: #04060f !important; padd
   .port-group-row { padding-left: 24px; padding-right: 24px; }
   .port-hero__content { padding: 100px 0 60px !important; }
 }
+
+/* Bar: odd rows image is on RIGHT so bar on RIGHT */
+.port-row__bar { left: auto; right: 0; }
+/* Bar: even rows image is on LEFT so bar on LEFT */
+.port-row:nth-child(even) .port-row__bar { right: auto; left: 0; }
+
+/* Hero blue radial + grid */
+.port-hero__bg {
+  background:
+    radial-gradient(ellipse 70% 80% at 75% 50%, rgba(45,78,245,.25) 0%, transparent 65%),
+    linear-gradient(135deg, #04060f 0%, #080e24 50%, #080d3a 100%) !important;
+}
+.port-hero__grid {
+  background-image:
+    linear-gradient(rgba(45,78,245,.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(45,78,245,.07) 1px, transparent 1px) !important;
+  background-size: 60px 60px !important;
+  animation: portGridFloat 20s linear infinite !important;
+}
