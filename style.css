@@ -2486,6 +2486,7 @@ p { font-size: var(--fs-body); line-height: var(--lh-body); color: var(--color-g
   .port-card__preview { height: 200px; }
 }
 
+
 /* ── Portfolio full-width override ── */
 .port-list .container,
 .port-filter-wrap .container,
@@ -2494,20 +2495,24 @@ p { font-size: var(--fs-body); line-height: var(--lh-body); color: var(--color-g
   padding-left: 80px !important;
   padding-right: 80px !important;
 }
+
+/* Keep row two-column, fixed card height, no stretching */
 .port-row {
-  width: 100%;
-  grid-template-columns: 1fr 480px;
+  grid-template-columns: 1fr 480px !important;
+  min-height: unset !important;
+  align-items: center !important;
 }
-.port-tier-label,
-.port-group-row {
-  width: 100%;
+.port-row__img-wrap {
+  height: 340px !important;
 }
-.port-hero__content {
-  max-width: 100%;
+.port-row__img-wrap > div {
+  height: 340px !important;
+  min-height: unset !important;
 }
-.port-cta .container {
-  max-width: 700px;
+.port-row__content {
+  padding-right: 80px !important;
 }
+
 @media (max-width: 1200px) {
   .port-list .container,
   .port-filter-wrap .container,
@@ -2515,25 +2520,33 @@ p { font-size: var(--fs-body); line-height: var(--lh-body); color: var(--color-g
     padding-left: 48px !important;
     padding-right: 48px !important;
   }
-  .port-row { grid-template-columns: 1fr 400px; }
+  .port-row { grid-template-columns: 1fr 380px !important; }
+  .port-row__img-wrap { height: 280px !important; }
+  .port-row__img-wrap > div { height: 280px !important; }
+  .port-row__content { padding-right: 48px !important; }
 }
-@media (max-width: 960px) {
+@media (max-width: 900px) {
   .port-list .container,
   .port-filter-wrap .container,
   .port-hero .container {
     padding-left: 32px !important;
     padding-right: 32px !important;
   }
-  .port-row { grid-template-columns: 1fr 300px; }
+  .port-row { grid-template-columns: 1fr 300px !important; }
+  .port-row__img-wrap { height: 240px !important; }
+  .port-row__img-wrap > div { height: 240px !important; }
+  .port-row__content { padding-right: 32px !important; }
 }
-@media (max-width: 720px) {
+@media (max-width: 680px) {
   .port-list .container,
   .port-filter-wrap .container,
   .port-hero .container {
     padding-left: 20px !important;
     padding-right: 20px !important;
   }
-  .port-row { grid-template-columns: 1fr; }
+  .port-row { grid-template-columns: 1fr !important; }
   .port-row__visual { order: -1; }
   .port-row__content { padding-right: 0 !important; }
+  .port-row__img-wrap { height: 220px !important; }
+  .port-row__img-wrap > div { height: 220px !important; }
 }
