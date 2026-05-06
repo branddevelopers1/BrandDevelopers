@@ -2098,6 +2098,7 @@ p { font-size: var(--fs-body); line-height: var(--lh-body); color: var(--color-g
 }
 .port-row__img-wrap > div {
   width: 100%; height: 100%;
+  min-height: inherit;
 }
 .port-row__img {
   width: 100%; height: 100%;
@@ -2195,29 +2196,38 @@ p { font-size: var(--fs-body); line-height: var(--lh-body); color: var(--color-g
 }
 
 /* ── Responsive ── */
-@media (max-width: 1100px) {
+@media (max-width: 1200px) {
   .port-row {
-    grid-template-columns: 1fr 400px;
+    grid-template-columns: 1fr 380px;
   }
   .port-row__content { padding-right: 48px; }
-  .port-row__img-wrap { height: 280px; }
+  .port-row__img-wrap { height: 300px; }
 }
-@media (max-width: 900px) {
+@media (max-width: 960px) {
+  .port-row {
+    grid-template-columns: 1fr 300px;
+    padding: 60px 0;
+  }
+  .port-row__content { padding-right: 32px; }
+  .port-row__img-wrap { height: 260px; }
+  .port-row__title { font-size: clamp(24px, 4vw, 38px); }
+}
+@media (max-width: 720px) {
   .port-row {
     grid-template-columns: 1fr;
-    padding: 60px 0;
-    gap: 40px;
+    padding: 52px 0;
+    gap: 32px;
   }
   .port-row__content { padding-right: 0; }
   .port-row__visual { order: -1; }
-  .port-row__img-wrap { height: 260px; }
+  .port-row__img-wrap { height: 240px; }
   .port-filter-wrap { top: 64px; }
   .port-hero__content { padding: 100px 0 60px; }
 }
-@media (max-width: 640px) {
-  .port-row__img-wrap { height: 220px; border-radius: 14px; }
+@media (max-width: 480px) {
+  .port-row__img-wrap { height: 200px; border-radius: 14px; }
   .port-row__img-badge { font-size: 9px; padding: 5px 14px; }
-  .port-hero__title { font-size: clamp(40px, 10vw, 64px); }
+  .port-hero__title { font-size: clamp(36px, 10vw, 56px); }
 }
 
 /* ── Portfolio hero stats ── */
