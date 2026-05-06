@@ -2111,3 +2111,40 @@ p { font-size: var(--fs-body); line-height: var(--lh-body); color: var(--color-g
   .port-group-row { padding-left: 24px; padding-right: 24px; }
   .port-hero__content { padding: 100px 0 60px; }
 }
+
+/* ── Kill white body bg on portfolio page ── */
+.page-template-page-portfolio,
+.page-template-page-portfolio body {
+  background-color: #04060f !important;
+}
+.port-hero,
+.port-filter-wrap,
+.port-list,
+.port-cta {
+  background-color: #04060f;
+}
+
+/* ── Alternating row layout — even rows flip image left, text right ── */
+.port-row:nth-child(even) {
+  grid-template-columns: 440px 1fr;
+}
+.port-row:nth-child(even) .port-row__content {
+  grid-column: 2;
+  grid-row: 1;
+}
+.port-row:nth-child(even) .port-row__visual {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+@media (max-width: 1200px) {
+  .port-row:nth-child(even) { grid-template-columns: 360px 1fr; }
+}
+@media (max-width: 960px) {
+  .port-row:nth-child(even) { grid-template-columns: 300px 1fr; }
+}
+@media (max-width: 700px) {
+  .port-row:nth-child(even) { grid-template-columns: 1fr; }
+  .port-row:nth-child(even) .port-row__content { grid-column: 1; grid-row: 2; }
+  .port-row:nth-child(even) .port-row__visual  { grid-column: 1; grid-row: 1; }
+}
