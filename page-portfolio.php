@@ -9,7 +9,7 @@ get_header(); ?>
 <section class="port-hero">
     <div class="port-hero__bg"></div>
     <div class="port-hero__grid"></div>
-    <div class="container" style="background:#04060f;max-width:100%;padding:0 80px">
+    <div class="container" style="background:transparent;max-width:100%;padding:0 80px">
         <div class="port-hero__content">
             <span class="port-hero__eyebrow">
                 <span class="port-hero__eyebrow-dot"></span>
@@ -46,7 +46,7 @@ get_header(); ?>
 <div style="background:#04060f;position:relative">
 <!-- FILTER BAR -->
 <div class="port-filter-wrap">
-    <div class="container" style="background:#04060f;max-width:100%;padding:0 80px">
+    <div class="container" style="background:transparent;max-width:100%;padding:0 80px">
         <div class="port-filter" id="portfolio-filter">
             <button class="port-filter__btn port-filter__btn--active" data-filter="all"><?php esc_html_e( 'All Work', 'branddevelopers' ); ?></button>
             <button class="port-filter__btn" data-filter="web-development"><?php esc_html_e( 'Web Dev', 'branddevelopers' ); ?></button>
@@ -62,7 +62,7 @@ get_header(); ?>
 
 <!-- PORTFOLIO ROWS — all hardcoded, always visible -->
 <section class="port-list" style="background:#04060f !important;padding:0 !important;margin:0 !important">
-    <div class="container" style="background:#04060f;max-width:100%;padding:0 80px">
+    <div class="container" style="background:transparent;max-width:100%;padding:0 80px">
 
         <!-- ══════════ TIER 1 — FEATURED ══════════ -->
         <div class="port-tier-label"><span><?php esc_html_e( 'Featured Work', 'branddevelopers' ); ?></span></div>
@@ -656,7 +656,7 @@ get_header(); ?>
 <!-- CTA -->
 <section class="port-cta">
     <div class="port-cta__bg"></div>
-    <div class="container" style="background:#04060f;max-width:100%;padding:0 80px">
+    <div class="container" style="background:transparent;max-width:100%;padding:0 80px">
         <div class="port-cta__inner">
             <span class="port-cta__eyebrow"><?php esc_html_e( "Let's Work Together", 'branddevelopers' ); ?></span>
             <h2 class="port-cta__title"><?php esc_html_e( 'Your project could be next.', 'branddevelopers' ); ?></h2>
