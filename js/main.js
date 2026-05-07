@@ -349,17 +349,21 @@
 
 })();
 
-/* ── Bar always on image side: odd=right, even=left ── */
-(function() {
+/* ── Bar alternates: odd=LEFT, even=RIGHT ── */
+document.addEventListener('DOMContentLoaded', function() {
   document.querySelectorAll('.port-row').forEach(function(row, index) {
     var bar = row.querySelector('.port-row__bar');
     if (!bar) return;
-    if ((index + 1) % 2 === 1) {
+    bar.style.position = 'absolute';
+    bar.style.top      = '0';
+    bar.style.bottom   = '0';
+    bar.style.width    = '3px';
+    if (index % 2 === 0) {
+      bar.style.left  = '0';
+      bar.style.right = 'auto';
+    } else {
       bar.style.left  = 'auto';
       bar.style.right = '0';
-    } else {
-      bar.style.right = 'auto';
-      bar.style.left  = '0';
     }
   });
-})();
+});

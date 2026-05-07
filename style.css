@@ -2144,3 +2144,7 @@ body.page-template-page-portfolio section { background: #04060f !important; padd
   background-size: 60px 60px !important;
   animation: portGridFloat 20s linear infinite !important;
 }
+
+/* Bar alternates via JS — CSS just sets base */
+.port-row__bar { left: 0; right: auto; }
+.port-row:nth-child(even) .port-row__bar { left: auto; right: 0; }
