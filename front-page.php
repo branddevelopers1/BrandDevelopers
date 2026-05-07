@@ -7,6 +7,16 @@
     <div class="hero__bg" aria-hidden="true"></div>
     <div class="hero__grid-lines" aria-hidden="true"></div>
     <div class="hero__accent-bar" aria-hidden="true"></div>
+    <!-- Ghost text animation layer -->
+    <div class="hero__ghost-layer" aria-hidden="true">
+        <span class="hero__ghost hero__ghost--1">BRANDING</span>
+        <span class="hero__ghost hero__ghost--2">DESIGN</span>
+        <span class="hero__ghost hero__ghost--3">DEVELOPMENT</span>
+        <span class="hero__ghost hero__ghost--4">STRATEGY</span>
+        <span class="hero__ghost hero__ghost--5">TORONTO</span>
+        <span class="hero__ghost hero__ghost--6">CREATIVE</span>
+    </div>
+
 
     <?php
     $hero_img = get_theme_mod( 'bd_hero_image' );

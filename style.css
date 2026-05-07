@@ -2148,3 +2148,47 @@ body.page-template-page-portfolio section { background: #04060f !important; padd
 /* Bar alternates via JS — CSS just sets base */
 .port-row__bar { left: 0; right: auto; }
 .port-row:nth-child(even) .port-row__bar { left: auto; right: 0; }
+
+/* ── Homepage hero ghost text animation ── */
+.hero__ghost-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+.hero__ghost {
+  position: absolute;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  white-space: nowrap;
+  user-select: none;
+  color: rgba(255,255,255,.045);
+}
+.hero__ghost--2,
+.hero__ghost--4,
+.hero__ghost--6 { color: rgba(45,78,245,.07); }
+
+.hero__ghost--1 { font-size: clamp(80px,12vw,140px); top: -20px; left: -10px; animation: ghostDrift1 22s ease-in-out infinite; }
+.hero__ghost--2 { font-size: clamp(60px,9vw,110px); top: 30%; right: -30px; animation: ghostDrift2 28s ease-in-out infinite; }
+.hero__ghost--3 { font-size: clamp(50px,7vw,90px);  bottom: 15%; left: 5%; animation: ghostDrift3 20s ease-in-out infinite; animation-delay: -6s; }
+.hero__ghost--4 { font-size: clamp(55px,8vw,100px); top: 45%; left: 25%; animation: ghostDrift1 26s ease-in-out infinite; animation-delay: -10s; }
+.hero__ghost--5 { font-size: clamp(45px,6vw,80px);  bottom: 5%; right: 8%; animation: ghostDrift2 18s ease-in-out infinite; animation-delay: -4s; }
+.hero__ghost--6 { font-size: clamp(65px,10vw,120px); top: 15%; left: 28%; animation: ghostDrift3 30s ease-in-out infinite; animation-delay: -14s; }
+
+@keyframes ghostDrift1 {
+  0%   { transform: translate(0,0) rotate(-2deg); }
+  50%  { transform: translate(24px,-18px) rotate(1deg); }
+  100% { transform: translate(0,0) rotate(-2deg); }
+}
+@keyframes ghostDrift2 {
+  0%   { transform: translate(0,0) rotate(3deg); }
+  50%  { transform: translate(-28px,12px) rotate(-1.5deg); }
+  100% { transform: translate(0,0) rotate(3deg); }
+}
+@keyframes ghostDrift3 {
+  0%   { transform: translate(0,0) rotate(0deg); }
+  50%  { transform: translate(16px,22px) rotate(-2deg); }
+  100% { transform: translate(0,0) rotate(0deg); }
+}
