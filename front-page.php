@@ -7,16 +7,6 @@
     <div class="hero__bg" aria-hidden="true"></div>
     <div class="hero__grid-lines" aria-hidden="true"></div>
     <div class="hero__accent-bar" aria-hidden="true"></div>
-    <!-- Ghost text animation layer -->
-    <div class="hero__ghost-layer" aria-hidden="true">
-        <span class="hero__ghost hero__ghost--1">BRANDING</span>
-        <span class="hero__ghost hero__ghost--2">DESIGN</span>
-        <span class="hero__ghost hero__ghost--3">DEVELOPMENT</span>
-        <span class="hero__ghost hero__ghost--4">STRATEGY</span>
-        <span class="hero__ghost hero__ghost--5">TORONTO</span>
-        <span class="hero__ghost hero__ghost--6">CREATIVE</span>
-    </div>
-
 
     <?php
     $hero_img = get_theme_mod( 'bd_hero_image' );
@@ -54,6 +44,17 @@
 
             <!-- RIGHT: Services mini-grid -->
             <div class="hero--v2__right">
+                <!-- Cycling text animation -->
+                <div class="hero__cycle-wrap" aria-label="Brand Design and Development">
+                    <span class="hero__cycle-static">Brand&nbsp;</span>
+                    <span class="hero__cycle-word" aria-hidden="true">
+                        <span class="hero__cycle-list">
+                            <span>Design</span>
+                            <span>Strategy</span>
+                            <span>Development</span>
+                        </span>
+                    </span>
+                </div>
                 <p class="hero__services-label"><?php _e( 'What we do', 'branddevelopers' ); ?></p>
                 <div class="hero__services-grid">
                     <a href="<?php echo esc_url( home_url( '/services' ) ); ?>" class="hero__service-item hero__service-item--featured">

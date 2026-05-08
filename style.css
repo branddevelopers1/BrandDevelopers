@@ -2192,3 +2192,45 @@ body.page-template-page-portfolio section { background: #04060f !important; padd
   50%  { transform: translate(16px,22px) rotate(-2deg); }
   100% { transform: translate(0,0) rotate(0deg); }
 }
+
+/* ── Hero cycling text animation ── */
+.hero__cycle-wrap {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  font-family: var(--font-heading);
+  font-size: clamp(28px, 3vw, 40px);
+  font-weight: 900;
+  letter-spacing: .02em;
+  text-transform: uppercase;
+  line-height: 1;
+}
+.hero__cycle-static {
+  color: #fff;
+}
+.hero__cycle-word {
+  height: 1em;
+  overflow: hidden;
+  display: inline-block;
+}
+.hero__cycle-list {
+  display: flex;
+  flex-direction: column;
+  animation: cycleWords 4.5s ease-in-out infinite;
+}
+.hero__cycle-list span {
+  display: block;
+  line-height: 1;
+  padding: 0;
+  color: var(--color-primary);
+  height: 1em;
+}
+@keyframes cycleWords {
+  0%     { transform: translateY(0); }
+  20%    { transform: translateY(0); }
+  33%    { transform: translateY(-1em); }
+  53%    { transform: translateY(-1em); }
+  66%    { transform: translateY(-2em); }
+  86%    { transform: translateY(-2em); }
+  100%   { transform: translateY(0); }
+}
