@@ -1,4 +1,3 @@
-<?php bd_render_newsletter(); ?>
 <?php bd_render_cta(); ?>
 
 <footer class="site-footer">
