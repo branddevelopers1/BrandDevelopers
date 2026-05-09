@@ -401,7 +401,7 @@ get_header(); ?>
 </section>
 
 <!-- CUSTOM QUOTE BANNER -->
-<section style="background:var(--color-bg);padding:var(--space-xl) 0">
+<section style="background:#000;padding:var(--space-xl) 0">
     <div class="container">
         <div class="pkg-quote-banner">
             <div>
