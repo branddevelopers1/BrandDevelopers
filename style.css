@@ -3093,3 +3093,21 @@ body.page-template-page-portfolio section { background: #04060f !important; padd
   .hp-trust { padding: 32px 24px; }
   .hp-trust__logos { gap: 24px; }
 }
+
+/* ── Homepage hero text visibility fix ── */
+.hero--v2 .container {
+  position: relative !important;
+  z-index: 2 !important;
+  background: transparent !important;
+  max-width: 100% !important;
+  padding: 0 80px !important;
+}
+.hp-hero__body {
+  position: relative !important;
+  z-index: 2 !important;
+}
+.hp-hero__left,
+.hp-hero__right {
+  position: relative !important;
+  z-index: 2 !important;
+}
