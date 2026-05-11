@@ -3177,3 +3177,24 @@ body.page-template-page-portfolio section { background: #04060f !important; padd
   border-top: 1px solid rgba(255,255,255,.06) !important;
   border-bottom: none !important;
 }
+
+/* ── About Us hero — center the content ── */
+.page-template-page-about-us .port-hero .container,
+.page-about-us .port-hero .container {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+.page-template-page-about-us .port-hero__content,
+.page-about-us .port-hero__content {
+  text-align: center !important;
+  max-width: 720px !important;
+}
+.page-template-page-about-us .port-hero__eyebrow,
+.page-about-us .port-hero__eyebrow {
+  justify-content: center !important;
+}
+.page-template-page-about-us .about-hero__btns,
+.page-about-us .about-hero__btns {
+  justify-content: center !important;
+}
