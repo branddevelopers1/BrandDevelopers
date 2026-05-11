@@ -3149,3 +3149,31 @@ body.page-template-page-portfolio section { background: #04060f !important; padd
 .hp-hero__stats-moved .port-hero__stat-divider {
   margin-right: 20px !important;
 }
+
+/* ── Homepage hero mobile order fix ── */
+@media (max-width: 768px) {
+  .hp-hero__body {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+  .hp-hero__left  { order: 1 !important; }
+  .hp-hero__right { order: 2 !important; }
+}
+
+/* ── Ticker pinned to bottom of hero viewport ── */
+.hero--v2 {
+  min-height: 100vh !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+}
+.hp-hero__body {
+  flex: 1 !important;
+  min-height: unset !important;
+}
+.hp-marquee-wrap {
+  /* sits naturally at bottom of the flex hero */
+  margin-top: auto !important;
+  border-top: 1px solid rgba(255,255,255,.06) !important;
+  border-bottom: none !important;
+}

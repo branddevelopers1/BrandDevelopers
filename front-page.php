@@ -63,18 +63,17 @@
             </div>
         </div>
     </div>
-</section>
-
-<!-- MARQUEE -->
-<div class="hp-marquee-wrap" aria-hidden="true">
-    <div class="hp-marquee">
-        <?php
-        $ticker = array( 'Brand Development', 'Web Design', 'App Development', 'AI Integration', 'SEO & Marketing', 'Social Media', 'Photography', 'Graphic Design', 'Website Maintenance', 'Brand Development', 'Web Design', 'App Development', 'AI Integration', 'SEO & Marketing', 'Social Media', 'Photography', 'Graphic Design', 'Website Maintenance' );
-        foreach ( $ticker as $item ) : ?>
-        <span class="hp-marquee__item"><span class="hp-marquee__dot"></span><?php echo esc_html( $item ); ?></span>
-        <?php endforeach; ?>
+    <!-- MARQUEE — pinned to bottom of hero -->
+    <div class="hp-marquee-wrap" aria-hidden="true">
+        <div class="hp-marquee">
+            <?php
+            $ticker = array( 'Brand Development', 'Web Design', 'App Development', 'AI Integration', 'SEO & Marketing', 'Social Media', 'Photography', 'Graphic Design', 'Website Maintenance', 'Brand Development', 'Web Design', 'App Development', 'AI Integration', 'SEO & Marketing', 'Social Media', 'Photography', 'Graphic Design', 'Website Maintenance' );
+            foreach ( $ticker as $item ) : ?>
+            <span class="hp-marquee__item"><span class="hp-marquee__dot"></span><?php echo esc_html( $item ); ?></span>
+            <?php endforeach; ?>
+        </div>
     </div>
-</div>
+</section>
 
 <!-- SERVICES TEASER -->
 <section class="hp-svcs-section">
