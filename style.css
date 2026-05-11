@@ -3198,3 +3198,38 @@ body.page-template-page-portfolio section { background: #04060f !important; padd
 .page-about-us .about-hero__btns {
   justify-content: center !important;
 }
+
+/* ── About Us hero — force center ── */
+.port-hero .container {
+  max-width: 100% !important;
+  padding: 0 80px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 100% !important;
+}
+.port-hero__content {
+  text-align: center !important;
+  max-width: 760px !important;
+  width: 100% !important;
+}
+.port-hero__eyebrow {
+  justify-content: center !important;
+}
+.about-hero__btns {
+  justify-content: center !important;
+}
+
+/* ── Who We Are — fix column widths and gap ── */
+.about-intro__inner {
+  grid-template-columns: 1fr 400px !important;
+  gap: 80px !important;
+  align-items: start !important;
+}
+.about-intro__title {
+  font-size: clamp(28px, 4vw, 46px) !important;
+}
+.about-intro__img-placeholder {
+  width: 100% !important;
+  height: 440px !important;
+}
