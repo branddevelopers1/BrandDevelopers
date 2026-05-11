@@ -26,13 +26,7 @@
                     </a>
                     <a href="<?php echo esc_url( home_url( '/portfolio' ) ); ?>" class="svc-btn-ghost"><?php _e( 'View Our Work', 'branddevelopers' ); ?></a>
                 </div>
-                <div class="port-hero__stats">
-                    <div class="port-hero__stat"><span class="port-hero__stat-num">32+</span><span class="port-hero__stat-label"><?php _e( 'Projects', 'branddevelopers' ); ?></span></div>
-                    <div class="port-hero__stat-divider"></div>
-                    <div class="port-hero__stat"><span class="port-hero__stat-num">7+</span><span class="port-hero__stat-label"><?php _e( 'Years', 'branddevelopers' ); ?></span></div>
-                    <div class="port-hero__stat-divider"></div>
-                    <div class="port-hero__stat"><span class="port-hero__stat-num">98%</span><span class="port-hero__stat-label"><?php _e( 'Retention', 'branddevelopers' ); ?></span></div>
-                </div>
+
             </div>
             <!-- RIGHT -->
             <div class="hp-hero__right">
@@ -57,6 +51,14 @@
                         <div class="hp-hero__trust-item"><div class="hp-hero__trust-name">Afrobass</div><div class="hp-hero__trust-sub">Music Fest</div></div>
                         <div class="hp-hero__trust-item"><div class="hp-hero__trust-name">LAVA</div><div class="hp-hero__trust-sub">Computers</div></div>
                     </div>
+                </div>
+                <!-- Stats moved here from left -->
+                <div class="hp-hero__stats-moved">
+                    <div class="port-hero__stat"><span class="port-hero__stat-num">32+</span><span class="port-hero__stat-label"><?php _e( 'Projects', 'branddevelopers' ); ?></span></div>
+                    <div class="port-hero__stat-divider"></div>
+                    <div class="port-hero__stat"><span class="port-hero__stat-num">7+</span><span class="port-hero__stat-label"><?php _e( 'Years', 'branddevelopers' ); ?></span></div>
+                    <div class="port-hero__stat-divider"></div>
+                    <div class="port-hero__stat"><span class="port-hero__stat-num">98%</span><span class="port-hero__stat-label"><?php _e( 'Retention', 'branddevelopers' ); ?></span></div>
                 </div>
             </div>
         </div>

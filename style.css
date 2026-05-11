@@ -3111,3 +3111,41 @@ body.page-template-page-portfolio section { background: #04060f !important; padd
   position: relative !important;
   z-index: 2 !important;
 }
+
+/* ── Homepage hero adjustments ── */
+
+/* Reduce hero height — remove extra top space */
+.hp-hero__body {
+  min-height: 72vh !important;
+  padding-top: 60px !important;
+  padding-bottom: 60px !important;
+  align-items: center !important;
+}
+
+/* Move right side up */
+.hp-hero__right {
+  padding-bottom: 20px !important;
+  justify-content: center !important;
+}
+
+/* Hide stats from left side */
+.hp-hero__left .port-hero__stats {
+  display: none !important;
+}
+
+/* Stats now live on the right — inject via CSS layout trick */
+/* We'll move them in PHP below, but hide old position */
+.hp-hero__stats-moved {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0 !important;
+  margin-top: 16px !important;
+  border-top: 1px solid rgba(255,255,255,.08) !important;
+  padding-top: 16px !important;
+}
+.hp-hero__stats-moved .port-hero__stat {
+  padding-right: 20px !important;
+}
+.hp-hero__stats-moved .port-hero__stat-divider {
+  margin-right: 20px !important;
+}
