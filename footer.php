@@ -1,5 +1,3 @@
-<?php bd_render_cta(); ?>
-
 <footer class="site-footer">
     <div class="container">
         <div class="footer-grid">
