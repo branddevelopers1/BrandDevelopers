@@ -48,9 +48,7 @@ get_header(); ?>
             <p class="about-intro__text">
                 <?php esc_html_e( "Brand Developers is a Toronto-based boutique branding and web development agency. We work with startups, established businesses, and everything in between — bringing together strategy, design, and technology to create brands and digital experiences that perform.", 'branddevelopers' ); ?>
             </p>
-            <p class="about-intro__text">
-                <?php esc_html_e( "From brand identity and web development to AI integration, digital marketing, and photography — we're a one-stop creative partner for brands that take their digital presence seriously.", 'branddevelopers' ); ?>
-            </p>
+
             <div class="about-intro__tags">
                 <span class="about-tag">Toronto-Based</span>
                 <span class="about-tag">Boutique Agency</span>
@@ -82,7 +80,7 @@ get_header(); ?>
         <?php
         $stats = array(
             array( 'num' => '32+',  'label' => 'Projects Delivered',    'desc' => 'Across industries and verticals' ),
-            array( 'num' => '7+',   'label' => 'Years in Business',      'desc' => 'Building brands since 2018' ),
+            array( 'num' => '8+',   'label' => 'Years in Business',      'desc' => 'Building brands since 2018' ),
             array( 'num' => '9',    'label' => 'Services Offered',       'desc' => 'Under one roof' ),
             array( 'num' => '98%',  'label' => 'Client Retention',       'desc' => 'Long-term relationships matter' ),
         );
@@ -211,8 +209,8 @@ get_header(); ?>
     <div class="container">
         <div class="port-cta__inner">
             <span class="port-cta__eyebrow"><?php esc_html_e( "Let's Build Together", 'branddevelopers' ); ?></span>
-            <h2 class="port-cta__title"><?php esc_html_e( 'Ready to work with us?', 'branddevelopers' ); ?></h2>
-            <p class="port-cta__desc"><?php esc_html_e( "Tell us about your project and let's create something remarkable together.", 'branddevelopers' ); ?></p>
+            <h2 class="port-cta__title"><?php esc_html_e( 'Your next chapter starts here.', 'branddevelopers' ); ?></h2>
+            <p class="port-cta__desc"><?php esc_html_e( "Toronto brands trust us to build the digital infrastructure that drives real growth. Book a free audit and let's map out your next move.", 'branddevelopers' ); ?></p>
             <a href="<?php echo esc_url( home_url( '/contact' ) ); ?>" class="port-cta__btn">
                 <?php esc_html_e( 'Start a Project', 'branddevelopers' ); ?>
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
