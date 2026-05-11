@@ -1,201 +1,222 @@
 <?php
 /**
  * Template Name: Services Page
- *
  * Also auto-loads for pages with slug: services
  */
 get_header(); ?>
 
-<!-- PAGE HERO -->
-<section class="page-hero" style="min-height:55vh">
-    <div class="page-hero__bg"></div>
-    <div class="container">
-        <div class="page-hero__content" style="padding:120px 0 60px">
-            <span class="small-head" style="color:rgba(255,255,255,0.5);display:block;margin-bottom:16px"><?php esc_html_e( 'What We Offer', 'branddevelopers' ); ?></span>
-            <h1><?php esc_html_e( 'Services', 'branddevelopers' ); ?></h1>
+<!-- HERO -->
+<section class="port-hero">
+    <div class="port-hero__bg"></div>
+    <div class="port-hero__grid"></div>
+    <div class="container" style="background:transparent;max-width:100%;padding:0 80px">
+        <div class="port-hero__content">
+            <span class="port-hero__eyebrow">
+                <span class="port-hero__eyebrow-dot"></span>
+                <?php esc_html_e( 'What We Offer', 'branddevelopers' ); ?>
+            </span>
+            <h1 class="port-hero__title">
+                <?php esc_html_e( 'Services Built', 'branddevelopers' ); ?><br>
+                <?php esc_html_e( 'to', 'branddevelopers' ); ?>
+                <span class="port-hero__title-accent"><?php esc_html_e( 'Grow', 'branddevelopers' ); ?></span><br>
+                <?php esc_html_e( 'Your Brand.', 'branddevelopers' ); ?>
+            </h1>
+            <p class="port-hero__desc">
+                <?php esc_html_e( 'From brand strategy and consultation to full-stack development, AI integration, and social media — we deliver everything your brand needs under one roof.', 'branddevelopers' ); ?>
+            </p>
+            <div class="svc-hero__btns">
+                <a href="<?php echo esc_url( home_url( '/contact' ) ); ?>" class="svc-btn-primary">
+                    <?php esc_html_e( 'Get a Free Audit', 'branddevelopers' ); ?>
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </a>
+                <a href="<?php echo esc_url( home_url( '/portfolio' ) ); ?>" class="svc-btn-ghost">
+                    <?php esc_html_e( 'View Our Work', 'branddevelopers' ); ?>
+                </a>
+            </div>
         </div>
     </div>
 </section>
 
-<!-- CORE SERVICES 4-UP -->
-<section class="section">
-    <div class="container">
-        <div class="section-header">
-            <span class="small-head"><?php esc_html_e( 'Core Services', 'branddevelopers' ); ?></span>
-            <h2><?php esc_html_e( 'Our', 'branddevelopers' ); ?> <span style="color:var(--color-primary)">Services</span><span style="color:#bbb">*</span></h2>
-            <p style="max-width:540px;margin-top:12px"><?php esc_html_e( 'We combine creativity and strategy to build brands and digital experiences that stand out and perform.', 'branddevelopers' ); ?></p>
+<!-- SERVICES GRID -->
+<section class="svc-section" style="background:#04060f">
+    <div class="svc-section__inner">
+        <div class="svc-section__header">
+            <div class="svc-eyebrow"><?php esc_html_e( 'Core Services', 'branddevelopers' ); ?></div>
+            <h2 class="svc-section__title">
+                <?php esc_html_e( '9 Services. One Agency.', 'branddevelopers' ); ?><br>
+                <span><?php esc_html_e( 'Zero Compromises.', 'branddevelopers' ); ?></span>
+            </h2>
         </div>
-        <div class="svc-grid-4col">
+
+        <div class="svc-grid">
+
             <?php
-            $core_services = array(
-                array( 'icon' => 'fa-chess',      'title' => 'Product Strategy', 'desc' => 'Strategic planning to validate and launch product ideas fast.' ),
-                array( 'icon' => 'fa-pen-nib',    'title' => 'UI/UX Design',     'desc' => 'User-first designs to boost conversion and delight users.' ),
-                array( 'icon' => 'fa-mobile-alt', 'title' => 'App Development',  'desc' => 'Scalable apps built using modern tech stacks.' ),
-                array( 'icon' => 'fa-cloud',      'title' => 'Cloud & DevOps',   'desc' => 'From code to cloud — we ensure smooth delivery every time.' ),
+            $services = array(
+                array(
+                    'num'   => '01',
+                    'icon'  => '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>',
+                    'title' => 'Brand Development',
+                    'desc'  => 'The strategic foundation every brand needs — we consult, plan, map, and position your brand for long-term success before a single pixel is designed.',
+                    'list'  => array( 'Brand consultation & discovery', 'Brand strategy & roadmapping', 'Market positioning & messaging', 'Brand registration assistance', 'Startup brand procedures' ),
+                ),
+                array(
+                    'num'   => '02',
+                    'icon'  => '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>',
+                    'title' => 'Web Design & Development',
+                    'desc'  => 'Responsive, high-performance websites built to convert — from marketing sites and landing pages to full e-commerce platforms.',
+                    'list'  => array( 'Custom WordPress builds', 'WooCommerce & e-commerce', 'Landing pages & microsites', 'UI/UX design & prototyping', 'Performance & SEO optimization' ),
+                ),
+                array(
+                    'num'   => '03',
+                    'icon'  => '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>',
+                    'title' => 'App Design & Development',
+                    'desc'  => 'Scalable, user-centered apps built for iOS, Android, and the web — designed from the ground up around your users\' real needs.',
+                    'list'  => array( 'Mobile app design & development', 'Web app & SaaS platforms', 'UX research & user testing', 'Booking & subscription systems', 'API integration & backend dev' ),
+                ),
+                array(
+                    'num'   => '04',
+                    'icon'  => '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v8M8 12h8"/></svg>',
+                    'title' => 'Graphic Design & Visual Assets',
+                    'desc'  => 'Compelling visuals that communicate your brand at every touchpoint — logos, print, social assets, pitch decks and everything in between.',
+                    'list'  => array( 'Logo design & identity systems', 'Print & digital collateral', 'Social media graphics & templates', 'Pitch decks & presentations', 'Event & promotional materials' ),
+                ),
+                array(
+                    'num'   => '05',
+                    'icon'  => '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg>',
+                    'title' => 'Website Maintenance',
+                    'desc'  => 'Your website is a living product — we keep it fast, secure, and up to date so you can focus on running your business, not your tech stack.',
+                    'list'  => array( 'Plugin & theme updates', 'Security monitoring & backups', 'Performance optimization', 'Content updates & edits', 'Monthly health reports' ),
+                ),
+                array(
+                    'num'   => '06',
+                    'icon'  => '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h1l2 6 2-6h1M8 15h8"/></svg>',
+                    'title' => 'AI Integration',
+                    'desc'  => 'Future-proof your business with AI — we integrate intelligent tools and automation into your workflow, website, and customer experience.',
+                    'list'  => array( 'AI chatbot & virtual assistant', 'Workflow & process automation', 'AI content & copywriting tools', 'CRM & sales AI integration', 'Custom AI strategy & consulting' ),
+                ),
+                array(
+                    'num'   => '07',
+                    'icon'  => '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>',
+                    'title' => 'SEO & Digital Marketing',
+                    'desc'  => 'Data-driven campaigns that reach the right audience with the right message — growing your visibility and converting traffic into real revenue.',
+                    'list'  => array( 'SEO strategy & optimization', 'Google & Meta paid ads', 'Email marketing campaigns', 'Conversion rate optimization', 'Analytics & monthly reporting' ),
+                ),
+                array(
+                    'num'   => '08',
+                    'icon'  => '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>',
+                    'title' => 'Social Media Marketing',
+                    'desc'  => 'We grow your brand\'s social presence — strategic content, community management, and campaigns that turn followers into loyal customers.',
+                    'list'  => array( 'Social media strategy & planning', 'Content creation & scheduling', 'Community management', 'Influencer & partnership outreach', 'Growth analytics & reporting' ),
+                ),
+                array(
+                    'num'   => '09',
+                    'icon'  => '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>',
+                    'title' => 'Photography & Videography',
+                    'desc'  => 'Visual storytelling that brings your brand to life — from brand shoots and event coverage to social-ready video and product photography.',
+                    'list'  => array( 'Brand & product photography', 'Event & concert coverage', 'Brand films & promo videos', 'Video editing & post-production', 'Social content creation' ),
+                ),
             );
-            foreach ( $core_services as $srv ) : ?>
-            <div class="fade-up" style="background:var(--color-bg);border-radius:var(--radius-lg);padding:32px 24px">
-                <div style="width:52px;height:52px;background:rgba(0,51,153,0.1);border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;color:var(--color-primary);font-size:22px">
-                    <i class="fas <?php echo esc_attr( $srv['icon'] ); ?>"></i>
-                </div>
-                <h5 style="margin-bottom:8px;font-size:18px"><?php echo esc_html( $srv['title'] ); ?></h5>
-                <p style="font-size:14px;line-height:22px;color:var(--color-grey)"><?php echo esc_html( $srv['desc'] ); ?></p>
-                <a href="<?php echo esc_url( home_url( '/contact' ) ); ?>" style="display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:500;color:var(--color-primary);margin-top:16px">
-                    <?php esc_html_e( 'Explore', 'branddevelopers' ); ?> &rarr;
+
+            foreach ( $services as $svc ) : ?>
+            <div class="svc-card">
+                <div class="svc-card__icon"><?php echo $svc['icon']; ?></div>
+                <div class="svc-card__num"><?php echo esc_html( $svc['num'] ); ?> —</div>
+                <h3 class="svc-card__title"><?php echo esc_html( $svc['title'] ); ?></h3>
+                <p class="svc-card__desc"><?php echo esc_html( $svc['desc'] ); ?></p>
+                <ul class="svc-card__list">
+                    <?php foreach ( $svc['list'] as $item ) : ?>
+                    <li><?php echo esc_html( $item ); ?></li>
+                    <?php endforeach; ?>
+                </ul>
+                <a href="<?php echo esc_url( home_url( '/contact' ) ); ?>" class="svc-card__link">
+                    <?php esc_html_e( 'Explore service', 'branddevelopers' ); ?> →
                 </a>
+            </div>
+            <?php endforeach; ?>
+
+        </div>
+    </div>
+</section>
+
+<!-- PROCESS -->
+<section class="svc-process">
+    <div class="svc-section__inner">
+        <div class="svc-section__header">
+            <div class="svc-eyebrow"><?php esc_html_e( 'How We Work', 'branddevelopers' ); ?></div>
+            <h2 class="svc-section__title">
+                <?php esc_html_e( 'A Simple, Strategic', 'branddevelopers' ); ?>
+                <span><?php esc_html_e( 'Workflow', 'branddevelopers' ); ?></span>
+            </h2>
+        </div>
+        <div class="svc-process__grid">
+            <?php
+            $steps = array(
+                array( 'num' => '01', 'title' => 'Discover', 'desc' => 'We immerse ourselves in your brand — exploring your vision, goals, and audience to uncover insights that shape everything we create.' ),
+                array( 'num' => '02', 'title' => 'Create',   'desc' => 'We turn insight into intelligent, design-led solutions — from messaging to moodboards, setting the creative direction and building with purpose.' ),
+                array( 'num' => '03', 'title' => 'Launch',   'desc' => 'We test rigorously, refine every detail, and ship on time — fully optimized and ready to make an impact from day one.' ),
+                array( 'num' => '04', 'title' => 'Grow',     'desc' => 'After launch we track performance, iterate on what works, and scale your brand — compounding results over time.' ),
+            );
+            foreach ( $steps as $step ) : ?>
+            <div class="svc-process__card">
+                <div class="svc-process__num"><?php echo esc_html( $step['num'] ); ?></div>
+                <h3 class="svc-process__title"><?php echo esc_html( $step['title'] ); ?></h3>
+                <p class="svc-process__desc"><?php echo esc_html( $step['desc'] ); ?></p>
             </div>
             <?php endforeach; ?>
         </div>
     </div>
 </section>
 
-<!-- WEB DESIGN & DEVELOPMENT -->
-<section class="section section--bg">
-    <div class="container">
-        <div class="svc-grid-2col">
-            <div style="border-radius:var(--radius-xl);overflow:hidden;aspect-ratio:4/3;min-height:300px"><img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=800&q=80&fit=crop" alt="Web Design" style="width:100%;height:100%;object-fit:cover"></div>
-            <div>
-                <span class="small-head"><?php esc_html_e( 'What We Do', 'branddevelopers' ); ?></span>
-                <h2 style="margin:16px 0 20px"><?php esc_html_e( 'Web Design & Development', 'branddevelopers' ); ?></h2>
-                <p style="margin-bottom:16px"><?php esc_html_e( 'We design and develop digital platforms that blend beauty with performance. Every site we build is responsive, accessible, and crafted to deliver a seamless user experience.', 'branddevelopers' ); ?></p>
-                <ul style="display:flex;flex-direction:column;gap:10px;margin-bottom:var(--space-md)">
-                    <?php
-                    $web_list = array( 'UI/UX & Product Design', 'Website & Landing Page', 'Logo & Brand Identity', 'Video Editing & Graphics', 'Development & Deploy' );
-                    foreach ( $web_list as $item ) : ?>
-                    <li style="display:flex;align-items:center;gap:10px;font-size:14px;color:var(--color-grey)">
-                        <i class="fas fa-check" style="color:var(--color-primary);font-size:12px"></i>
-                        <?php echo esc_html( $item ); ?>
-                    </li>
-                    <?php endforeach; ?>
-                </ul>
-                <div style="display:flex;gap:16px;flex-wrap:wrap">
-                    <a href="<?php echo esc_url( home_url( '/contact' ) ); ?>" class="btn btn--primary"><?php esc_html_e( 'Explore Now', 'branddevelopers' ); ?></a>
-                    <a href="<?php echo esc_url( home_url( '/contact' ) ); ?>" class="btn btn--outline-dark"><?php esc_html_e( 'Get a Free Audit', 'branddevelopers' ); ?></a>
+<!-- PROOF -->
+<section class="svc-proof">
+    <div class="svc-section__inner">
+        <div class="svc-proof__grid">
+            <div class="svc-proof__left">
+                <div class="svc-eyebrow"><?php esc_html_e( 'Why Brand Developers', 'branddevelopers' ); ?></div>
+                <h2 class="svc-section__title" style="font-size:clamp(26px,3vw,36px)">
+                    <?php esc_html_e( 'Results-Driven.', 'branddevelopers' ); ?><br>
+                    <span><?php esc_html_e( 'Toronto-Based.', 'branddevelopers' ); ?></span>
+                </h2>
+                <p class="svc-proof__desc">
+                    <?php esc_html_e( "We've built for fintech platforms, enterprise telecoms, beauty brands, festival promoters, and SaaS startups. Every project gets the same care — boutique quality, enterprise thinking, delivered on time.", 'branddevelopers' ); ?>
+                </p>
+                <div class="svc-proof__stats">
+                    <div class="svc-stat"><div class="svc-stat__num">32+</div><div class="svc-stat__lbl"><?php esc_html_e( 'Projects', 'branddevelopers' ); ?></div></div>
+                    <div class="svc-stat"><div class="svc-stat__num">7+</div><div class="svc-stat__lbl"><?php esc_html_e( 'Years', 'branddevelopers' ); ?></div></div>
+                    <div class="svc-stat"><div class="svc-stat__num">98%</div><div class="svc-stat__lbl"><?php esc_html_e( 'Retention', 'branddevelopers' ); ?></div></div>
                 </div>
             </div>
-        </div>
-    </div>
-</section>
-
-<!-- BRAND STRATEGY & DIGITAL GROWTH -->
-<section class="section">
-    <div class="container">
-        <div class="svc-grid-2col">
-            <div>
-                <span class="small-head"><?php esc_html_e( 'Digital Growth', 'branddevelopers' ); ?></span>
-                <h2 style="margin:16px 0 20px"><?php esc_html_e( 'Brand Strategy & Digital Growth', 'branddevelopers' ); ?></h2>
-                <p style="margin-bottom:16px"><?php esc_html_e( 'From SEO to paid media and social strategy, we help your brand grow through creative campaigns that convert. Our goal is simple: reach the right audience with the right message.', 'branddevelopers' ); ?></p>
-                <p style="margin-bottom:var(--space-md)"><?php esc_html_e( 'We create intuitive interfaces and engaging user journeys — elegant, functional designs that users love, built on a foundation of solid strategy.', 'branddevelopers' ); ?></p>
-                <div style="display:flex;gap:16px;flex-wrap:wrap">
-                    <a href="<?php echo esc_url( home_url( '/contact' ) ); ?>" class="btn btn--primary"><?php esc_html_e( 'Start a Project', 'branddevelopers' ); ?></a>
-                    <a href="<?php echo esc_url( get_post_type_archive_link( 'case_study' ) ); ?>" class="btn btn--outline-dark"><?php esc_html_e( 'See Our Work', 'branddevelopers' ); ?></a>
-                </div>
-            </div>
-            <div style="border-radius:var(--radius-xl);overflow:hidden;aspect-ratio:4/3;min-height:300px"><img src="https://images.unsplash.com/photo-1553028826-f4804a6dba3b?w=800&q=80&fit=crop" alt="Brand Strategy" style="width:100%;height:100%;object-fit:cover"></div>
-        </div>
-    </div>
-</section>
-
-<!-- DARK FEATURE SECTION -->
-<section class="section section--dark">
-    <div class="container">
-        <div class="svc-grid-2col">
-            <div>
-                <span class="small-head" style="color:rgba(255,255,255,0.5)"><?php esc_html_e( 'Our Approach', 'branddevelopers' ); ?></span>
-                <h2 class="text-white" style="margin:16px 0 20px"><?php esc_html_e( 'Crafting Digital Experiences', 'branddevelopers' ); ?></h2>
-                <p style="color:rgba(255,255,255,0.65);margin-bottom:var(--space-md)"><?php esc_html_e( 'We create intuitive interfaces and engaging user journeys — elegant, functional designs users love. Every pixel is intentional, every interaction considered.', 'branddevelopers' ); ?></p>
+            <div class="svc-proof__right">
                 <?php
-                $approach_list = array(
-                    array( 'icon' => 'fa-layer-group', 'text' => 'UI/UX & Product Design',   'active' => false ),
-                    array( 'icon' => 'fa-globe',        'text' => 'Website & Landing Page',   'active' => false ),
-                    array( 'icon' => 'fa-pen-nib',      'text' => 'Logo & Brand Identity',    'active' => true  ),
-                    array( 'icon' => 'fa-film',         'text' => 'Video Editing & Graphics', 'active' => false ),
-                    array( 'icon' => 'fa-rocket',       'text' => 'Development & Deploy',     'active' => false ),
+                $testimonials = array(
+                    array( 'text' => '"It was timely, quality, professional and good value. Very responsive and well organized. I highly recommend Brand Developers to all business owners."', 'name' => 'Priya Sharma', 'role' => 'Marketing Head, NovaTech' ),
+                    array( 'text' => '"Their SEO strategies helped us climb to the top of search results faster than we thought possible. Exceptional results, every time."', 'name' => 'John McCray', 'role' => 'Founder, Lumora Studio' ),
+                    array( 'text' => '"Outstanding design work that transformed our brand identity. The team truly understood our vision and delivered beyond expectations."', 'name' => 'David Alby', 'role' => 'CTO, Nexspace India' ),
                 );
-                ?>
-                <ul style="display:flex;flex-direction:column;gap:12px;margin-bottom:var(--space-md)">
-                    <?php foreach ( $approach_list as $al ) : ?>
-                    <li style="display:flex;align-items:center;gap:12px;font-size:14px;color:<?php echo $al['active'] ? 'var(--color-primary-light)' : 'rgba(255,255,255,0.5)'; ?>;font-weight:<?php echo $al['active'] ? '500' : '400'; ?>">
-                        <i class="fas <?php echo esc_attr( $al['icon'] ); ?>" style="width:18px;text-align:center"></i>
-                        <?php echo esc_html( $al['text'] ); ?>
-                    </li>
-                    <?php endforeach; ?>
-                </ul>
-                <a href="<?php echo esc_url( home_url( '/contact' ) ); ?>" class="btn btn--primary"><?php esc_html_e( 'Explore Now', 'branddevelopers' ); ?></a>
-            </div>
-            <div style="background:var(--color-dark-card);border-radius:var(--radius-xl);padding:var(--space-lg);border:1px solid rgba(255,255,255,0.06)">
-                <p style="font-size:12px;color:rgba(255,255,255,0.35);margin-bottom:16px;letter-spacing:1px;text-transform:uppercase">&mdash; <?php esc_html_e( 'Client Brief', 'branddevelopers' ); ?></p>
-                <h4 class="text-white" style="font-size:18px;line-height:28px;margin-bottom:16px;font-style:italic">&ldquo;<?php esc_html_e( 'We need a brand identity that feels premium yet approachable — digital-first but timeless.', 'branddevelopers' ); ?>&rdquo;</h4>
-                <div style="height:1px;background:rgba(255,255,255,0.08);margin:20px 0"></div>
-                <p style="font-size:12px;color:rgba(255,255,255,0.35);margin-bottom:16px;letter-spacing:1px;text-transform:uppercase">&mdash; <?php esc_html_e( 'Our Response', 'branddevelopers' ); ?></p>
-                <p style="font-size:14px;color:rgba(255,255,255,0.65);line-height:22px"><?php esc_html_e( 'We immerse ourselves in your brand story, craft a visual system rooted in strategy, and deliver assets that perform across every channel.', 'branddevelopers' ); ?></p>
+                foreach ( $testimonials as $t ) : ?>
+                <div class="svc-testi">
+                    <p class="svc-testi__text"><?php echo esc_html( $t['text'] ); ?></p>
+                    <div class="svc-testi__name"><?php echo esc_html( $t['name'] ); ?></div>
+                    <div class="svc-testi__role"><?php echo esc_html( $t['role'] ); ?></div>
+                </div>
+                <?php endforeach; ?>
             </div>
         </div>
     </div>
 </section>
 
-<!-- CASE STUDIES PREVIEW -->
-<section class="section section--bg">
+<!-- LET'S BUILD TOGETHER CTA -->
+<section class="port-cta">
+    <div class="port-cta__bg"></div>
     <div class="container">
-        <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:var(--space-lg);flex-wrap:wrap;gap:var(--space-md)">
-            <div>
-                <span class="small-head"><?php esc_html_e( 'Case Studies', 'branddevelopers' ); ?></span>
-                <h2 style="margin-top:8px"><?php esc_html_e( 'Explore Our Work', 'branddevelopers' ); ?></h2>
-                <p style="max-width:480px;margin-top:12px"><?php esc_html_e( "See how we've partnered with forward-thinking brands to create meaningful digital experiences.", 'branddevelopers' ); ?></p>
-            </div>
-            <a href="<?php echo esc_url( get_post_type_archive_link( 'case_study' ) ); ?>" class="btn btn--outline-dark"><?php esc_html_e( 'See all projects', 'branddevelopers' ); ?></a>
-        </div>
-
-        <div class="portfolio-grid">
-            <?php
-            $cs_query = new WP_Query( array(
-                'post_type'      => 'case_study',
-                'posts_per_page' => 3,
-                'post_status'    => 'publish',
-            ) );
-            $cs_positions = array( 'portfolio-item--featured', 'portfolio-item--tall', 'portfolio-item--small' );
-            $cs_idx = 0;
-
-            if ( $cs_query->have_posts() ) :
-                while ( $cs_query->have_posts() ) : $cs_query->the_post();
-                    $cs_service = get_post_meta( get_the_ID(), '_bd_service', true );
-                    $cs_pos = isset( $cs_positions[ $cs_idx ] ) ? $cs_positions[ $cs_idx ] : 'portfolio-item--small';
-            ?>
-            <div class="portfolio-item <?php echo esc_attr( $cs_pos ); ?> fade-up">
-                <?php if ( has_post_thumbnail() ) :
-                    the_post_thumbnail( 'bd-portfolio' );
-                else : ?>
-                    <div style="width:100%;height:100%;min-height:200px"><img src="https://images.unsplash.com/photo-1522542550221-31fd19575a2d?w=800&q=80&fit=crop" alt="Project" style="width:100%;height:100%;object-fit:cover"></div>
-                <?php endif; ?>
-                <div class="portfolio-item__overlay">
-                    <?php if ( $cs_service ) : ?>
-                        <span class="portfolio-item__tag"><?php echo esc_html( $cs_service ); ?></span>
-                    <?php endif; ?>
-                    <h5 class="portfolio-item__title"><?php the_title(); ?></h5>
-                </div>
-                <a href="<?php the_permalink(); ?>" class="portfolio-item__explore"><?php esc_html_e( 'Explore', 'branddevelopers' ); ?> &rarr;</a>
-            </div>
-            <?php
-                    $cs_idx++;
-                endwhile;
-                wp_reset_postdata();
-            else :
-                $cs_placeholders = array(
-                    array( 'class' => 'portfolio-item--featured', 'label' => 'Logo Design',    'tag' => 'Brand Strategy & Creative' ),
-                    array( 'class' => 'portfolio-item--tall',     'label' => 'Mobile App',     'tag' => 'Web Design & Development'  ),
-                    array( 'class' => 'portfolio-item--small',    'label' => 'Campaign Magic', 'tag' => 'Digital Growth'            ),
-                );
-                foreach ( $cs_placeholders as $cs_ph ) : ?>
-                <div class="portfolio-item <?php echo esc_attr( $cs_ph['class'] ); ?>">
-                    <div style="width:100%;height:100%;min-height:200px"><img src="https://images.unsplash.com/photo-1522542550221-31fd19575a2d?w=800&q=80&fit=crop" alt="Project" style="width:100%;height:100%;object-fit:cover"></div>
-                    <div class="portfolio-item__overlay" style="opacity:1">
-                        <span class="portfolio-item__tag"><?php echo esc_html( $cs_ph['tag'] ); ?></span>
-                        <h5 class="portfolio-item__title"><?php echo esc_html( $cs_ph['label'] ); ?></h5>
-                    </div>
-                </div>
-            <?php
-                endforeach;
-            endif; ?>
+        <div class="port-cta__inner">
+            <span class="port-cta__eyebrow"><?php esc_html_e( "Let's Build Together", 'branddevelopers' ); ?></span>
+            <h2 class="port-cta__title"><?php esc_html_e( 'Ready to start your next project?', 'branddevelopers' ); ?></h2>
+            <p class="port-cta__desc"><?php esc_html_e( "Whether you're launching, rebranding, or scaling — we build the brand infrastructure that gets you there. Toronto's boutique agency for brands that mean business.", 'branddevelopers' ); ?></p>
+            <a href="<?php echo esc_url( home_url( '/contact' ) ); ?>" class="port-cta__btn">
+                <?php esc_html_e( 'Get a Free Audit', 'branddevelopers' ); ?>
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
         </div>
     </div>
 </section>
