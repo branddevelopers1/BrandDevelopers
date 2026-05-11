@@ -37,6 +37,36 @@ get_header(); ?>
     </div>
 </section>
 
+<!-- PROCESS -->
+<section class="svc-process">
+    <div class="svc-section__inner">
+        <div class="svc-section__header">
+            <div class="svc-eyebrow"><?php esc_html_e( 'How We Work', 'branddevelopers' ); ?></div>
+            <h2 class="svc-section__title">
+                <?php esc_html_e( 'A Simple, Strategic', 'branddevelopers' ); ?>
+                <span><?php esc_html_e( 'Workflow', 'branddevelopers' ); ?></span>
+            </h2>
+        </div>
+        <div class="svc-process__grid">
+            <?php
+            $steps = array(
+                array( 'num' => '01', 'title' => 'Discover', 'desc' => 'We immerse ourselves in your brand — exploring your vision, goals, and audience to uncover insights that shape everything we create.' ),
+                array( 'num' => '02', 'title' => 'Create',   'desc' => 'We turn insight into intelligent, design-led solutions — from messaging to moodboards, setting the creative direction and building with purpose.' ),
+                array( 'num' => '03', 'title' => 'Launch',   'desc' => 'We test rigorously, refine every detail, and ship on time — fully optimized and ready to make an impact from day one.' ),
+                array( 'num' => '04', 'title' => 'Grow',     'desc' => 'After launch we track performance, iterate on what works, and scale your brand — compounding results over time.' ),
+            );
+            foreach ( $steps as $step ) : ?>
+            <div class="svc-process__card">
+                <div class="svc-process__num"><?php echo esc_html( $step['num'] ); ?></div>
+                <h3 class="svc-process__title"><?php echo esc_html( $step['title'] ); ?></h3>
+                <p class="svc-process__desc"><?php echo esc_html( $step['desc'] ); ?></p>
+            </div>
+            <?php endforeach; ?>
+        </div>
+    </div>
+</section>
+
+
 <!-- SERVICES GRID -->
 <section class="svc-section" style="background:#04060f">
     <div class="svc-section__inner">
@@ -134,35 +164,6 @@ get_header(); ?>
             </div>
             <?php endforeach; ?>
 
-        </div>
-    </div>
-</section>
-
-<!-- PROCESS -->
-<section class="svc-process">
-    <div class="svc-section__inner">
-        <div class="svc-section__header">
-            <div class="svc-eyebrow"><?php esc_html_e( 'How We Work', 'branddevelopers' ); ?></div>
-            <h2 class="svc-section__title">
-                <?php esc_html_e( 'A Simple, Strategic', 'branddevelopers' ); ?>
-                <span><?php esc_html_e( 'Workflow', 'branddevelopers' ); ?></span>
-            </h2>
-        </div>
-        <div class="svc-process__grid">
-            <?php
-            $steps = array(
-                array( 'num' => '01', 'title' => 'Discover', 'desc' => 'We immerse ourselves in your brand — exploring your vision, goals, and audience to uncover insights that shape everything we create.' ),
-                array( 'num' => '02', 'title' => 'Create',   'desc' => 'We turn insight into intelligent, design-led solutions — from messaging to moodboards, setting the creative direction and building with purpose.' ),
-                array( 'num' => '03', 'title' => 'Launch',   'desc' => 'We test rigorously, refine every detail, and ship on time — fully optimized and ready to make an impact from day one.' ),
-                array( 'num' => '04', 'title' => 'Grow',     'desc' => 'After launch we track performance, iterate on what works, and scale your brand — compounding results over time.' ),
-            );
-            foreach ( $steps as $step ) : ?>
-            <div class="svc-process__card">
-                <div class="svc-process__num"><?php echo esc_html( $step['num'] ); ?></div>
-                <h3 class="svc-process__title"><?php echo esc_html( $step['title'] ); ?></h3>
-                <p class="svc-process__desc"><?php echo esc_html( $step['desc'] ); ?></p>
-            </div>
-            <?php endforeach; ?>
         </div>
     </div>
 </section>
