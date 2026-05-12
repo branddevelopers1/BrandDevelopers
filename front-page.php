@@ -119,7 +119,7 @@
             <?php
             $featured = array(
                 array( 'Sekure Merchants', 'Fintech · Payment Processing', 'Fintech', 'Payment processing platform built in-house — trust-driven design and high-converting onboarding.', 'https://sekuremerchants.com', 'sekuremerchants_com', '#22cc66', 'SEKURE' ),
-                array( 'Afrobass Music Festival', 'Festival · Event Website', 'Events', 'High-impact festival launch site with live countdown, email capture and animated marquee experience.', 'https://afrobassfest.com', 'afrobassfest_com', '#ff8c00', 'AFROBASS' ),
+                array( 'YAK.ca', 'Telecom · Consumer Brand', 'Telecom', 'Consumer telecom brand under the Distributel group — clean, conversion-focused design for Canadian households.', 'https://yak.ca', 'Yak_ca', '#4d9fff', 'YAK.ca' ),
                 array( 'Distributel Group', 'Enterprise · Telecom', 'Enterprise', 'Full enterprise telecom platform serving 100K+ Canadian households across five sub-brands.', 'https://distributel.ca', 'distributel_ca', '#4d9fff', 'DISTRIBUTEL' ),
             );
             foreach ( $featured as $p ) : ?>
